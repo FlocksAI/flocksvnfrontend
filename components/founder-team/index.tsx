@@ -55,13 +55,13 @@ const FounderTeam = () => {
           />
           <Image
             alt="team"
-            src="/image/home/StellaSoCo-founder1.png"
+            src="/image/home/Liz-Pham.png"
             width={212}
             height={324}
           />
           <Image
             alt="team"
-            src="/image/home/StellaSoCo-founder2.png"
+            src="/image/home/Son-Pham.png"
             width={212}
             height={324}
           />

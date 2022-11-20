@@ -22,9 +22,9 @@ const MutilField = () => {
             <Col span={8}>
               <div className="wrap-field">
                 <span className="head-field">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vestibulum ultricies tempus euismod.Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit.
+                  Flocks AI mang đến cho mọi người quyền tham gia đầu tư vào các
+                  doanh nghiệp ở giai đoạn khởi nghiệp với nhiều hình thức đa
+                  dạng.
                 </span>
                 <div className="type-field">
                   <span className="br-radius">Công nghệ</span>
@@ -75,8 +75,8 @@ const MutilField = () => {
           </Row>
         </div>
         <div className="sub-title title">
-          <span className="content">Flocks AI </span>
-          <span>hoạt động như thế nào?</span>
+          <span className="content">Flocks AI </span>{" "}
+          <span> hoạt động như thế nào?</span>
         </div>
         <Row justify="center" className="wrap-content">
           <Col span={6} className="wrap-sub">

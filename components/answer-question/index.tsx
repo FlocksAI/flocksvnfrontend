@@ -25,7 +25,7 @@ const AnswerQuestion = () => {
           </span>
         </div>
         <Row justify="center">
-          <Col span={6}>
+          <Col span={8}>
             <Collapse
               ghost
               expandIconPosition="end"
@@ -62,7 +62,7 @@ const AnswerQuestion = () => {
             </Collapse>
           </Col>
           <Col span={1} />
-          <Col span={6}>
+          <Col span={8}>
             <Collapse
               ghost
               expandIconPosition="end"

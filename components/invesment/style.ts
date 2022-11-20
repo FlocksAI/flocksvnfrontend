@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SInvesment = styled.div`
-  padding: 136px 280px 60px 232px;
+  padding: 136px 160px 60px 200px;
   .wrap {
     margin-bottom: 64px;
   }
@@ -22,6 +22,9 @@ const SInvesment = styled.div`
       background: transparent;
       border: none;
     }
+  }
+  .image-banner {
+    width: 100%;
   }
   .img-consul {
     display: flex;

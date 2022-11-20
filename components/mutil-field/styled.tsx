@@ -20,8 +20,8 @@ const SMutilField = styled.div`
       color: #1e1e1e;
     }
   }
-  .second {
-    background: linear-gradient(
+  .second span {
+    background: -webkit-linear-gradient(
       270deg,
       #c7f833 -3.31%,
       #5ddfc0 54.93%,
@@ -64,6 +64,7 @@ const SMutilField = styled.div`
     margin-top: 104px;
     margin-bottom: 64px;
     .content {
+      margin-right: 8px;
       font-weight: 700;
       font-size: 48px;
       line-height: 56px;
