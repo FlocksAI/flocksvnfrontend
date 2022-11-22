@@ -12,6 +12,17 @@ const SProject = styled.div`
   .col-card {
     margin-bottom: 36px;
   }
+  @media only screen and (max-width: 414px) {
+    .list-project {
+      padding: unset;
+      display: flex;
+      flex-direction: column;
+    }
+    .col-mobile-search {
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;
 
 export default SProject;

@@ -43,6 +43,11 @@ const SAnswerQuestion = styled.div`
     border-radius: 24px;
     margin-bottom: 24px;
   }
+  @media only screen and (max-width: 414px) {
+    .ant-collapse-header-text {
+      font-size: 18px;
+    }
+  }
 `;
 
 export { SAnswerQuestion };

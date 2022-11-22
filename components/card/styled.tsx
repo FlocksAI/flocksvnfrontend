@@ -49,6 +49,7 @@ const SCard = styled.div`
     top: 0;
     left: 0;
     border-radius: 24px;
+    width: 100%;
   }
   .sub-image {
     position: absolute;
@@ -82,6 +83,9 @@ const SCard = styled.div`
     .ant-progress-text {
       display: none;
     }
+  }
+  @media only screen and (max-width: 414px) {
+    width: 100%;
   }
 `;
 

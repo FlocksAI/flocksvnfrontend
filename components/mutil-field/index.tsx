@@ -2,24 +2,38 @@ import React from "react";
 import { SMutilField } from "./styled";
 import { Row, Col } from "antd";
 import CardField from "../card/Card-Field";
+import useWindowResize from "../../hook/useResize";
 
 const MutilField = () => {
+  const size = useWindowResize();
   return (
     <>
       <SMutilField>
         <div className="wrap-head">
           <Row justify="space-evenly">
-            <Col span={24}>
-              <div className="head-title">
-                <span className="first">Gọi vốn Đa lĩnh vực</span>
-              </div>
-              <div className="head-title second">
-                <span className="content">Flocks AI </span>
-              </div>
+            <Col span={24} className="head-mutil-field">
+              {size.width > 414 ? (
+                <>
+                  <div className="head-title">
+                    <span className="first">Gọi vốn Đa lĩnh vực</span>
+                  </div>
+                  <div className="head-title second">
+                    <span className="content">Flocks AI </span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="mobile-head-title">
+                    <span className="first">Gọi vốn Đa lĩnh vực </span>
+                    <br />
+                    <span className="second">Flocks AI </span>
+                  </div>
+                </>
+              )}
             </Col>
           </Row>
           <Row>
-            <Col span={8}>
+            <Col xs={24} xl={8}>
               <div className="wrap-field">
                 <span className="head-field">
                   Flocks AI mang đến cho mọi người quyền tham gia đầu tư vào các
@@ -37,9 +51,9 @@ const MutilField = () => {
               </div>
             </Col>
             <Col span={4} />
-            <Col span={12}>
+            <Col xs={24} xl={12}>
               <Row>
-                <Col span={10}>
+                <Col xs={24} xl={10}>
                   <CardField
                     title="Start-up"
                     content="Hình thành ý tưởng độc đáo"
@@ -47,7 +61,7 @@ const MutilField = () => {
                   />
                 </Col>
                 <Col span={2} />
-                <Col span={10}>
+                <Col xs={24} xl={10}>
                   <CardField
                     title="SME"
                     content="Sản phẩm đã xuất hiện trên thị trường"
@@ -55,7 +69,7 @@ const MutilField = () => {
                   />
                 </Col>
                 <Col span={2} />
-                <Col span={10}>
+                <Col xs={24} xl={10}>
                   <CardField
                     title="Web 3"
                     content="Ý tưởng sản phẩm công "
@@ -63,7 +77,7 @@ const MutilField = () => {
                   />
                 </Col>
                 <Col span={2} />
-                <Col span={10}>
+                <Col xs={24} xl={10}>
                   <CardField
                     title="Dự Án - Đặc Biệt"
                     content="Hình thành ý tưởng độc đáo"
@@ -74,12 +88,16 @@ const MutilField = () => {
             </Col>
           </Row>
         </div>
-        <div className="sub-title title">
-          <span className="content">Flocks AI </span>{" "}
-          <span> hoạt động như thế nào?</span>
-        </div>
+        <Row>
+          <Col xs={24} xl={24} className="mobile-field">
+            <div className="sub-title title">
+              <span className="content">Flocks AI </span>{" "}
+              <span> hoạt động như thế nào?</span>
+            </div>
+          </Col>
+        </Row>
         <Row justify="center" className="wrap-content">
-          <Col span={6} className="wrap-sub">
+          <Col xs={22} xl={6} className="wrap-sub">
             <div className="content-number">
               <span>01</span>
             </div>
@@ -96,7 +114,7 @@ const MutilField = () => {
               </span>
             </div>
           </Col>
-          <Col span={6} className="wrap-sub">
+          <Col xs={22} xl={6} className="wrap-sub">
             <div className="content-number">
               <span>02</span>
             </div>
@@ -114,7 +132,7 @@ const MutilField = () => {
               </span>
             </div>
           </Col>
-          <Col span={6} className="wrap-sub">
+          <Col xs={22} xl={6} className="wrap-sub">
             <div className="content-number">
               <span>03</span>
             </div>

@@ -25,35 +25,35 @@ const Footer = () => {
         </Row>
         <Divider />
         <Row>
-          <Col xl={10}>
-            <div className="wrap">
-              <div className="footer-wrap">
+          <Col xs={24} xl={10}>
+            <Row className="wrap">
+              <Col xs={12} xl={6} className="footer-wrap">
                 <span className="footer-title">For Investor</span>
                 <span className="footer-content">Why Investss</span>
                 <span className="footer-content">How It Work?</span>
                 <span className="footer-content">Privacy Policy</span>
-              </div>
-              <div className="footer-wrap">
+              </Col>
+              <Col xs={12} xl={6} className="footer-wrap footer-mobile">
                 <span className="footer-title">For Fundraisers</span>
                 <span className="footer-content">Why Raise</span>
                 <span className="footer-content">How It Work?</span>
                 <span className="footer-content">Privacy Policy</span>
-              </div>
-              <div className="footer-wrap">
+              </Col>
+              <Col xs={12} xl={6} className="footer-wrap">
                 <span className="footer-title">Useful Links</span>
                 <span className="footer-content">Why Invest</span>
                 <span className="footer-content">How It Work?</span>
                 <span className="footer-content">Privacy Policy</span>
-              </div>
-              <div className="footer-wrap">
+              </Col>
+              <Col xs={12} xl={6} className="footer-wrap footer-mobile">
                 <span className="footer-title">Useful Links</span>
                 <span className="footer-content">Why Invest</span>
                 <span className="footer-content">How It Work?</span>
                 <span className="footer-content">Privacy Policy</span>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </Col>
-          <Col xl={14}>
+          <Col xl={14} className="col-mobile">
             <div className="wrap-icon">
               <Image
                 alt="footer-icon"

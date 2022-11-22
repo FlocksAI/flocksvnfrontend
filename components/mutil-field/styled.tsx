@@ -125,6 +125,42 @@ const SMutilField = styled.div`
       margin-bottom: 12px;
     }
   }
+  @media only screen and (max-width: 414px) {
+    .wrap-head {
+      padding: 0px 16px 32px 16px;
+    }
+    .wrap-field {
+      margin-bottom: 30px;
+    }
+    .sub-title {
+      display: flex;
+      padding: 0px 16px;
+    }
+    .mobile-head-title {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+      color: #1e1e1e;
+      .second {
+        background: -webkit-linear-gradient(
+          270deg,
+          #c7f833 -3.31%,
+          #5ddfc0 54.93%,
+          #007ead 129.8%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    .mobile-field {
+      padding: 0px 16px;
+      margin-bottom: 32px;
+    }
+    .sub-title {
+      display: contents;
+    }
+  }
 `;
 
 export { SMutilField };

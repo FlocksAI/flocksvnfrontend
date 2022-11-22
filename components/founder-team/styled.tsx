@@ -32,6 +32,23 @@ const SFounderTeam = styled.div`
     display: flex;
     justify-content: space-evenly;
   }
+  .row-mobile {
+    width: 100%;
+  }
+  .mobile {
+    display: flex;
+    justify-content: center;
+  }
+  @media only screen and (max-width: 414px) {
+    .title {
+      .founder {
+        font-size: 38px;
+      }
+      .content {
+        width: unset;
+      }
+    }
+  }
 `;
 
 export default SFounderTeam;

@@ -85,6 +85,37 @@ const SInvesment = styled.div`
       margin-bottom: 32px;
     }
   }
+  @media only screen and (max-width: 414px) {
+    padding: 60px 16px 80px 16px;
+    .common {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+    }
+    .one-platform {
+      margin-bottom: 16px;
+    }
+    .title-tech {
+      margin-top: 80px;
+      .head {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: right;
+        letter-spacing: -0.02em;
+      }
+    }
+    .img-consul {
+      display: flex;
+      justify-content: center;
+    }
+    .wrap-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 42px;
+    }
+  }
 `;
 
 export { SInvesment };

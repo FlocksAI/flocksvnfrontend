@@ -53,6 +53,18 @@ const SFooter = styled.div`
       margin-right: 22px;
     }
   }
+  @media only screen and (max-width: 414px) {
+    padding: 0px 16px 60px 16px;
+    .wrap-input {
+      margin-top: 24px;
+    }
+    .col-mobile {
+      margin-top: 24px;
+    }
+    .footer-mobile {
+      text-align: end;
+    }
+  }
 `;
 
 export default SFooter;

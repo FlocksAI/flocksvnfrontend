@@ -2,16 +2,19 @@ import { Col, Row } from "antd";
 import Image from "next/image";
 import React from "react";
 import { SBanner } from "./styled";
+import useWindowResize from "../../hook/useResize";
 
 const Banner = () => {
+  const size = useWindowResize();
   return (
     <>
       <SBanner>
         <Row>
-          <Col xl={24}>
+          <Col xs={24} xl={24}>
             <div className="title-banner wrap-banner">
               <div className="title">
                 <span>Nền tảng đầu tư thông minh</span>
+                {size.width <= 414 && <span> Cho</span>}
               </div>
             </div>
           </Col>
@@ -20,7 +23,7 @@ const Banner = () => {
           <Col xl={10}>
             <div className="wrap-banner">
               <div className="title">
-                <span>Cho</span>
+                {size.width > 414 && <span>Cho</span>}
                 <span className="vietnam"> Người Việt.</span>
               </div>
               <div className="content">
@@ -36,13 +39,15 @@ const Banner = () => {
                 <br />
                 <span>trên nền tảng Flocks AI.</span>
               </div>
-              <div className="btn">
-                <button className="project">Khám phá Dự án</button>
-                <button className="call-investor">Gọi vốn Đầu tư</button>
-              </div>
+              {size.width > 414 && (
+                <div className="btn">
+                  <button className="project">Khám phá Dự án</button>
+                  <button className="call-investor">Gọi vốn Đầu tư</button>
+                </div>
+              )}
             </div>
           </Col>
-          <Col className="image-banner" xl={12}>
+          <Col className="image-banner" xl={12} xs={24}>
             <Image
               alt="banner"
               src="/image/home/banner.png"
@@ -50,8 +55,14 @@ const Banner = () => {
               className="image"
             />
           </Col>
+          {size.width <= 414 && (
+            <div className="btn">
+              <button className="project">Khám phá Dự án</button>
+              <button className="call-investor">Gọi vốn Đầu tư</button>
+            </div>
+          )}
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
             <div>
               <div className="title-head-bottom">
@@ -93,7 +104,7 @@ const Banner = () => {
               </div>
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </SBanner>
     </>
   );

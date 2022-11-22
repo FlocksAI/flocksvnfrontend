@@ -1,19 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 import { Divider, Progress } from "antd";
 import Image from "next/image";
 import React from "react";
 import SCard from "./styled";
+import useWindowResize from "../../hook/useResize";
 
 const CardIndex = () => {
+  const size = useWindowResize();
   return (
     <>
       <SCard>
         <div className="wrap-head-card">
           <div className="parent-image">
-            <Image
+            <img
               alt="people"
               src="/image/home/people.png"
-              width={482}
-              height={256}
               className="main-image"
             />
             <Image

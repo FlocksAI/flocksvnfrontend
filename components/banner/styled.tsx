@@ -22,29 +22,29 @@ const SBanner = styled.div`
         font-weight: bold;
       }
     }
-    .btn {
-      margin-top: 48px;
-      display: flex;
-    }
-    button {
-      padding: 12px 24px;
-    }
-    .project {
-      background: #1e1e1e;
-      box-shadow: 0px 4px 32px rgba(53, 53, 53, 0.12);
-      border-radius: 100px;
-      color: #fff;
-      margin-right: 24px;
-    }
-    .call-investor {
-      background: #ffffff;
-      border: 1px solid #ffffff;
-      box-shadow: 0px 4px 32px rgba(53, 53, 53, 0.12);
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 26px;
-    }
+  }
+  button {
+    padding: 12px 24px;
+  }
+  .call-investor {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 4px 32px rgba(53, 53, 53, 0.12);
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .btn {
+    margin-top: 48px;
+    display: flex;
+  }
+  .project {
+    background: #1e1e1e;
+    box-shadow: 0px 4px 32px rgba(53, 53, 53, 0.12);
+    border-radius: 100px;
+    color: #fff;
+    margin-right: 24px;
   }
   .image-banner {
     width: 100%;
@@ -73,6 +73,32 @@ const SBanner = styled.div`
   }
   .vietnam {
     color: #fff;
+  }
+  @media only screen and (max-width: 414px) {
+    .title-banner {
+      margin-top: 88px;
+    }
+    .wrap-banner {
+      .title {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: -0.02em;
+      }
+    }
+    .image-banner {
+      .image {
+        margin-top: 32px;
+      }
+    }
+    .btn {
+      flex-direction: column;
+      width: 100%;
+    }
+    .project {
+      margin-bottom: 12px;
+      margin-right: unset;
+    }
   }
 `;
 
