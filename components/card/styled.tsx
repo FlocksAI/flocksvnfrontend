@@ -132,5 +132,68 @@ const SCardField = styled.div`
   }
 `;
 
-export { SCardField };
+const SCardBlog = styled.div`
+  width: 506px;
+  border: 1px solid #eeeeee;
+  border-radius: 32px;
+  .wrap-head-card {
+    padding: 12px 12px 0px 12px;
+    border-radius: 24px;
+    img {
+      width: 100%;
+    }
+  }
+  .wrap-content-card-blog {
+    padding: 24px 36px 32px 36px;
+    .title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: -0.02em;
+    }
+    .content {
+      margin-top: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 26px;
+      color: #7a7a7a;
+    }
+    .wrap-img {
+      display: flex;
+      align-items: center;
+    }
+    .wrap-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+    .avatar-image {
+      margin-right: 12px;
+    }
+    .name {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #1e1e1e;
+    }
+    .day-ago {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #7a7a7a;
+    }
+  }
+  @media only screen and (max-width: 414px) {
+    width: 100%;
+    padding: 0px 16px;
+    border: unset;
+    .wrap-mobile {
+      border: 1px solid #eeeeee;
+      border-radius: 32px;
+    }
+  }
+`;
+
+export { SCardField, SCardBlog };
 export default SCard;

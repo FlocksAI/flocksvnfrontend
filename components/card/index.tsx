@@ -3,10 +3,8 @@ import { Divider, Progress } from "antd";
 import Image from "next/image";
 import React from "react";
 import SCard from "./styled";
-import useWindowResize from "../../hook/useResize";
 
 const CardIndex = () => {
-  const size = useWindowResize();
   return (
     <>
       <SCard>

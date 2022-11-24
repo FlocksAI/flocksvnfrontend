@@ -6,15 +6,17 @@ import React from "react";
 import { ISubHead } from "./interface";
 import SSubHead from "./style";
 import useWindowResize from "../../hook/useResize";
+import NavigationIndex from "../navigation";
 
-const SubHeadIndex: React.FC<ISubHead> = () => {
+const SubHeadIndex: React.FC<ISubHead> = (props) => {
+  const { content, image, title } = props;
   const router = useRouter();
   const size = useWindowResize();
   return (
     <>
       <SSubHead>
         <Row>
-          <Col xl={12}>
+          <Col xs={12} xl={12}>
             <div className="head-left">
               <Image
                 alt="logo"
@@ -25,8 +27,8 @@ const SubHeadIndex: React.FC<ISubHead> = () => {
               />
             </div>
           </Col>
-          {size.width > 414 && (
-            <Col xl={12}>
+          {size.width > 414 ? (
+            <Col xs={12} xl={12}>
               <Row className="wrap-left-head">
                 <Col
                   xl={4}
@@ -52,22 +54,29 @@ const SubHeadIndex: React.FC<ISubHead> = () => {
                 </Col>
               </Row>
             </Col>
+          ) : (
+            <Col xs={12}>
+              <NavigationIndex
+                content1="Home"
+                content2="Our Projects"
+                content3="Blogs"
+                content4="Events"
+                content5="FAQs"
+              />
+            </Col>
           )}
         </Row>
         <Row>
           <Col xl={12}>
             <div className="banner-wrap">
-              <span className="title">Our Projects</span>
-              <span className="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua sed.
-              </span>
+              <span className="title">{title}</span>
+              <span className="content">{content}</span>
             </div>
           </Col>
           <Col xl={12}>
             <img
               alt="banner-sub-head"
-              src="/image/home/banner-sub-head.png"
+              src={image}
               className="pointed image-banner"
             />
           </Col>

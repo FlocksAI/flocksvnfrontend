@@ -10,7 +10,12 @@ const ProjectPage = () => {
   return (
     <>
       <SProject>
-        <SubHeadIndex />
+        <SubHeadIndex
+          title="Our Projects"
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua sed."
+          image="/image/home/banner-sub-head.png"
+        />
         <div className="list-project">
           <Row justify="center">
             <Col xs={24} xl={18} className="col-mobile-search">
