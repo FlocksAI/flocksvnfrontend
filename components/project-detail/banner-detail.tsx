@@ -19,9 +19,6 @@ const BannerProjectDetail = () => {
             <div>
               <img src="/image/home/banner-sub-2.png" alt="image-project" />
             </div>
-            <div>
-              <img src="/image/home/banner-sub-3.png" alt="image-project" />
-            </div>
           </Slider>
         </Col>
         <Col span={6}>diqdwjiqw</Col>

@@ -25,4 +25,4 @@ const SProject = styled.div`
   }
 `;
 
-export default SProject;
+export { SProject };

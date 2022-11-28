@@ -1,14 +1,10 @@
 import React from "react";
-import HeaderSub from "../../components/header/head-sub";
-import BannerProjectDetail from "../../components/project-detail/banner-detail";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ProjectDetailIndex from "../../lib/peoject-detail";
 
 const DetailProjectPage = () => {
   return (
     <>
-      <HeaderSub />
-      <BannerProjectDetail />
+      <ProjectDetailIndex />
     </>
   );
 };

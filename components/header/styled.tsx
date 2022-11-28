@@ -83,6 +83,11 @@ const SDetailProjectPage = styled.div`
   .breadcrumb {
     padding: 36px 0px 46px 0px;
   }
+  @media only screen and (max-width: 414px) {
+    .head-top {
+      padding: 24px 16px 0px 16px;
+    }
+  }
 `;
 
 const SContentProjectHead = styled.div`
