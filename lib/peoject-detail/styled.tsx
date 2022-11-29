@@ -212,6 +212,14 @@ const SBannerProject = styled.div`
   .slick-next {
     display: none !important;
   }
+  .btn-investor-now button {
+    width: 100%;
+    height: 50px;
+    background: #1e1e1e;
+    box-shadow: 0px 4px 32px rgba(53, 53, 53, 0.12);
+    border-radius: 100px;
+    color: #ffffff;
+  }
   @media only screen and (max-width: 414px) {
     .img-slider {
       width: 100%;

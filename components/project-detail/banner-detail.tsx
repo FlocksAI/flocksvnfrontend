@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { Col, Divider, Progress, Row } from "antd";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
 import { SBannerProject } from "../../lib/peoject-detail/styled";
 import { SETTING } from "./constant";
 
 const BannerProjectDetail = () => {
+  const router = useRouter();
   return (
     <SBannerProject>
       <Row justify="center">
@@ -63,6 +64,11 @@ const BannerProjectDetail = () => {
                     Ngày còn lại
                   </span>
                 </div>
+              </div>
+              <div className="btn-investor-now">
+                <button onClick={() => router.push("/project/payment")}>
+                  Đầu tư ngay
+                </button>
               </div>
             </div>
           </div>

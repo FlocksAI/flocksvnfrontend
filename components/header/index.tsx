@@ -34,7 +34,7 @@ const Header = () => {
                     <span>Dự án</span>
                   </div>
                   <div className="content">
-                    <span>Kiến Thức</span>
+                    <span onClick={() => router.push("/blog")}>Kiến Thức</span>
                   </div>
                   <div className="content">
                     <span>Sự kiện</span>

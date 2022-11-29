@@ -66,14 +66,14 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
             </Col>
           )}
         </Row>
-        <Row>
+        <Row justify="center">
           <Col xl={12}>
             <div className="banner-wrap">
               <span className="title">{title}</span>
               <span className="content">{content}</span>
             </div>
           </Col>
-          <Col xl={12}>
+          <Col xl={4}>
             <img
               alt="banner-sub-head"
               src={image}

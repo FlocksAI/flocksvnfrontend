@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SBlogPage = styled.div`
+const SBlogIndex = styled.div`
   background-image: url("/image/home/bg-layout.png");
   background-repeat: no-repeat;
   background-position: top right;
@@ -26,4 +26,4 @@ const SBlogPage = styled.div`
   }
 `;
 
-export default SBlogPage;
+export default SBlogIndex;

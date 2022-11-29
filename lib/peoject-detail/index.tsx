@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../../components/footer";
+import ContentProjectHead from "../../components/header/content-project-head";
 import HeaderSub from "../../components/header/head-sub";
 import BannerProjectDetail from "../../components/project-detail/banner-detail";
 import ContentProject from "./content";
@@ -10,7 +11,9 @@ const ProjectDetailIndex = () => {
   return (
     <>
       <SProjectDetail>
-        <HeaderSub />
+        <HeaderSub>
+          <ContentProjectHead />
+        </HeaderSub>
         <BannerProjectDetail />
         <ContentProject />
         <TeamProject />
