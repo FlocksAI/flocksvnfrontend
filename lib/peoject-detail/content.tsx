@@ -8,7 +8,7 @@ const ContentProject = () => {
   return (
     <SContentProject>
       <Row justify="center">
-        <Col xs={22} xl={9}>
+        <Col xs={22} xl={8}>
           <Tabs defaultActiveKey="1">
             <Tabs.TabPane tab="Overview" key="1">
               <div className="wrap-tab">
@@ -170,6 +170,7 @@ const ContentProject = () => {
             </div>
           </div>
         </Col>
+        <Col xl={3} />
       </Row>
     </SContentProject>
   );

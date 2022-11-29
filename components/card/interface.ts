@@ -3,3 +3,12 @@ export interface ICardField {
   content: string;
   subContent: string;
 }
+
+export interface IDataProject {
+  id: string;
+  companyName: string;
+  abstract: string;
+  collectedBudget: string | number;
+  investmentTarget: string | number;
+  numberInvestors: string | number;
+}

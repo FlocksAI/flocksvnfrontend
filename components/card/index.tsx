@@ -1,10 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { Divider, Progress } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
+import { IDataProject } from "./interface";
 import SCard from "./styled";
 
-const CardIndex = () => {
+const CardIndex: React.FC<IDataProject> = (props) => {
+  const router = useRouter();
+  const { id, abstract, companyName, numberInvestors } = props;
   return (
     <>
       <SCard>
@@ -24,11 +28,13 @@ const CardIndex = () => {
             />
           </div>
           <div className="wrap-content">
-            <div className="title">Vinataobao Inc.</div>
-            <div className="content">
-              Lorem ipsum dolor sit amet, conetur adipis. Lorem ipsum dolo dolor
-              sit amet, conetur adipis.
+            <div
+              className="title pointed"
+              onClick={() => router.push(`project/${id}`)}
+            >
+              {companyName}
             </div>
+            <div className="content">{abstract}</div>
             <div className="wrap-btn">
               <button>Travel</button>
               <button>NFTs</button>
@@ -52,7 +58,7 @@ const CardIndex = () => {
             />
           </div>
           <div className="item-investor">
-            <span>1,512 Investors</span>
+            <span>{numberInvestors} Investors</span>
             <span className="present">60%</span>
           </div>
         </div>

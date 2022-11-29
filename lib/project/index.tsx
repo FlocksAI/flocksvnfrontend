@@ -25,10 +25,17 @@ const ProjectIndex = () => {
           </Col>
         </Row>
         <Row justify="center">
-          {card.map((el) => {
+          {dataProject.map((el) => {
             return (
               <Col key={el} xs={24} xl={9} className="col-card">
-                <CardIndex />
+                <CardIndex
+                  id={el.id}
+                  abstract={el.abstract}
+                  collectedBudget={el.collectedBudget}
+                  companyName={el.companyName}
+                  investmentTarget={el.investmentTarget}
+                  numberInvestors={el.numberInvestors}
+                />
               </Col>
             );
           })}

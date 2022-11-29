@@ -34,6 +34,14 @@ const SCard = styled.div`
       font-size: 16px;
       line-height: 26px;
       color: #353535;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      visibility: visible;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 74px;
+      display: block;
+      display: -webkit-box;
     }
   }
   .wrap-btn {

@@ -1,16 +1,16 @@
 import { Checkbox, Col, Input, Row } from "antd";
 import React from "react";
 import { useForm } from "react-hook-form";
-import CustomForm from "../custom-form";
+import CustomForm from "../../components/custom-form";
 import { SignupInput } from "./interface";
-import { SSignUpIndex } from "./styled";
+import { SSignUpDetail } from "./styled";
 
-const SignUpIndex: React.FC<SignupInput> = (props) => {
+const SignUpDetail: React.FC<SignupInput> = (props) => {
   const { size } = props;
   const { control, handleSubmit } = useForm();
   return (
     <>
-      <SSignUpIndex size={size <= 414 ? true : false}>
+      <SSignUpDetail size={size <= 414 ? true : false}>
         <div className="wrap-sign-up">
           <div className="wrap-content">
             <div className="sign-up">
@@ -86,9 +86,9 @@ const SignUpIndex: React.FC<SignupInput> = (props) => {
             <button className="apple">Apple</button>
           </div>
         </div>
-      </SSignUpIndex>
+      </SSignUpDetail>
     </>
   );
 };
 
-export default SignUpIndex;
+export default SignUpDetail;

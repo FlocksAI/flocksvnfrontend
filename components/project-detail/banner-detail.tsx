@@ -1,29 +1,75 @@
 /* eslint-disable @next/next/no-img-element */
-import { Col, Row } from "antd";
+import { Col, Divider, Progress, Row } from "antd";
+import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
+import { SBannerProject } from "../../lib/peoject-detail/styled";
 import { SETTING } from "./constant";
 
 const BannerProjectDetail = () => {
   return (
-    <>
+    <SBannerProject>
       <Row justify="center">
-        <Col span={12}>
+        <Col xl={10}>
           <Slider {...SETTING}>
             <div>
-              <img src="/image/home/banner-sub-0.png" alt="image-project" />
+              <img
+                className="img-slider"
+                src="/image/home/banner-sub-0.png"
+                alt="image-project"
+              />
             </div>
             <div>
-              <img src="/image/home/banner-sub-1.png" alt="image-project" />
+              <img
+                className="img-slider"
+                src="/image/home/banner-sub-1.png"
+                alt="image-project"
+              />
             </div>
             <div>
-              <img src="/image/home/banner-sub-2.png" alt="image-project" />
+              <img
+                className="img-slider"
+                src="/image/home/banner-sub-2.png"
+                alt="image-project"
+              />
             </div>
           </Slider>
         </Col>
-        <Col span={6}>diqdwjiqw</Col>
+        <Col xs={0} xl={1} />
+        <Col xs={22} xl={4}>
+          <div className="mobile-active">
+            <div className="wrap-info-day">
+              <span className="started-day">Started: 09/Oct/2022</span>
+              <Divider />
+              <span className="total-value">4,823,047đ</span>
+              <span>Rasied</span>
+              <Progress
+                strokeColor={{
+                  "0%": "#108ee9",
+                  "100%": "#87d068",
+                }}
+                percent={99.9}
+              />
+              <div className="timeline">
+                <div className="info-timeline">
+                  <span className="value-investor common-investor">2000</span>
+                  <span className="content-value-investor common-investor">
+                    Nhà đầu tư
+                  </span>
+                </div>
+                <div className="info-timeline">
+                  <span className="value-investor common-investor">345</span>
+                  <span className="content-value-investor common-investor">
+                    Ngày còn lại
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Col>
+        <Col xl={3} />
       </Row>
-    </>
+    </SBannerProject>
   );
 };
 

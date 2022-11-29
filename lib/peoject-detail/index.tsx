@@ -1,9 +1,7 @@
-import { Col, Row, Tabs } from "antd";
-import Image from "next/image";
 import React from "react";
 import Footer from "../../components/footer";
 import HeaderSub from "../../components/header/head-sub";
-import { CONTENT_PROJECT } from "../../constant/content-project";
+import BannerProjectDetail from "../../components/project-detail/banner-detail";
 import ContentProject from "./content";
 import { SProjectDetail } from "./styled";
 import TeamProject from "./team";
@@ -13,7 +11,7 @@ const ProjectDetailIndex = () => {
     <>
       <SProjectDetail>
         <HeaderSub />
-        {/* <BannerProjectDetail /> */}
+        <BannerProjectDetail />
         <ContentProject />
         <TeamProject />
         <Footer />

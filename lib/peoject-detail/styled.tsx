@@ -69,7 +69,6 @@ const SProjectDetail = styled.div`
     font-weight: 700;
     font-size: 18px;
     line-height: 28px;
-    color: #20cf77;
   }
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #20cf77;
@@ -126,7 +125,9 @@ const SProjectDetail = styled.div`
 `;
 
 const SContentProject = styled.div`
+  margin-top: 120px;
   @media only screen and (max-width: 414px) {
+    margin-top: 42px;
     .wrap-tab {
       img {
         width: 100%;
@@ -135,4 +136,97 @@ const SContentProject = styled.div`
   }
 `;
 
-export { SProjectDetail, SContentProject };
+const SBannerProject = styled.div`
+  margin-top: 60px;
+  .img-slider {
+    width: 682px;
+  }
+  .slick-dots {
+    display: flex !important;
+    img {
+      width: 176px;
+      height: 94px;
+    }
+  }
+  .slick-dots {
+    position: unset;
+    li {
+      width: 176px;
+    }
+  }
+  .wrap-info-day {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid #eeeeee;
+    border-radius: 32px;
+  }
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+  }
+  .started-day {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .total-value {
+    background: linear-gradient(
+      263.1deg,
+      #c7f833 -121.94%,
+      #5ddfc0 -11.14%,
+      #007ead 131.32%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .ant-progress-text {
+    display: none;
+  }
+  .ant-progress-outer {
+    width: 100%;
+  }
+  .info-timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  .value-investor {
+    font-size: 32px;
+  }
+  .common-investor {
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: #353535;
+  }
+  .content-value-investor {
+    font-size: 16px;
+  }
+  .slick-arrow,
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+  @media only screen and (max-width: 414px) {
+    .img-slider {
+      width: 100%;
+    }
+    .slick-dots {
+      height: 68px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .mobile-active {
+      margin-top: 40px;
+    }
+  }
+`;
+
+export { SProjectDetail, SContentProject, SBannerProject };

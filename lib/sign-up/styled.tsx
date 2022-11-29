@@ -1,6 +1,20 @@
 import styled, { css } from "styled-components";
 
-const SSignUpIndex = styled("div")<{ size: boolean }>`
+const SSignUp = styled("div")<{ isScroll: boolean }>`
+  background: linear-gradient(270deg, #007ead 0%, #c7f833 100%, #5ddfc0 100%);
+  padding-top: 36px;
+  ${(props) =>
+    props.isScroll
+      ? css`
+          overflow-y: unset;
+          height: unset;
+        `
+      : css`
+          overflow-y: hidden;
+          height: 100vh;
+        `}
+`;
+const SSignUpDetail = styled("div")<{ size: boolean }>`
   display: flex;
   justify-content: center;
   ${(props) =>
@@ -110,5 +124,4 @@ const SSignUpIndex = styled("div")<{ size: boolean }>`
     }
   }
 `;
-
-export { SSignUpIndex };
+export { SSignUp, SSignUpDetail };
