@@ -7,10 +7,10 @@ const CreateInvestorStep4 = () => {
   };
   return (
     <>
-      <div>
+      <div className="title-step">
         <span>Bạn bao nhiêu tuổi?</span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
@@ -23,13 +23,13 @@ const CreateInvestorStep4 = () => {
           <Radio>Hơn 65.</Radio>
         </Radio.Group>
       </div>
-      <div>
+      <div className="title-step">
         <span>
           Tổng thu nhập hàng năm của bạn là bao nhiêu (I.E. Việc làm, lương hưu,
           tài sản cho thuê, đầu tư, v.v.)?
         </span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
@@ -41,13 +41,13 @@ const CreateInvestorStep4 = () => {
           <Radio>Hơn 300.000 đô la</Radio>
         </Radio.Group>
       </div>
-      <div>
+      <div className="title-step">
         <span>
           Bao nhiêu kiểm tra lương hàng tháng của bạn, bạn đặt sang một bên để
           tiết kiệm và / hoặc đầu tư?
         </span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
@@ -59,13 +59,13 @@ const CreateInvestorStep4 = () => {
           <Radio>Tôi không cứu</Radio>
         </Radio.Group>
       </div>
-      <div>
+      <div className="title-step">
         <span>
           Làm thế nào bạn sẽ mô tả bảo mật của thu nhập hàng năm của bạn, cho dù
           đó là từ việc làm hoặc các nguồn khác?
         </span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}

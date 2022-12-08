@@ -36,15 +36,13 @@ const CreateInvestorStep3 = () => {
           mới?
         </span>
       </div>
-      <div>
+      <div className="radio-media">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
           value={"value"}
         >
-          <Checkbox style={{ marginLeft: 8 }} onChange={onChange}>
-            Facebook
-          </Checkbox>
+          <Checkbox onChange={onChange}>Facebook</Checkbox>
           <Checkbox onChange={onChange}>Twitter</Checkbox>
           <Checkbox onChange={onChange}>Instagram</Checkbox>
         </Radio.Group>

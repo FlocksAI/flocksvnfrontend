@@ -7,10 +7,10 @@ const CreateInvestorStep5 = () => {
   };
   return (
     <>
-      <div>
+      <div className="title-step">
         <span>Mục tiêu chính của bạn cho khoản đầu tư này là gì?</span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
@@ -25,10 +25,10 @@ const CreateInvestorStep5 = () => {
           <Radio>Tích cực phát triển tài khoản của bạn</Radio>
         </Radio.Group>
       </div>
-      <div>
+      <div className="title-step">
         <span>Khi nào bạn mong đợi rút tiền của bạn?</span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}

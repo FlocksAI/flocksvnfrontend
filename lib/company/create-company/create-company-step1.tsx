@@ -26,16 +26,19 @@ const CreateCompanyStep1 = () => {
         <Input placeholder="Github" />
       </Form.Item>
       <Form.Item valuePropName="fileList">
+        <div className="mb-2">Tải Giấy Phép Đăng Ký Kinh Doanh</div>
         <Upload action="/upload.do" listType="picture-card">
           <div style={{ marginTop: 8 }}>Upload</div>
         </Upload>
       </Form.Item>
       <Form.Item valuePropName="fileList">
+        <div className="mb-2">Tải Biên Lai thuế</div>
         <Upload action="/upload.do" listType="picture-card">
           <div style={{ marginTop: 8 }}>Upload</div>
         </Upload>
       </Form.Item>
       <Form.Item valuePropName="fileList">
+        <div className="mb-2">Tải video giới thiệu</div>
         <Upload action="/upload.do" listType="picture-card">
           <div style={{ marginTop: 8 }}>Upload</div>
         </Upload>

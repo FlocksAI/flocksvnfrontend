@@ -10,13 +10,11 @@ const CreateInvestorStep2 = () => {
       <Form.Item label="Những gì bạn sẽ đầu tư vào?">
         <Input placeholder="" />
       </Form.Item>
-      <div>
+      <div className="head-title-step">
         <span>Những gì bạn muốn thấy nhiều hơn ở Việt Nam?</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <Checkbox style={{ marginLeft: 8 }} onChange={onChange}>
-          Công nghệ
-        </Checkbox>
+        <Checkbox onChange={onChange}>Công nghệ</Checkbox>
         <Checkbox onChange={onChange}>Sắc đẹp</Checkbox>
         <Checkbox onChange={onChange}>Thực phẩm và đồ uống</Checkbox>
         <Checkbox onChange={onChange}>Giáo dục Nông nghiệp.</Checkbox>

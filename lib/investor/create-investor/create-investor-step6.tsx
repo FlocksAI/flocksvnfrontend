@@ -7,13 +7,13 @@ const CreateInvestorStep6 = () => {
   };
   return (
     <>
-      <div>
+      <div className="title-step">
         <span>
           Nếu khoản đầu tư của bạn giảm 25% về giá trị, phù hợp với thị trường,
           bạn sẽ phản hồi như thế nào?
         </span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
@@ -35,13 +35,13 @@ const CreateInvestorStep6 = () => {
           <Radio>Tận dụng mức giá thấp hơn và đầu tư nhiều tiền hơn</Radio>
         </Radio.Group>
       </div>
-      <div>
+      <div className="title-step">
         <span>
           Phát biểu nào mô tả đúng nhất về sự khoan dung của sự biến động của
           thị trường của bạn?
         </span>
       </div>
-      <div>
+      <div className="mb-4">
         <Radio.Group
           style={{ display: "flex", flexDirection: "column" }}
           onChange={onChange}
