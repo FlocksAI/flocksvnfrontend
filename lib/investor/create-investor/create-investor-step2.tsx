@@ -1,15 +1,22 @@
 import { Checkbox, Form, Input } from "antd";
 import React from "react";
+import CustomForm from "../../../components/custom-form";
+import { CreateInvestInput } from "../interface";
 
-const CreateInvestorStep2 = () => {
+const CreateInvestorStep2: React.FC<CreateInvestInput> = ({ control }) => {
   const onChange = (e: any) => {
     console.log(`checked = ${e.target.checked}`);
   };
   return (
     <>
-      <Form.Item label="Những gì bạn sẽ đầu tư vào?">
-        <Input placeholder="" />
-      </Form.Item>
+      <CustomForm
+        name="investorName"
+        label="Tên nhà đầu tư"
+        control={control}
+        render={({ field }: any) => (
+          <Input {...field} placeholder="Tên nhà đầu tư" />
+        )}
+      />
       <div className="head-title-step">
         <span>Những gì bạn muốn thấy nhiều hơn ở Việt Nam?</span>
       </div>

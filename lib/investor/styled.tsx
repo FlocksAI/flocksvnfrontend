@@ -46,11 +46,12 @@ const SIntroduction = styled.div`
 
 const SForm = styled.div`
   margin-top: 36px;
-  .ant-form-item-control-input-content {
-    input {
-      height: 54px;
-      border-radius: 10px;
-    }
+  .ant-input {
+    height: 54px;
+    border-radius: 10px;
+  }
+  .form-custom {
+    margin-bottom: 24px;
   }
   .ant-form-item-label {
     label {
