@@ -1,15 +1,23 @@
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React from "react";
+import CustomForm from "../../../components/custom-form";
+import { CreateCompanyInput } from "../interface";
 
-const CreateCompanyStep8 = () => {
+const CreateCompanyStep8: React.FC<CreateCompanyInput> = ({ control }) => {
   return (
     <>
-      <Form.Item label="Tại sao bạn đã chọn Nền chim sớm?">
-        <Input placeholder="" />
-      </Form.Item>
-      <Form.Item label="Gọi bằng?">
-        <Input placeholder="" />
-      </Form.Item>
+      <CustomForm
+        name="github"
+        label="Tại sao bạn đã chọn Nền chim sớm?"
+        control={control}
+        render={({ field }: any) => <Input {...field} placeholder="" />}
+      />
+      <CustomForm
+        name="github"
+        label="Gọi bằng?"
+        control={control}
+        render={({ field }: any) => <Input {...field} placeholder="" />}
+      />
     </>
   );
 };

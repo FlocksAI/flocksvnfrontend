@@ -1,7 +1,9 @@
-import { Radio } from "antd";
+import { Button, Radio } from "antd";
 import React from "react";
+import CustomForm from "../../../components/custom-form";
+import { CreateInvestInput } from "../interface";
 
-const CreateInvestorStep4 = () => {
+const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
   const onChange = (e: any) => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -11,17 +13,25 @@ const CreateInvestorStep4 = () => {
         <span>Bạn bao nhiêu tuổi?</span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>30 trở xuống</Radio>
-          <Radio>31-40.</Radio>
-          <Radio>41-55.</Radio>
-          <Radio>56 - 65.</Radio>
-          <Radio>Hơn 65.</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="age"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="30">30 trở xuống</Radio>
+              <Radio value="30-40">31-40.</Radio>
+              <Radio value="41-55">41-55.</Radio>
+              <Radio value="56-65">56 - 65.</Radio>
+              <Radio value="65">Hơn 65.</Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
       <div className="title-step">
         <span>
@@ -30,16 +40,24 @@ const CreateInvestorStep4 = () => {
         </span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>Dưới 50.000 đô la</Radio>
-          <Radio>$ 50,001 - $ 100.000</Radio>
-          <Radio>$ 100,001 - $ 300.000</Radio>
-          <Radio>Hơn 300.000 đô la</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="budget"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="50000">Dưới 50.000 đô la</Radio>
+              <Radio value="50000-100000">$ 50,001 - $ 100.000</Radio>
+              <Radio value="100001-300000">$ 100,001 - $ 300.000</Radio>
+              <Radio value="300000">Hơn 300.000 đô la</Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
       <div className="title-step">
         <span>
@@ -48,16 +66,24 @@ const CreateInvestorStep4 = () => {
         </span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>Lớn hơn 12%</Radio>
-          <Radio>6 - 12%</Radio>
-          <Radio>1 - 5%</Radio>
-          <Radio>Tôi không cứu</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="present"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="12">Lớn hơn 12%</Radio>
+              <Radio value="6-12">6 - 12%</Radio>
+              <Radio value="1-5">1 - 5%</Radio>
+              <Radio value="1">Tôi không cứu</Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
       <div className="title-step">
         <span>
@@ -66,16 +92,24 @@ const CreateInvestorStep4 = () => {
         </span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>rất an toàn và ổn định</Radio>
-          <Radio>An toàn và ổn định</Radio>
-          <Radio>An toàn vừa phải và ổn định</Radio>
-          <Radio>Hơi bất an và không ổn định</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="type-investor"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="an-toan">rất an toàn và ổn định</Radio>
+              <Radio value="on-dinh">An toàn và ổn định</Radio>
+              <Radio value="vua-on-dinh">An toàn vừa phải và ổn định</Radio>
+              <Radio value="bat-an">Hơi bất an và không ổn định</Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
     </>
   );

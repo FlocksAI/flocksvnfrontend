@@ -1,7 +1,10 @@
-import { Checkbox, Radio, Slider } from "antd";
+import { Button, Checkbox, Radio, Slider } from "antd";
 import React from "react";
+import CustomForm from "../../../components/custom-form";
+import { STEP_3_CHECKBOX } from "../constant";
+import { CreateInvestInput } from "../interface";
 
-const CreateInvestorStep3 = () => {
+const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
   const onChange = (e: any) => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -37,15 +40,15 @@ const CreateInvestorStep3 = () => {
         </span>
       </div>
       <div className="radio-media">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Checkbox onChange={onChange}>Facebook</Checkbox>
-          <Checkbox onChange={onChange}>Twitter</Checkbox>
-          <Checkbox onChange={onChange}>Instagram</Checkbox>
-        </Radio.Group>
+        <CustomForm
+          name="media"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field }: any) => (
+            <Checkbox.Group {...field} options={STEP_3_CHECKBOX} />
+          )}
+        />
       </div>
       <div>
         <span>
@@ -54,14 +57,22 @@ const CreateInvestorStep3 = () => {
         </span>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>Vâng</Radio>
-          <Radio>Không</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="confirm"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="yes">Vâng</Radio>
+              <Radio value="no">Không</Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
     </>
   );

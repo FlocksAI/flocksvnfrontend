@@ -4,7 +4,7 @@ export interface ICustomForm {
   render: any;
   onChange?: any;
   name: string;
-  error?: string;
+  error?: any;
   label: string;
   icon?: any;
   classNameWrap?: string;

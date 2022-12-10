@@ -3,9 +3,11 @@ import Image from "next/image";
 import React from "react";
 import { SBanner } from "./styled";
 import useWindowResize from "../../hook/useResize";
+import { useRouter } from "next/router";
 
 const Banner = () => {
   const size = useWindowResize();
+  const router = useRouter();
   return (
     <>
       <SBanner>
@@ -41,8 +43,18 @@ const Banner = () => {
               </div>
               {size.width > 414 && (
                 <div className="btn">
-                  <button className="project">Khám phá Dự án</button>
-                  <button className="call-investor">Gọi vốn Đầu tư</button>
+                  <button
+                    className="project pointed"
+                    onClick={() => router.push("/investor")}
+                  >
+                    Khám phá Dự án
+                  </button>
+                  <button
+                    className="call-investor pointed"
+                    onClick={() => router.push("/company")}
+                  >
+                    Gọi vốn Đầu tư
+                  </button>
                 </div>
               )}
             </div>

@@ -45,7 +45,11 @@ const SIntroduction = styled.div`
 `;
 
 const SForm = styled.div`
-  margin-top: 36px;
+  margin-top: 42px;
+  padding: 8px 16px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  border-radius: 10px;
   .ant-input {
     height: 54px;
     border-radius: 10px;
@@ -97,6 +101,13 @@ const SForm = styled.div`
   }
   .mb-4 {
     margin-bottom: 20px;
+  }
+  .ant-checkbox-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .back {
+    margin-left: 12px;
   }
 `;
 

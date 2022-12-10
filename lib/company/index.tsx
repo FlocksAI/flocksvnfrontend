@@ -3,8 +3,8 @@ import Header from "../../components/header";
 import { SCompanyIndex } from "./styled";
 import useWindowResize from "../../hook/useResize";
 import { Col, Row } from "antd";
-import CreateCompany from "./create-company";
 import Footer from "../../components/footer";
+import CreateCompanyIndex from "./create-company";
 
 const CompanyIndex = () => {
   const size = useWindowResize();
@@ -19,7 +19,7 @@ const CompanyIndex = () => {
       </SCompanyIndex>
       <Row justify="center">
         <Col span={8}>
-          <CreateCompany />
+          <CreateCompanyIndex />
         </Col>
       </Row>
       <Footer />

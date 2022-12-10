@@ -4,5 +4,5 @@ export interface IntroductionInput {
 
 export interface CreateInvestInput {
   control: any;
-  handleContinue?: (data: boolean) => void;
+  errors?: any;
 }

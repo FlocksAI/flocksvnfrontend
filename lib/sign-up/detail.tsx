@@ -1,13 +1,22 @@
-import { Checkbox, Col, Input, Row } from "antd";
+import { Checkbox, Col, Input, message, Row } from "antd";
 import React from "react";
 import { useForm } from "react-hook-form";
 import CustomForm from "../../components/custom-form";
 import { SignupInput } from "./interface";
 import { SSignUpDetail } from "./styled";
+import { GoogleLogin } from "react-google-login";
+import { CLIENT_ID } from "../../constant/api-constant";
 
 const SignUpDetail: React.FC<SignupInput> = (props) => {
   const { size } = props;
   const { control, handleSubmit } = useForm();
+  const onFailLogin = (res: any) => {
+    console.log(res);
+    message.warning("login Fail", res);
+  };
+  const responseGoogle = (response: any) => {
+    console.log(response.accessToken);
+  };
   return (
     <>
       <SSignUpDetail size={size <= 414 ? true : false}>
@@ -80,8 +89,22 @@ const SignUpDetail: React.FC<SignupInput> = (props) => {
             </Checkbox>
           </div>
           <div className="wrap-btn-login">
-            <button className="sign-up">Đăng nhập</button>
-            <button className="google">Google</button>
+            <button className="sign-up pointed">Đăng nhập</button>
+            <GoogleLogin
+              clientId={CLIENT_ID}
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={onFailLogin}
+              cookiePolicy={"single_host_origin"}
+              render={(renderProps) => (
+                <button
+                  onClick={renderProps.onClick}
+                  className="google pointed"
+                >
+                  Google
+                </button>
+              )}
+            />
             <button className="facebook">Facebook</button>
             <button className="apple">Apple</button>
           </div>

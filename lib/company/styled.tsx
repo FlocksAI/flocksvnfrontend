@@ -20,11 +20,12 @@ const SCompanyIndex = styled("div")<{ isScroll: boolean }>`
 `;
 
 const SForm = styled.div`
-  .ant-form-item-control-input-content {
-    input {
-      height: 54px;
-      border-radius: 10px;
-    }
+  .ant-input {
+    height: 54px;
+    border-radius: 10px;
+  }
+  .form-custom {
+    margin-bottom: 24px;
   }
   .ant-form-item-label {
     label {
@@ -73,6 +74,9 @@ const SForm = styled.div`
   }
   .mb-2 {
     margin-bottom: 12px;
+  }
+  .back {
+    margin-left: 12px;
   }
 `;
 

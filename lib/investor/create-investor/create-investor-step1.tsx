@@ -1,22 +1,19 @@
-import { Button, Form, Input } from "antd";
+import { Button, Input } from "antd";
 import React from "react";
-import { useForm } from "react-hook-form";
 import CustomForm from "../../../components/custom-form";
 import { CreateInvestInput } from "../interface";
 
 const CreateInvestorStep1: React.FC<CreateInvestInput> = ({
   control,
-  handleContinue,
+  errors,
 }) => {
-  const {
-    formState: { errors },
-  } = useForm();
   return (
     <>
       <CustomForm
         name="investorName"
         label="Tên nhà đầu tư"
         control={control}
+        error={errors?.investorName?.message}
         render={({ field }: any) => (
           <Input {...field} placeholder="Tên nhà đầu tư" />
         )}
@@ -25,6 +22,7 @@ const CreateInvestorStep1: React.FC<CreateInvestInput> = ({
       <CustomForm
         name="investorEmail"
         label="Email"
+        error={errors?.investorEmail?.message}
         control={control}
         render={({ field }: any) => <Input {...field} placeholder="Email" />}
       />
@@ -32,6 +30,7 @@ const CreateInvestorStep1: React.FC<CreateInvestInput> = ({
         name="investorPhone"
         label="Số điện thoại"
         control={control}
+        error={errors?.investorPhone?.message}
         render={({ field }: any) => (
           <Input {...field} placeholder="Số điện thoại" />
         )}
@@ -40,17 +39,16 @@ const CreateInvestorStep1: React.FC<CreateInvestInput> = ({
         name="investorAddress"
         label="Địa chỉ"
         control={control}
+        error={errors?.investorAddress?.message}
         render={({ field }: any) => <Input {...field} placeholder="Địa chỉ" />}
       />
       <CustomForm
         name="investorIdNumber"
         label="Số CMND"
         control={control}
+        error={errors?.investorIdNumber?.message}
         render={({ field }: any) => <Input {...field} placeholder="Địa chỉ" />}
       />
-      <Button className="btn-continue" onClick={() => handleContinue(true)}>
-        Tiếp
-      </Button>
     </>
   );
 };

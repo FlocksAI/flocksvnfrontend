@@ -1,7 +1,9 @@
-import { Radio } from "antd";
+import { Button, Radio } from "antd";
 import React from "react";
+import CustomForm from "../../../components/custom-form";
+import { CreateInvestInput } from "../interface";
 
-const CreateInvestorStep6 = () => {
+const CreateInvestorStep6: React.FC<CreateInvestInput> = ({ control }) => {
   const onChange = (e: any) => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -14,26 +16,36 @@ const CreateInvestorStep6 = () => {
         </span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>
-            Cắt lỗ của bạn, bán đầu tư của bạn và giữ tiền mặt với toàn bộ số dư
-            tài khoản của bạn
-          </Radio>
-          <Radio>
-            Bán một nửa số đầu tư của bạn và giữ tiền mặt;giữ phần còn lại đầu
-            tư như là
-          </Radio>
-          <Radio>
-            Cắt lỗ của bạn, bán đầu tư của bạn và giữ tiền mặt với toàn bộ số dư
-            tài khoản của bạn
-          </Radio>
-          <Radio>Giữ danh mục đầu tư và không thay đổi</Radio>
-          <Radio>Tận dụng mức giá thấp hơn và đầu tư nhiều tiền hơn</Radio>
-        </Radio.Group>
+        <CustomForm
+          name="info-investor"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="cat-lo">
+                Cắt lỗ của bạn, bán đầu tư của bạn và giữ tiền mặt với toàn bộ
+                số dư tài khoản của bạn
+              </Radio>
+              <Radio value="ban-1-nua">
+                Bán một nửa số đầu tư của bạn và giữ tiền mặt;giữ phần còn lại
+                đầu tư như là
+              </Radio>
+              <Radio value="cat-lo-sub">
+                Cắt lỗ của bạn, bán đầu tư của bạn và giữ tiền mặt với toàn bộ
+                số dư tài khoản của bạn
+              </Radio>
+              <Radio value="giu">Giữ danh mục đầu tư và không thay đổi</Radio>
+              <Radio value="tan-dung">
+                Tận dụng mức giá thấp hơn và đầu tư nhiều tiền hơn
+              </Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
       <div className="title-step">
         <span>
@@ -42,28 +54,36 @@ const CreateInvestorStep6 = () => {
         </span>
       </div>
       <div className="mb-4">
-        <Radio.Group
-          style={{ display: "flex", flexDirection: "column" }}
-          onChange={onChange}
-          value={"value"}
-        >
-          <Radio>
-            Biến động nhỏ có thể chịu được biết rằng bạn có thể sẽ có được lợi
-            nhuận thấp hơn
-          </Radio>
-          <Radio>
-            Một số biến động trong giá trị tài khoản của bạn có thể chấp nhận
-            được ưu tiên cho lợi nhuận khiêm tốn
-          </Radio>
-          <Radio>
-            Biến động hàng tháng về giá trị của tài khoản của bạn có thể chịu
-            được khả năng kiếm được lợi nhuận cao hơn
-          </Radio>
-          <Radio>
-            Bạn có thể chịu đựng các biến động hàng ngày trong giá trị tài khoản
-            của bạn với khả năng lợi nhuận thậm chí cao hơn
-          </Radio>
-        </Radio.Group>
+        <CustomForm
+          name="info-investor-sub"
+          label=""
+          classNameWrap="ds-mt-5"
+          control={control}
+          render={({ field: { onChange, value } }: any) => (
+            <Radio.Group
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <Radio value="bien-dong">
+                Biến động nhỏ có thể chịu được biết rằng bạn có thể sẽ có được
+                lợi nhuận thấp hơn
+              </Radio>
+              <Radio value="bien-dong-sub">
+                Một số biến động trong giá trị tài khoản của bạn có thể chấp
+                nhận được ưu tiên cho lợi nhuận khiêm tốn
+              </Radio>
+              <Radio value="bien-dong-thang">
+                Biến động hàng tháng về giá trị của tài khoản của bạn có thể
+                chịu được khả năng kiếm được lợi nhuận cao hơn
+              </Radio>
+              <Radio value="bien-dong-ngay">
+                Bạn có thể chịu đựng các biến động hàng ngày trong giá trị tài
+                khoản của bạn với khả năng lợi nhuận thậm chí cao hơn
+              </Radio>
+            </Radio.Group>
+          )}
+        />
       </div>
     </>
   );
