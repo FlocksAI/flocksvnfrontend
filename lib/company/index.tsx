@@ -18,7 +18,7 @@ const CompanyIndex = () => {
         </Row>
       </SCompanyIndex>
       <Row justify="center">
-        <Col span={8}>
+        <Col xs={22} xl={8}>
           <CreateCompanyIndex />
         </Col>
       </Row>

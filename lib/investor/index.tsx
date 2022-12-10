@@ -15,7 +15,7 @@ const InvestorIndex = () => {
         </Col>
       </Row>
       <Row justify="center">
-        <Col span={8}>
+        <Col xs={22} xl={8}>
           {isShow ? (
             <CreateInvestorIndex />
           ) : (
