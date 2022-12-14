@@ -26,11 +26,11 @@ const SAnswerQuestion = styled.div`
   }
   .ant-collapse-header-text {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     color: #353535;
   }
-  .ant-collapse-content-box p {
+  .ant-collapse-content-box div {
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
