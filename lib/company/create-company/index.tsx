@@ -14,6 +14,7 @@ import CreateCompanyStep5 from "./create-company-step5";
 import CreateCompanyStep6 from "./create-company-step6";
 import CreateCompanyStep7 from "./create-company-step7";
 import CreateCompanyStep8 from "./create-company-step8";
+import CreateProject from "./create-project";
 
 const schema = yup
   .object({
@@ -57,9 +58,17 @@ const CreateCompanyIndex = () => {
         {step === 6 && <CreateCompanyStep7 control={control} />}
         {step === 7 && <CreateCompanyStep8 control={control} />}
         {step === 8 && <ModalSuccess />}
-        <Button onClick={handleSubmit(onSubmit)} type="primary">
-          {step === 7 ? "Nộp" : "Tiếp theo"}
-        </Button>
+        {step === 9 && <CreateProject />}
+        <div className="btn-footer-create">
+          {step === 8 && (
+            <Button className="mr-2" onClick={() => setStep((pve) => pve + 1)}>
+              Tạo dự án
+            </Button>
+          )}
+          <Button onClick={handleSubmit(onSubmit)} type="primary">
+            {step === 7 ? "Nộp" : "Tiếp theo"}
+          </Button>
+        </div>
         {step !== 0 && step !== 8 && (
           <Button className="back" onClick={() => handleContinue()}>
             Quay lại

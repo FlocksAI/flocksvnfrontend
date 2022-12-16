@@ -12,3 +12,34 @@ export const STEPS = [
     content: "Last-content",
   },
 ];
+
+export const TYPE_PROJECT = [
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+  {
+    value: "lucy",
+    label: "Lucy",
+  },
+];

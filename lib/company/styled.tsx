@@ -78,6 +78,15 @@ const SForm = styled.div`
   .back {
     margin-left: 12px;
   }
+  .mr-2 {
+    margin-right: 12px;
+  }
 `;
 
-export { SCompanyIndex, SForm };
+const SCreateProject = styled.div`
+  .ant-upload {
+    width: 100%;
+  }
+`;
+
+export { SCompanyIndex, SForm, SCreateProject };

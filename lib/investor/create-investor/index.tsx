@@ -39,7 +39,6 @@ const CreateInvestorIndex = () => {
     console.log(resp);
     console.log(data);
   };
-  console.log(errors);
   const handleContinue = () => {
     setStep((pve) => pve - 1);
   };
