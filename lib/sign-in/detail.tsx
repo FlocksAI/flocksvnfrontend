@@ -1,9 +1,10 @@
 import { Checkbox, Col, Input, message, Row } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { SSignInDetail } from "./styled";
 import { useForm } from "react-hook-form";
 import { SigninInput } from "./interface";
 import CustomForm from "../../components/custom-form";
+import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import { CLIENT_ID } from "../../constant/api-constant";
 import useLogin from "./useLogin";
@@ -13,16 +14,20 @@ const SigninDetail: React.FC<SigninInput> = (props) => {
   const { control, handleSubmit } = useForm();
   const { loginEmailPassword, loginGoogle } = useLogin();
 
+  useEffect(() => {
+    if (window !== undefined) {
+      gapi.load("client:auth2", () => {
+        gapi.auth2.init({ clientId: CLIENT_ID });
+      });
+    }
+  }, []);
   const onFailLogin = (res: any) => {
     console.log(res);
     message.warning("login Fail", res);
   };
   const responseGoogle = (response: any) => {
+    console.log(response);
     loginGoogle("google");
-    // console.log(response.accessToken);
-    // if (response?.accessToken) {
-    //   loginGoogle("google");
-    // }
   };
   const login = (data: any) => {
     loginEmailPassword(data);
@@ -100,6 +105,7 @@ const SigninDetail: React.FC<SigninInput> = (props) => {
                   <button
                     onClick={renderProps.onClick}
                     className="google pointed"
+                    disabled={renderProps.disabled}
                   >
                     Google
                   </button>

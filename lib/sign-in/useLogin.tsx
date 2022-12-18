@@ -16,10 +16,20 @@ const useLogin = () => {
     }
   };
 
-  const loginGoogle = async (provider: string) => {
+  const loginGoogle = async (provider: any) => {
     try {
-      const resp = await LoginRepositories.loginEmailPassword(provider);
+      const frontendDomain = "https://localhost:3000/";
+      const googleRedirectUriVi = `${frontendDomain}social/google`;
+      console.log(provider);
+      const resp = await fetch(
+        `https://api.flocks.vn/api/v1/auth/social/oauth_uri?provider=${provider}`
+      ).then((res) => res.json());
       console.log(resp);
+      let url = resp;
+      url += `&redirect_uri=${googleRedirectUriVi}`;
+      window.open(url, "_self");
+      // const resp = await LoginRepositories.loginGoogle(provider);
+      // console.log(resp);
     } catch (error) {
       console.log(error);
     }
