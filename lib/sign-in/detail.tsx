@@ -15,7 +15,7 @@ const SigninDetail: React.FC<SigninInput> = (props) => {
   const { loginEmailPassword, loginGoogle } = useLogin();
 
   useEffect(() => {
-    if (window !== undefined) {
+    if (typeof window !== undefined) {
       gapi.load("client:auth2", () => {
         gapi.auth2.init({ clientId: CLIENT_ID });
       });
