@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/header";
 import { SCompanyIndex } from "./styled";
 import useWindowResize from "../../hook/useResize";
@@ -12,9 +12,11 @@ const CompanyIndex = () => {
   const size = useWindowResize();
   const router = useRouter();
   const accessToken = getAuthToken();
-  if (!accessToken) {
-    router.push("/sign-in");
-  }
+  useEffect(() => {
+    if (!accessToken) {
+      router.push("/sign-in");
+    }
+  }, []);
   return (
     <>
       <SCompanyIndex isScroll={size.width <= 414 ? true : false}>
