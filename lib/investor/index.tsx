@@ -1,12 +1,19 @@
 import { Col, Row } from "antd";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
+import { getAuthToken } from "../../utils/helper";
 import CreateInvestorIndex from "./create-investor";
 import IntroductionInvestor from "./introduction";
 
 const InvestorIndex = () => {
   const [isShow, setIsShow] = useState(false);
+  const router = useRouter();
+  const accessToken = getAuthToken();
+  if (!accessToken) {
+    router.push("/sign-in");
+  }
   return (
     <>
       <Row justify="center">

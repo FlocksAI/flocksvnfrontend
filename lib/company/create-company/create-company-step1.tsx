@@ -1,19 +1,26 @@
-import { Button, Form, Input, Upload } from "antd";
-import React from "react";
+/* eslint-disable @next/next/no-img-element */
+import { Input, Upload } from "antd";
+import React, { useState } from "react";
 import CustomForm from "../../../components/custom-form";
 import { CreateCompanyInput } from "../interface";
+import UploadIndex from "../../../components/upload";
 
 const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
   control,
   errors,
+  introVideo,
+  registrationDocs,
+  taxReceipt,
+  setRegistrationDocs,
+  setTaxReceipt,
 }) => {
   return (
     <>
       <CustomForm
-        name="companyName"
+        name="company_name"
         label="Tên nhà đầu tư"
         control={control}
-        error={errors?.companyName?.message}
+        error={errors?.company_name?.message}
         render={({ field }: any) => (
           <Input {...field} placeholder="Tên nhà đầu tư" />
         )}
@@ -51,9 +58,9 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
         render={({ field }: any) => <Input {...field} placeholder="Địa chỉ" />}
       />
       <CustomForm
-        name="phoneNumber"
+        name="phone_number"
         label="Số điện thoại"
-        error={errors?.phoneNumber?.message}
+        error={errors?.phone_number?.message}
         control={control}
         render={({ field }: any) => (
           <Input {...field} placeholder="Số điện thoại" />
@@ -65,24 +72,20 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
         control={control}
         render={({ field }: any) => <Input {...field} placeholder="Github" />}
       />
-      <Form.Item valuePropName="fileList">
-        <div className="mb-2">Tải Giấy Phép Đăng Ký Kinh Doanh</div>
-        <Upload action="/upload.do" listType="picture-card">
-          <div style={{ marginTop: 8 }}>Upload</div>
-        </Upload>
-      </Form.Item>
-      <Form.Item valuePropName="fileList">
-        <div className="mb-2">Tải Biên Lai thuế</div>
-        <Upload action="/upload.do" listType="picture-card">
-          <div style={{ marginTop: 8 }}>Upload</div>
-        </Upload>
-      </Form.Item>
-      <Form.Item valuePropName="fileList">
-        <div className="mb-2">Tải video giới thiệu</div>
-        <Upload action="/upload.do" listType="picture-card">
-          <div style={{ marginTop: 8 }}>Upload</div>
-        </Upload>
-      </Form.Item>
+      <div className="mb-2">Tải Giấy Phép Đăng Ký Kinh Doanh</div>
+      <UploadIndex
+        setRegistrationDocs={setRegistrationDocs}
+        registrationDocs={registrationDocs}
+      />
+      <div className="mb-2">Tải Biên Lai thuế</div>
+      <UploadIndex
+        setRegistrationDocs={setTaxReceipt}
+        registrationDocs={taxReceipt}
+      />
+      <div className="mb-2">Tải video giới thiệu</div>
+      <Upload action="/upload.do" listType="picture-card">
+        <div style={{ marginTop: 8 }}>Upload</div>
+      </Upload>
     </>
   );
 };

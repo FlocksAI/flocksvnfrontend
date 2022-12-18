@@ -87,6 +87,18 @@ const SCreateProject = styled.div`
   .ant-upload {
     width: 100%;
   }
+  .title-create-project {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .sub-title {
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: bold;
+  }
 `;
 
 export { SCompanyIndex, SForm, SCreateProject };

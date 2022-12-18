@@ -1,19 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { SCreateProject } from "../styled";
 import CustomForm from "../../../components/custom-form";
 import { useForm } from "react-hook-form";
-import { Col, Divider, Form, Input, Row, Select, Upload } from "antd";
+import {
+  Button,
+  Col,
+  DatePicker,
+  Divider,
+  Form,
+  Input,
+  Row,
+  Select,
+  Upload,
+} from "antd";
 import { TYPE_PROJECT } from "../constant";
+import { yupResolver } from "@hookform/resolvers/yup";
+import useCompany from "../useCompany";
+import moment from "moment";
+import UploadIndex from "../../../components/upload";
 
 const CreateProject = () => {
-  const { control } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { createCompany } = useCompany();
+  const [logoImage, setLogoImage] = useState<string>();
+  const [coverImage, setCoverImage] = useState<string>();
+  const onSubmit = async (data: any) => {
+    console.log(data);
+    const formatData = {
+      ...data,
+      closingDate: moment(data.closingDate).format("YYYY-MM-DD"),
+      founded: moment(data.founded).format("YYYY-MM-DD"),
+      presentDocument: [],
+      presentTeamMember: [],
+      presentDetails: [],
+    };
+    createCompany(formatData);
+  };
   return (
     <>
       <SCreateProject>
-        <div>
+        <div className="title-create-project">
           <span>Tạo Dự án</span>
         </div>
-        <div>
+        <div className="sub-title">
           <span>Thông tin cơ bản dự án</span>
         </div>
         <CustomForm
@@ -25,7 +58,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="companySubTitle"
           label="Phụ đề dự án"
           control={control}
           render={({ field }: any) => (
@@ -33,7 +66,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="abstract"
           label="Tóm tắt dự án"
           control={control}
           render={({ field }: any) => (
@@ -44,33 +77,34 @@ const CreateProject = () => {
           <Row>
             <Col span={4}>
               <div className="mb-2">Logo</div>
-              <Upload action="/upload.do" listType="picture-card">
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </Upload>
+              <UploadIndex
+                setRegistrationDocs={setLogoImage}
+                registrationDocs={logoImage}
+              />
             </Col>
             <Col span={2} />
             <Col span={16}>
               <div className="mb-2">Ảnh bìa</div>
-              <Upload action="/upload.do" listType="picture-card">
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </Upload>
+              <UploadIndex
+                setRegistrationDocs={setCoverImage}
+                registrationDocs={coverImage}
+                widthTrue={true}
+              />
             </Col>
           </Row>
         </Form.Item>
         <Divider />
-        <div>
+        <div className="sub-title">
           <span>Thông tin Công ty</span>
         </div>
         <CustomForm
-          name="companyName"
+          name="founded"
           label="Sáng lập"
           control={control}
-          render={({ field }: any) => (
-            <Input {...field} placeholder="Sáng lập" />
-          )}
+          render={({ field }: any) => <DatePicker {...field} />}
         />
         <CustomForm
-          name="companyName"
+          name="employees"
           label="Nhân viên"
           control={control}
           render={({ field }: any) => (
@@ -78,7 +112,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="website"
           label="Website"
           control={control}
           render={({ field }: any) => (
@@ -86,13 +120,13 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="email"
           label="Email"
           control={control}
           render={({ field }: any) => <Input {...field} placeholder="Email" />}
         />
         <CustomForm
-          name="companyName"
+          name="phoneNumber"
           label="Số điện thoại"
           control={control}
           render={({ field }: any) => (
@@ -100,13 +134,13 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="location"
           label="Vị trí"
           control={control}
           render={({ field }: any) => <Input {...field} placeholder="Vị trí" />}
         />
         <CustomForm
-          name="companyName"
+          name="facebook"
           label="Facebook"
           control={control}
           render={({ field }: any) => (
@@ -114,7 +148,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="twitter"
           label="Twitter"
           control={control}
           render={({ field }: any) => (
@@ -122,7 +156,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="linkedin"
           label="LinkedIn"
           control={control}
           render={({ field }: any) => (
@@ -130,7 +164,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="instagram"
           label="Istagram"
           control={control}
           render={({ field }: any) => (
@@ -138,7 +172,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="youtube"
           label="Youtube"
           control={control}
           render={({ field }: any) => (
@@ -146,11 +180,11 @@ const CreateProject = () => {
           )}
         />
         <Divider />
-        <div>
+        <div className="sub-title">
           <span>Thông tin dự án đầu tư</span>
         </div>
         <CustomForm
-          name="companyName"
+          name="category"
           label="Phân loại"
           control={control}
           render={({ field }: any) => (
@@ -163,7 +197,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="investmentTarget"
           label="Khoản đầu tư mục tiêu"
           control={control}
           render={({ field }: any) => (
@@ -171,7 +205,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="investmentMin"
           label="Đầu tư Tối thiểu"
           control={control}
           render={({ field }: any) => (
@@ -179,7 +213,7 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="pricePerShare"
           label="Gía Một Cổ Phần"
           control={control}
           render={({ field }: any) => (
@@ -187,13 +221,14 @@ const CreateProject = () => {
           )}
         />
         <CustomForm
-          name="companyName"
+          name="closingDate"
           label="Ngày Kết thúc"
           control={control}
-          render={({ field }: any) => (
-            <Input {...field} placeholder="Ngày Kết thúc" />
-          )}
+          render={({ field }: any) => <DatePicker {...field} />}
         />
+        <Button onClick={handleSubmit(onSubmit)} type="primary">
+          Nộp
+        </Button>
       </SCreateProject>
     </>
   );

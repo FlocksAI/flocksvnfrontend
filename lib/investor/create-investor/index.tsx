@@ -3,6 +3,7 @@ import { Button } from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { INVESTOR_PROFILE } from "../constant";
 import { SForm } from "../styled";
 import useInvestor from "../useInvestor";
 import CreateInvestorStep1 from "./create-investor-step1";
@@ -28,6 +29,7 @@ const CreateInvestorIndex = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+  console.log(errors);
   const { addInfoInvestor } = useInvestor();
   const [step, setStep] = useState(0);
   const onSubmit = async (data: any) => {
@@ -35,9 +37,31 @@ const CreateInvestorIndex = () => {
       setStep((pve) => pve + 1);
       return;
     }
-    const resp = await addInfoInvestor(data);
+    const investment_profile = {} as any;
+    const investment_details = [] as any;
+    for (const [key, value] of Object.entries(data)) {
+      if (INVESTOR_PROFILE.indexOf(key) !== -1) {
+        investment_profile[`${key}`] = value;
+      } else {
+        const tx = {
+          answer_text: [value],
+          question: key,
+        };
+        investment_details.push(tx);
+      }
+    }
+    const formatData = {
+      investment_profile: {
+        ...investment_profile,
+      },
+      investment_details: {
+        ...investment_details,
+      },
+    };
+    console.log(formatData);
+    const resp = await addInfoInvestor(formatData);
     console.log(resp);
-    console.log(data);
+    // console.log(data);
   };
   const handleContinue = () => {
     setStep((pve) => pve - 1);

@@ -19,3 +19,11 @@ export const STEP_3_CHECKBOX = [
   { label: "Twitter", value: "Twitter" },
   { label: "Instagram", value: "Instagram" },
 ];
+
+export const INVESTOR_PROFILE = [
+  "investorName",
+  "investorEmail",
+  "investorPhone",
+  "investorAddress",
+  "investorIdNumber",
+];

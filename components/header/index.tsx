@@ -4,10 +4,12 @@ import React from "react";
 import { SHeader } from "./styled";
 import { useRouter } from "next/router";
 import useWindowResize from "../../hook/useResize";
+import useProfile from "./useProfile";
 
 const Header = () => {
   const router = useRouter();
   const size = useWindowResize();
+  useProfile();
   return (
     <>
       <SHeader>

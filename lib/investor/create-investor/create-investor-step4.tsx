@@ -14,7 +14,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div className="mb-4">
         <CustomForm
-          name="age"
+          name="7"
           label=""
           classNameWrap="ds-mt-5"
           control={control}
@@ -41,7 +41,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div className="mb-4">
         <CustomForm
-          name="budget"
+          name="8"
           label=""
           classNameWrap="ds-mt-5"
           control={control}
@@ -67,7 +67,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div className="mb-4">
         <CustomForm
-          name="present"
+          name="9"
           label=""
           classNameWrap="ds-mt-5"
           control={control}
@@ -93,7 +93,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div className="mb-4">
         <CustomForm
-          name="type-investor"
+          name="10"
           label=""
           classNameWrap="ds-mt-5"
           control={control}

@@ -10,6 +10,10 @@ class CompanyRepositories extends HttpRequest {
   addInfoCompany(data: any) {
     return this.post(`company/add_more_info/`, data);
   }
+
+  createProject(data: any) {
+    return this.post(`company/company/presentation/create_presentation/`, data);
+  }
 }
 
 export default new CompanyRepositories();

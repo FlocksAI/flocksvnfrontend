@@ -11,6 +11,11 @@ const DEFAULT_HEADERS = {
   "X-Requested-With": "application/json",
 };
 
+const DEFAULT_HEADER = {
+  Accept: "application/json",
+  "X-Requested-With": "application/json",
+};
+
 export interface RequestParams {
   [key: string]: string | number | null | undefined | boolean;
 }
@@ -30,12 +35,17 @@ class HttpRequest {
     [key: string]: string;
   };
 
+  private readonly header: {
+    [key: string]: string;
+  };
+
   protected apiUrl: string;
   private readonly axios: AxiosStatic;
   private cancelToken: CancelTokenStatic;
 
   constructor() {
     this.headers = DEFAULT_HEADERS;
+    this.header = DEFAULT_HEADER;
     this.apiUrl = "";
     this.axios = axios;
     this.cancelToken = axios.CancelToken;
@@ -84,6 +94,15 @@ class HttpRequest {
     };
 
     return this.axios.delete(requestUrl, requestConfig);
+  }
+
+  upload(path: string, data?: RequestBody, config?: AxiosRequestConfig) {
+    const requestUrl = this.getURL(path);
+    const requestConfig: AxiosRequestConfig = {
+      headers: this.header,
+      ...config,
+    };
+    return this.axios.post(requestUrl, data, requestConfig);
   }
 }
 

@@ -14,24 +14,42 @@ const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
       <div style={{ marginBottom: 54 }}>
         <span>Chọn khung thu nhập hàng tháng của bạn?</span>
       </div>
-      <Slider
-        range
+      <CustomForm
+        name="3"
+        label=""
         defaultValue={[3000, 5000]}
-        step={1000}
-        min={0}
-        max={10000}
-        tooltip={{ open: true, formatter }}
+        classNameWrap="ds-mt-5"
+        control={control}
+        render={({ field }: any) => (
+          <Slider
+            {...field}
+            range
+            step={1000}
+            min={0}
+            max={10000}
+            tooltip={{ open: true, formatter }}
+          />
+        )}
       />
       <div style={{ marginBottom: 54, marginTop: 30 }}>
         <span>Chọn bao nhiêu bạn đầu tư bây giờ ?</span>
       </div>
-      <Slider
-        range
+      <CustomForm
+        name="4"
+        label=""
+        classNameWrap="ds-mt-5"
+        control={control}
         defaultValue={[3000, 5000]}
-        step={1000}
-        min={0}
-        max={10000}
-        tooltip={{ open: true, formatter }}
+        render={({ field }: any) => (
+          <Slider
+            {...field}
+            range
+            step={1000}
+            min={0}
+            max={10000}
+            tooltip={{ open: true, formatter }}
+          />
+        )}
       />
       <div>
         <span>
@@ -41,7 +59,7 @@ const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div className="radio-media">
         <CustomForm
-          name="media"
+          name="5"
           label=""
           classNameWrap="ds-mt-5"
           control={control}
@@ -58,7 +76,7 @@ const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <CustomForm
-          name="confirm"
+          name="6"
           label=""
           classNameWrap="ds-mt-5"
           control={control}

@@ -11,7 +11,7 @@ const CreateInvestorStep2: React.FC<CreateInvestInput> = ({
   return (
     <>
       <CustomForm
-        name="step2_1"
+        name="1"
         label="Những gì bạn sẽ đầu tư vào?"
         control={control}
         render={({ field }: any) => <Input {...field} placeholder="" />}
@@ -21,7 +21,7 @@ const CreateInvestorStep2: React.FC<CreateInvestInput> = ({
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <CustomForm
-          name="paymentMethod"
+          name="2"
           label=""
           classNameWrap="ds-mt-5"
           control={control}

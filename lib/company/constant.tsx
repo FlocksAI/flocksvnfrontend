@@ -43,3 +43,16 @@ export const TYPE_PROJECT = [
     label: "Lucy",
   },
 ];
+
+export const COMPANY_PROFILE = [
+  "company_name",
+  "website",
+  "email",
+  "address",
+  "phone_number",
+  "github",
+  "tax_receipt",
+  "entrepreneurName",
+  // "intro_video",
+  // "registration_docs"
+];

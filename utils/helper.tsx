@@ -1,11 +1,12 @@
+import Cookies from "js-cookie";
 export const getAuthToken = () => {
-  return window.localStorage.getItem("flocks_token");
+  return Cookies.get("flock_auth");
 };
 export const removeAuth = () => {
   const accessToken = getAuthToken();
   if (accessToken) {
-    window.localStorage.removeItem("flocks_token");
-    window.localStorage.removeItem("logged");
-    window.location.reload();
+    Cookies.remove("flock_auth");
+    Cookies.remove("logged");
+    // window.location.reload();
   }
 };

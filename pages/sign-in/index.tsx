@@ -1,5 +1,7 @@
 import React from "react";
-import SignInIndex from "../../lib/sign-in";
+import dynamic from "next/dynamic";
+
+const SignInIndex = dynamic(() => import("../../lib/sign-in"), { ssr: false });
 
 const SignInPage = () => {
   return (

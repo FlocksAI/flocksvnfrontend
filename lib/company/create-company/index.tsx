@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import ModalSuccess from "../../../components/modal-success";
+import { COMPANY_PROFILE } from "../constant";
 import { SForm } from "../styled";
 import useCompany from "../useCompany";
 import CreateCompanyStep1 from "./create-company-step1";
@@ -18,11 +19,11 @@ import CreateProject from "./create-project";
 
 const schema = yup
   .object({
-    companyName: yup.string().required("Trường bắt buộc"),
+    company_name: yup.string().required("Trường bắt buộc"),
     website: yup.string().required("Trường bắt buộc"),
     email: yup.string().required("Trường bắt buộc"),
     address: yup.string().required("Trường bắt buộc"),
-    phoneNumber: yup.string().required("Trường bắt buộc"),
+    phone_number: yup.string().required("Trường bắt buộc"),
   })
   .required();
 
@@ -34,23 +35,71 @@ const CreateCompanyIndex = () => {
   } = useForm({ resolver: yupResolver(schema) });
   const { addInfoCompany } = useCompany();
   const [step, setStep] = useState(0);
+  const [dataStep2, setDataStep2] = useState() as any;
+  const [introVideo, setIntroVideo] = useState<string>();
+  const [registrationDocs, setRegistrationDocs] = useState<string>();
+  const [taxReceipt, setTaxReceipt] = useState<string>();
+
   const onSubmit = async (data: any) => {
-    if (step < 8) {
+    if (step < 7) {
       setStep((pve) => pve + 1);
       return;
     }
+    const newData = {
+      ...data,
+      ...dataStep2,
+    };
+    const company_profile = {} as any;
+    const company_details = [] as any;
+    for (const [key, value] of Object.entries(newData)) {
+      if (COMPANY_PROFILE.indexOf(key) !== -1) {
+        company_profile[`${key}`] = value;
+      } else {
+        const tx = {
+          answer_text: [value],
+          question: key,
+        };
+        company_details.push(tx);
+      }
+    }
+    const formatData = {
+      company_profile: {
+        ...company_profile,
+      },
+      company_details: {
+        ...company_details,
+      },
+    };
+    console.log(formatData);
     const resp = await addInfoCompany(data);
-    console.log(resp);
-    console.log(data);
+    // console.log(resp);
+    // console.log(data);
   };
   const handleContinue = () => {
     setStep((pve) => pve - 1);
   };
   return (
     <SForm>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {step === 0 && <CreateCompanyStep1 control={control} errors={errors} />}
-        {step === 1 && <CreateCompanyStep2 control={control} />}
+      <form>
+        {step === 0 && (
+          <CreateProject
+          // control={control}
+          // errors={errors}
+          // introVideo={introVideo}
+          // registrationDocs={registrationDocs}
+          // taxReceipt={taxReceipt}
+          // setIntroVideo={(data) => setIntroVideo(data)}
+          // setRegistrationDocs={(data) => setRegistrationDocs(data)}
+          // setTaxReceipt={(data) => setTaxReceipt(data)}
+          />
+        )}
+        {step === 1 && (
+          <CreateCompanyStep2
+            handleContinue={handleContinue}
+            setData={(data) => setDataStep2(data)}
+            setStep={() => setStep(2)}
+          />
+        )}
         {step === 2 && <CreateCompanyStep3 control={control} />}
         {step === 3 && <CreateCompanyStep4 control={control} />}
         {step === 4 && <CreateCompanyStep5 control={control} />}
@@ -59,20 +108,25 @@ const CreateCompanyIndex = () => {
         {step === 7 && <CreateCompanyStep8 control={control} />}
         {step === 8 && <ModalSuccess />}
         {step === 9 && <CreateProject />}
-        <div className="btn-footer-create">
-          {step === 8 && (
-            <Button className="mr-2" onClick={() => setStep((pve) => pve + 1)}>
-              Tạo dự án
+        {step !== 1 && (
+          <div className="btn-footer-create" style={{ display: "flex" }}>
+            {step === 8 && (
+              <Button
+                className="mr-2"
+                onClick={() => setStep((pve) => pve + 1)}
+              >
+                Tạo dự án
+              </Button>
+            )}
+            <Button onClick={handleSubmit(onSubmit)} type="primary">
+              {step === 7 ? "Nộp" : "Tiếp theo"}
             </Button>
-          )}
-          <Button onClick={handleSubmit(onSubmit)} type="primary">
-            {step === 7 ? "Nộp" : "Tiếp theo"}
-          </Button>
-        </div>
-        {step !== 0 && step !== 8 && (
-          <Button className="back" onClick={() => handleContinue()}>
-            Quay lại
-          </Button>
+            {step !== 0 && step !== 8 && (
+              <Button className="back" onClick={() => handleContinue()}>
+                Quay lại
+              </Button>
+            )}
+          </div>
         )}
       </form>
     </SForm>

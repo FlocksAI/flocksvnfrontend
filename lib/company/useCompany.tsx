@@ -9,7 +9,15 @@ const useCompany = () => {
       console.log(error);
     }
   };
-  return { addInfoCompany };
+  const createCompany = async (data: any) => {
+    try {
+      const resp = await CompanyRepositories.createProject(data);
+      console.log(resp);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return { addInfoCompany, createCompany };
 };
 
 export default useCompany;
