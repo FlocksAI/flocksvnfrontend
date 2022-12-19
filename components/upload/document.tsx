@@ -6,27 +6,11 @@ import { getAuthToken } from "../../utils/helper";
 import { SUpload } from "./styled";
 import { API, URL_IMAGE } from "../../constant/api-constant";
 
-const imageTypes = ["image/jpeg", "image/png", "image/webp"];
-const videoTypes = [
-  "video/mp4",
-  "video/mpeg",
-  "video/ogg",
-  "video/webm",
-  "video/3gpp",
-  "video/3gpp2",
-  "video/wmv",
-  "video/avi",
-];
-const docTypes = [
-  ".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-];
-
-const UploadIndex = ({
+const UploadDocument = ({
   registrationDocs,
   setRegistrationDocs,
   widthTrue,
   isVideo = false,
-  types = "image",
 }: any) => {
   const [loading, setLoading] = useState(false);
   const [source, setSource] = useState<string>();
@@ -57,6 +41,8 @@ const UploadIndex = ({
     }
   };
   const handleFileChange = (event: any) => {
+    // event.preventdefault();
+    console.log(event);
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     setSource(url);
@@ -78,46 +64,16 @@ const UploadIndex = ({
   return (
     <SUpload widthTrue={widthTrue}>
       <label className="custom-file-input">
-        {!isVideo ? (
-          <>
-            <input
-              type="file"
-              accept={types === "image" ? imageTypes[0] : docTypes[0]}
-              onChange={handleUpload}
-            />
-            {registrationDocs ? (
-              <img
-                src={registrationDocs}
-                alt="avatar"
-                style={{ width: "100%", height: "100%", objectFit: "contain" }}
-              />
-            ) : (
-              uploadButton
-            )}
-          </>
-        ) : (
-          <>
-            <input
-              className="VideoInput_input"
-              type="file"
-              onChange={handleFileChange}
-              accept={videoTypes[0]}
-            />
-            {!source && uploadButton}
-            {source && (
-              <video
-                className="VideoInput_video"
-                width="100%"
-                height={94}
-                controls
-                src={source}
-              />
-            )}{" "}
-          </>
-        )}
+        <input
+          className="VideoInput_input"
+          type="file"
+          onChange={handleFileChange}
+          accept=".mov,.mp4"
+        />
+        {!source && uploadButton}
       </label>
     </SUpload>
   );
 };
 
-export default UploadIndex;
+export default UploadDocument;

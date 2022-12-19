@@ -15,6 +15,7 @@ import {
 import useCompany from "../useCompany";
 import moment from "moment";
 import UploadIndex from "../../../components/upload";
+import EdittorIndex from "../../../components/edit-tor";
 
 const CreateProject = () => {
   const {
@@ -25,6 +26,17 @@ const CreateProject = () => {
   const { createCompany, category } = useCompany();
   const [logoImage, setLogoImage] = useState<string>();
   const [coverImage, setCoverImage] = useState<string>();
+  const [edittorView] = useState([
+    {
+      title: "Overviews",
+    },
+    {
+      title: "Problem",
+    },
+    {
+      title: "Solution",
+    },
+  ]);
   const onSubmit = async (data: any) => {
     console.log(data);
     const formatData = {
@@ -223,6 +235,18 @@ const CreateProject = () => {
           control={control}
           render={({ field }: any) => <DatePicker {...field} />}
         />
+        <Divider />
+        <div className="sub-title">
+          <span>Tài liệu dự án</span>
+        </div>
+        <UploadIndex
+          setRegistrationDocs={setLogoImage}
+          registrationDocs={logoImage}
+          types="doc"
+        />
+        {edittorView.map((el, index) => (
+          <EdittorIndex key={index} title={el.title} />
+        ))}
         <Button onClick={handleSubmit(onSubmit)} type="primary">
           Nộp
         </Button>
