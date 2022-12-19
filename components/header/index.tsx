@@ -1,15 +1,22 @@
-import { Col, Row } from "antd";
+import { Avatar, Col, Popover, Row } from "antd";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { SHeader } from "./styled";
 import { useRouter } from "next/router";
 import useWindowResize from "../../hook/useResize";
 import useProfile from "./useProfile";
+import { getAuthToken } from "../../utils/helper";
+import { URL_IMAGE } from "../../constant/api-constant";
 
 const Header = () => {
   const router = useRouter();
   const size = useWindowResize();
-  useProfile();
+  const accessToken = getAuthToken();
+  const [open, setOpen] = useState(false);
+  const { dataMe } = useProfile();
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
   return (
     <>
       <SHeader>
@@ -50,20 +57,45 @@ const Header = () => {
           </Col>
           {size.width > 414 && (
             <Col xl={12} className="wrap-login">
-              <div className="wrap-right-head">
-                <button
-                  className="btn btn-sign-up pointed"
-                  onClick={() => router.push("/sign-up")}
+              {accessToken && dataMe ? (
+                <Popover
+                  trigger="click"
+                  onOpenChange={handleOpenChange}
+                  content={content}
+                  open={open}
+                  className="pointed"
                 >
-                  Đăng Ký
-                </button>
-                <button
-                  className="btn btn-sign-in pointed"
-                  onClick={() => router.push("/sign-in")}
-                >
-                  Đăng Nhập
-                </button>
-              </div>
+                  <Avatar
+                    src={
+                      <Image
+                        alt="avatar"
+                        src={
+                          `${URL_IMAGE}${dataMe?.avatar?.url}` ||
+                          "https://joeschmoe.io/api/v1/random"
+                        }
+                        width={32}
+                        height={32}
+                      />
+                    }
+                  />
+                  <span className="name-me">Ton Viet Nguyen</span>
+                </Popover>
+              ) : (
+                <div className="wrap-right-head">
+                  <button
+                    className="btn btn-sign-up pointed"
+                    onClick={() => router.push("/sign-up")}
+                  >
+                    Đăng Ký
+                  </button>
+                  <button
+                    className="btn btn-sign-in pointed"
+                    onClick={() => router.push("/sign-in")}
+                  >
+                    Đăng Nhập
+                  </button>
+                </div>
+              )}
             </Col>
           )}
         </Row>
@@ -72,4 +104,13 @@ const Header = () => {
   );
 };
 
+const content = (
+  <div>
+    <p className="pointed">Hồ sơ nhà đầu tư</p>
+    <p className="pointed">Hồ sơ công ty</p>
+    <p style={{ marginBottom: "unset" }} className="pointed">
+      Thoát
+    </p>
+  </div>
+);
 export default Header;

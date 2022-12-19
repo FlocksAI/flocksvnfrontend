@@ -13,6 +13,7 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
   taxReceipt,
   setRegistrationDocs,
   setTaxReceipt,
+  setIntroVideo,
 }) => {
   return (
     <>
@@ -83,9 +84,11 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
         registrationDocs={taxReceipt}
       />
       <div className="mb-2">Tải video giới thiệu</div>
-      <Upload action="/upload.do" listType="picture-card">
-        <div style={{ marginTop: 8 }}>Upload</div>
-      </Upload>
+      <UploadIndex
+        setRegistrationDocs={setIntroVideo}
+        registrationDocs={introVideo}
+        isVideo
+      />
     </>
   );
 };

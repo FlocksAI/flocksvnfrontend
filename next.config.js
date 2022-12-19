@@ -5,6 +5,9 @@ const nextConfig = {
   swcMinify: true,
   pageExtensions: ["tsx", "ts", "jsx", "js"],
   trailingSlash: true,
+  images: {
+    domains: ["uploads.flocks.vn"],
+  },
 };
 
 module.exports = withTM(nextConfig);

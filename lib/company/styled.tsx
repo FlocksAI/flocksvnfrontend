@@ -99,6 +99,28 @@ const SCreateProject = styled.div`
     font-size: 20px;
     font-weight: bold;
   }
+  .ant-picker {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+  }
+  .ant-input {
+    height: 45px;
+  }
+  .ant-select {
+    height: 45px;
+    border-radius: 10px;
+    .ant-select-selector {
+      height: 45px;
+    }
+  }
+  .ant-select-selection-search input {
+    height: 45px !important;
+  }
+  .ant-select-selection-item {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export { SCompanyIndex, SForm, SCreateProject };

@@ -70,10 +70,7 @@ const CreateCompanyIndex = () => {
         ...company_details,
       },
     };
-    console.log(formatData);
-    const resp = await addInfoCompany(data);
-    // console.log(resp);
-    // console.log(data);
+    await addInfoCompany(data);
   };
   const handleContinue = () => {
     setStep((pve) => pve - 1);
@@ -82,15 +79,15 @@ const CreateCompanyIndex = () => {
     <SForm>
       <form>
         {step === 0 && (
-          <CreateProject
-          // control={control}
-          // errors={errors}
-          // introVideo={introVideo}
-          // registrationDocs={registrationDocs}
-          // taxReceipt={taxReceipt}
-          // setIntroVideo={(data) => setIntroVideo(data)}
-          // setRegistrationDocs={(data) => setRegistrationDocs(data)}
-          // setTaxReceipt={(data) => setTaxReceipt(data)}
+          <CreateCompanyStep1
+            control={control}
+            errors={errors}
+            introVideo={introVideo}
+            registrationDocs={registrationDocs}
+            taxReceipt={taxReceipt}
+            setIntroVideo={(data) => setIntroVideo(data)}
+            setRegistrationDocs={(data) => setRegistrationDocs(data)}
+            setTaxReceipt={(data) => setTaxReceipt(data)}
           />
         )}
         {step === 1 && (

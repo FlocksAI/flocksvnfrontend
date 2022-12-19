@@ -46,6 +46,10 @@ const SHeader = styled.div`
     border: none;
     border-radius: 46px;
   }
+  .name-me {
+    margin-left: 12px;
+    font-size: 16px;
+  }
 `;
 
 const SDetailProjectPage = styled.div`

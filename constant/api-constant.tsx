@@ -12,3 +12,5 @@ export const CLIENT_ID =
   "327665832968-873rg5kfbd0ljvutkhe0v895102kk6il.apps.googleusercontent.com";
 
 export const FLOCK_LOCALSTORAGE = "flock_auth";
+
+export const URL_IMAGE = "https://uploads.flocks.vn";

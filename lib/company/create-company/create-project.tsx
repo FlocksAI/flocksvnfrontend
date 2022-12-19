@@ -11,10 +11,7 @@ import {
   Input,
   Row,
   Select,
-  Upload,
 } from "antd";
-import { TYPE_PROJECT } from "../constant";
-import { yupResolver } from "@hookform/resolvers/yup";
 import useCompany from "../useCompany";
 import moment from "moment";
 import UploadIndex from "../../../components/upload";
@@ -25,7 +22,7 @@ const CreateProject = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createCompany } = useCompany();
+  const { createCompany, category } = useCompany();
   const [logoImage, setLogoImage] = useState<string>();
   const [coverImage, setCoverImage] = useState<string>();
   const onSubmit = async (data: any) => {
@@ -192,7 +189,7 @@ const CreateProject = () => {
               {...field}
               style={{ width: "100%" }}
               allowClear
-              options={TYPE_PROJECT}
+              options={category}
             />
           )}
         />

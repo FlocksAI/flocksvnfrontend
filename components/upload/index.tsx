@@ -1,16 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { getAuthToken } from "../../utils/helper";
 import { SUpload } from "./styled";
+import { API, URL_IMAGE } from "../../constant/api-constant";
 
 const UploadIndex = ({
   registrationDocs,
   setRegistrationDocs,
   widthTrue,
+  isVideo = false,
 }: any) => {
   const [loading, setLoading] = useState(false);
+  const [source, setSource] = useState<string>();
+  console.log(isVideo);
   const handleUpload = async (event: any) => {
     try {
       setLoading(true);
@@ -24,20 +28,25 @@ const UploadIndex = ({
         },
       };
       const resp = await axios.post(
-        "https://api.flocks.vn/api/v1/media/upload_media_file/",
+        `${API.autopay.domain}/media/upload_media_file/`,
         formData,
         config
       );
-      console.log(resp.data);
       if (resp.data) {
-        setRegistrationDocs(`https://uploads.flocks.vn/${resp.data?.url}`);
+        setRegistrationDocs(`${URL_IMAGE}/${resp.data?.url}`);
       }
-      console.log(resp);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
+  };
+  const handleFileChange = (event: any) => {
+    // event.preventdefault();
+    console.log(event);
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    setSource(url);
   };
   const uploadButton = (
     <div
@@ -56,15 +65,38 @@ const UploadIndex = ({
   return (
     <SUpload widthTrue={widthTrue}>
       <label className="custom-file-input">
-        <input type="file" title="" onChange={handleUpload} />
-        {registrationDocs ? (
-          <img
-            src={registrationDocs}
-            alt="avatar"
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
-          />
+        {!isVideo ? (
+          <>
+            <input type="file" title="" onChange={handleUpload} />
+            {registrationDocs ? (
+              <img
+                src={registrationDocs}
+                alt="avatar"
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              />
+            ) : (
+              uploadButton
+            )}
+          </>
         ) : (
-          uploadButton
+          <>
+            <input
+              className="VideoInput_input"
+              type="file"
+              onChange={handleFileChange}
+              accept=".mov,.mp4"
+            />
+            {!source && uploadButton}
+            {source && (
+              <video
+                className="VideoInput_video"
+                width="100%"
+                height={94}
+                controls
+                src={source}
+              />
+            )}{" "}
+          </>
         )}
       </label>
     </SUpload>

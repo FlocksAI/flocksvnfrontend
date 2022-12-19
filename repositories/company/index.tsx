@@ -7,6 +7,10 @@ class CompanyRepositories extends HttpRequest {
     this.apiUrl = API.autopay.domain;
   }
 
+  getCategory() {
+    return this.get("company/company/presentation/company_category/");
+  }
+
   addInfoCompany(data: any) {
     return this.post(`company/add_more_info/`, data);
   }
