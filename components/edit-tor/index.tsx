@@ -5,16 +5,22 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const EdittorIndex = ({ defaultValue, title }: any) => {
-  const onChange = () => {};
+const EdittorIndex = ({ defaultValue, title, onContentChange }: any) => {
   return (
     <div style={{ marginBottom: 24 }}>
-      <div style={{ height: 56, display: "flex", alignItems: "center" }}>
+      <div
+        style={{
+          height: 56,
+          display: "flex",
+          alignItems: "center",
+          fontSize: 18,
+        }}
+      >
         <span>{title || "Overview"}</span>
       </div>
       <SunEditor
         height="350"
-        onChange={onChange}
+        onChange={onContentChange}
         name="edit"
         defaultValue={defaultValue}
         setOptions={{

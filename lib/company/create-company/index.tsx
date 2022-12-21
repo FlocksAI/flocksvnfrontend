@@ -56,7 +56,7 @@ const CreateCompanyIndex = () => {
         company_profile[`${key}`] = value;
       } else {
         const tx = {
-          answer_text: [value],
+          answer_text: [value || ""],
           question: key,
         };
         company_details.push(tx);

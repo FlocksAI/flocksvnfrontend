@@ -121,6 +121,16 @@ const SCreateProject = styled.div`
     display: flex;
     align-items: center;
   }
+  .ant-input-number {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+  }
+  .ant-input-number-input-wrap {
+    height: 45px;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export { SCompanyIndex, SForm, SCreateProject };

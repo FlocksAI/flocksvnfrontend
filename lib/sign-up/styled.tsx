@@ -26,7 +26,7 @@ const SSignUpDetail = styled("div")<{ size: boolean }>`
           height: 100vh;
         `}
   .wrap-sign-up {
-    padding: 52px 0px 0px 118px;
+    padding: 24px 0px 0px 118px;
     margin-top: 36px;
     border-radius: 64px 64px 0px 0px;
     background: #ffffff;
@@ -44,7 +44,7 @@ const SSignUpDetail = styled("div")<{ size: boolean }>`
     margin-bottom: 24px;
   }
   .welcome {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
@@ -56,7 +56,7 @@ const SSignUpDetail = styled("div")<{ size: boolean }>`
     color: #7a7a7a;
   }
   .custom-sign-in-group {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
   .custom-sign-in-item {
     height: 56px;
@@ -67,7 +67,7 @@ const SSignUpDetail = styled("div")<{ size: boolean }>`
     }
   }
   .title-content {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .sign-up {
     font-weight: 700;
@@ -88,7 +88,7 @@ const SSignUpDetail = styled("div")<{ size: boolean }>`
   }
   .wrap-btn-login {
     display: flex;
-    margin-top: 36px;
+    margin-top: 30px;
     button {
       display: flex;
       justify-content: center;

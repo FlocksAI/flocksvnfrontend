@@ -11,6 +11,7 @@ import {
   Input,
   Row,
   Select,
+  InputNumber,
 } from "antd";
 import useCompany from "../useCompany";
 import moment from "moment";
@@ -26,28 +27,46 @@ const CreateProject = () => {
   const { createCompany, category } = useCompany();
   const [logoImage, setLogoImage] = useState<string>();
   const [coverImage, setCoverImage] = useState<string>();
-  const [edittorView] = useState([
+  const [registrationDocs, setRegistrationDocs] = useState<string>();
+  const [detailSections, setDetailSections] = React.useState([
     {
-      title: "Overviews",
+      title: "Overview",
+      titleErr: "",
+      details: "",
+      detailsErr: "",
+      isNew: false,
     },
     {
       title: "Problem",
+      titleErr: "",
+      details: "",
+      detailsErr: "",
+      isNew: false,
     },
     {
       title: "Solution",
+      titleErr: "",
+      details: "",
+      detailsErr: "",
+      isNew: false,
     },
   ]);
   const onSubmit = async (data: any) => {
-    console.log(data);
     const formatData = {
       ...data,
       closingDate: moment(data.closingDate).format("YYYY-MM-DD"),
       founded: moment(data.founded).format("YYYY-MM-DD"),
-      presentDocument: [],
+      presentDocument: registrationDocs,
       presentTeamMember: [],
-      presentDetails: [],
+      presentDetails: detailSections,
     };
     createCompany(formatData);
+  };
+  const handleContentChange = (content: any, index: any) => {
+    const data = [...detailSections];
+    data[index].details = content;
+    data[index].detailsErr = "";
+    setDetailSections(data);
   };
   return (
     <>
@@ -117,7 +136,7 @@ const CreateProject = () => {
           label="Nhân viên"
           control={control}
           render={({ field }: any) => (
-            <Input {...field} placeholder="Nhân viên" />
+            <InputNumber {...field} placeholder="Nhân viên" />
           )}
         />
         <CustomForm
@@ -210,7 +229,7 @@ const CreateProject = () => {
           label="Khoản đầu tư mục tiêu"
           control={control}
           render={({ field }: any) => (
-            <Input {...field} placeholder="Khoản đầu tư mục tiêu" />
+            <InputNumber {...field} placeholder="Khoản đầu tư mục tiêu" />
           )}
         />
         <CustomForm
@@ -218,15 +237,15 @@ const CreateProject = () => {
           label="Đầu tư Tối thiểu"
           control={control}
           render={({ field }: any) => (
-            <Input {...field} placeholder="Đầu tư Tối thiểu" />
+            <InputNumber {...field} placeholder="Đầu tư Tối thiểu" />
           )}
         />
         <CustomForm
           name="pricePerShare"
-          label="Gía Một Cổ Phần"
+          label="Giá Một Cổ Phần"
           control={control}
           render={({ field }: any) => (
-            <Input {...field} placeholder="Gía Một Cổ Phần" />
+            <InputNumber {...field} placeholder="Gía Một Cổ Phần" />
           )}
         />
         <CustomForm
@@ -240,12 +259,18 @@ const CreateProject = () => {
           <span>Tài liệu dự án</span>
         </div>
         <UploadIndex
-          setRegistrationDocs={setLogoImage}
-          registrationDocs={logoImage}
+          setRegistrationDocs={setRegistrationDocs}
+          registrationDocs={registrationDocs}
           types="doc"
         />
-        {edittorView.map((el, index) => (
-          <EdittorIndex key={index} title={el.title} />
+        {detailSections.map((el, index) => (
+          <EdittorIndex
+            key={index}
+            title={el.title}
+            onContentChange={(content: any) =>
+              handleContentChange(content, index)
+            }
+          />
         ))}
         <Button onClick={handleSubmit(onSubmit)} type="primary">
           Nộp

@@ -43,7 +43,7 @@ const UploadIndex = ({
         },
       };
       const resp = await axios.post(
-        `${API.autopay.domain}/media/upload_media_file/`,
+        `${API.autopay.domain}media/upload_media_file/`,
         formData,
         config
       );

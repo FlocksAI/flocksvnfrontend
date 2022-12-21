@@ -6,16 +6,30 @@ import { SignupInput } from "./interface";
 import { SSignUpDetail } from "./styled";
 import { GoogleLogin } from "react-google-login";
 import { CLIENT_ID } from "../../constant/api-constant";
+import useSignUp from "./useSignUp";
 
 const SignUpDetail: React.FC<SignupInput> = (props) => {
   const { size } = props;
   const { control, handleSubmit } = useForm();
+  const { signUpEmailPassword } = useSignUp();
   const onFailLogin = (res: any) => {
     console.log(res);
     message.warning("login Fail", res);
   };
   const responseGoogle = (response: any) => {
     console.log(response.accessToken);
+  };
+  const onSubmit = async (data: any) => {
+    try {
+      const newData = {
+        ...data,
+        signup_platform: "website",
+      };
+      await signUpEmailPassword(newData);
+      message.success("Đăng ký thành công, vui lòng kiểm tra email");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -33,8 +47,22 @@ const SignUpDetail: React.FC<SignupInput> = (props) => {
           <Row>
             <Col xl={12} xs={24}>
               <CustomForm
-                name="name"
-                label="Họ & Tên"
+                name="firstName"
+                label="Tên"
+                classNameWrap="custom-sign-in-group"
+                classNameForm="custom-sign-in-item"
+                control={control}
+                render={({ field }: any) => (
+                  <Input
+                    placeholder="Nhập tên của bạn"
+                    {...field}
+                    autoComplete="false"
+                  />
+                )}
+              />
+              <CustomForm
+                name="lastName"
+                label="Họ"
                 classNameWrap="custom-sign-in-group"
                 classNameForm="custom-sign-in-item"
                 control={control}
@@ -89,7 +117,12 @@ const SignUpDetail: React.FC<SignupInput> = (props) => {
             </Checkbox>
           </div>
           <div className="wrap-btn-login">
-            <button className="sign-up pointed">Đăng nhập</button>
+            <button
+              className="sign-up pointed"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Đăng nhập
+            </button>
             <GoogleLogin
               clientId={CLIENT_ID}
               buttonText="Login"

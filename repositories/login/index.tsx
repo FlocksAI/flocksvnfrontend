@@ -14,6 +14,14 @@ class LoginRepositories extends HttpRequest {
   loginGoogle(provider: RequestParams) {
     return this.get(`auth/social/oauth_uri`, provider);
   }
+
+  signUpEmailPassword(data: any) {
+    return this.post(`auth/email/sign_up/`, data);
+  }
+
+  verifyEmailPassword(token: RequestParams) {
+    return this.post("auth/email/sign_up/verify/", token);
+  }
 }
 
 export default new LoginRepositories();
