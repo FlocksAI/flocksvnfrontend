@@ -16,6 +16,7 @@ const CreateInvestorStep5: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="11"
           label=""
+          defaultValue="To maintain the value of your original investment"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (
@@ -48,6 +49,7 @@ const CreateInvestorStep5: React.FC<CreateInvestInput> = ({ control }) => {
       <div className="mb-4">
         <CustomForm
           name="12"
+          defaultValue="Within 3 years"
           label=""
           classNameWrap="ds-mt-5"
           control={control}

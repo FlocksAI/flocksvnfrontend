@@ -16,6 +16,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="7"
           label=""
+          defaultValue="30 and under"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (
@@ -43,6 +44,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="8"
           label=""
+          defaultValue="Under $50,000"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (
@@ -71,6 +73,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
           label=""
           classNameWrap="ds-mt-5"
           control={control}
+          defaultValue="Greater than 12%"
           render={({ field: { onChange, value } }: any) => (
             <Radio.Group
               value={value}
@@ -95,6 +98,7 @@ const CreateInvestorStep4: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="10"
           label=""
+          defaultValue="very secure and stable"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (

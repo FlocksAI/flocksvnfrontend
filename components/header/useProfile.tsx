@@ -11,6 +11,7 @@ const useProfile = () => {
       const resp = await ProfileRepositories.getProfileMe();
       if (!resp.data) {
         setDataMe();
+        return;
       }
       setDataMe(resp.data);
     } catch (error) {

@@ -19,6 +19,7 @@ const CreateInvestorStep6: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="13"
           label=""
+          defaultValue="Cut your losses, sell your investments and hold cash with your entire account balance"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (
@@ -57,6 +58,7 @@ const CreateInvestorStep6: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="14"
           label=""
+          defaultValue="Minor fluctuations are tolerable knowing you will likely get a lower return"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (

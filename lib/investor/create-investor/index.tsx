@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -44,16 +44,18 @@ const CreateInvestorIndex = () => {
           investment_profile[`${key}`] = value;
         } else {
           let tx;
-          if (value?.length > 0) {
+          if (Array.isArray(value)) {
+            console.log(value);
             tx = {
-              answer_text: [...value][0],
+              answer_text: value,
+              question: key,
+            };
+          } else {
+            tx = {
+              answer_text: [value],
               question: key,
             };
           }
-          tx = {
-            answer_text: [value || ""],
-            question: key,
-          };
           investment_details.push(tx);
         }
       }
@@ -61,13 +63,12 @@ const CreateInvestorIndex = () => {
         investment_profile: {
           ...investment_profile,
         },
-        investment_details: {
-          ...investment_details,
-        },
+        investment_details: [...investment_details],
       };
       await addInfoInvestor(formatData);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+      message.error(error?.response?.data?.detail);
     }
   };
   const handleContinue = () => {

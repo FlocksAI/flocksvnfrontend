@@ -61,6 +61,7 @@ const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="5"
           label=""
+          defaultValue="Facebook"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field }: any) => (
@@ -78,6 +79,7 @@ const CreateInvestorStep3: React.FC<CreateInvestInput> = ({ control }) => {
         <CustomForm
           name="6"
           label=""
+          defaultValue="yes"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field: { onChange, value } }: any) => (

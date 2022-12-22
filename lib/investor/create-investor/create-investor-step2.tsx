@@ -12,6 +12,7 @@ const CreateInvestorStep2: React.FC<CreateInvestInput> = ({
     <>
       <CustomForm
         name="1"
+        defaultValue="1"
         label="Những gì bạn sẽ đầu tư vào?"
         control={control}
         render={({ field }: any) => <Input {...field} placeholder="" />}
@@ -23,6 +24,7 @@ const CreateInvestorStep2: React.FC<CreateInvestInput> = ({
         <CustomForm
           name="2"
           label=""
+          defaultValue="Công nghệ"
           classNameWrap="ds-mt-5"
           control={control}
           render={({ field }: any) => (
