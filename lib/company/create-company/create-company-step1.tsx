@@ -18,10 +18,10 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
   return (
     <>
       <CustomForm
-        name="company_name"
+        name="companyName"
         label="Tên nhà đầu tư"
         control={control}
-        error={errors?.company_name?.message}
+        error={errors?.companyName?.message}
         render={({ field }: any) => (
           <Input {...field} placeholder="Tên nhà đầu tư" />
         )}
@@ -59,9 +59,9 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
         render={({ field }: any) => <Input {...field} placeholder="Địa chỉ" />}
       />
       <CustomForm
-        name="phone_number"
+        name="phoneNumber"
         label="Số điện thoại"
-        error={errors?.phone_number?.message}
+        error={errors?.phoneNumber?.message}
         control={control}
         render={({ field }: any) => (
           <Input {...field} placeholder="Số điện thoại" />

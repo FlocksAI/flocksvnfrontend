@@ -19,11 +19,11 @@ import CreateProject from "./create-project";
 
 const schema = yup
   .object({
-    company_name: yup.string().required("Trường bắt buộc"),
+    companyName: yup.string().required("Trường bắt buộc"),
     website: yup.string().required("Trường bắt buộc"),
     email: yup.string().required("Trường bắt buộc"),
     address: yup.string().required("Trường bắt buộc"),
-    phone_number: yup.string().required("Trường bắt buộc"),
+    phoneNumber: yup.string().required("Trường bắt buộc"),
   })
   .required();
 
@@ -49,30 +49,40 @@ const CreateCompanyIndex = () => {
       ...data,
       ...dataStep2,
     };
-    const company_profile = {} as any;
-    const company_details = [] as any;
+    const companyProfile = {} as any;
+    const companyDetails = [] as any;
     for (const [key, value] of Object.entries(newData)) {
       if (COMPANY_PROFILE.indexOf(key) !== -1) {
-        company_profile[`${key}`] = value;
+        if (key === "entrepreneurName") {
+          companyProfile[`${key}`] = [value];
+        } else {
+          companyProfile[`${key}`] = value;
+        }
       } else {
-        const tx = {
-          answer_text: [value || ""],
-          question: key,
-        };
-        company_details.push(tx);
+        if (value) {
+          const tx = {
+            answer_text: [value],
+            question: key,
+          };
+          companyDetails.push(tx);
+        }
       }
     }
     const formatData = {
-      company_profile: {
-        ...company_profile,
+      companyProfile: {
+        ...companyProfile,
       },
-      company_details: {
-        ...company_details,
-      },
+      companyDetails,
     };
-    await addInfoCompany(data);
+    const resp = await addInfoCompany(formatData);
+    if (resp.data) {
+      setStep((pve) => pve + 1);
+    }
   };
   const handleContinue = () => {
+    setStep((pve) => pve + 1);
+  };
+  const handleBack = () => {
     setStep((pve) => pve - 1);
   };
   return (
@@ -103,23 +113,17 @@ const CreateCompanyIndex = () => {
         {step === 5 && <CreateCompanyStep6 control={control} />}
         {step === 6 && <CreateCompanyStep7 control={control} />}
         {step === 7 && <CreateCompanyStep8 control={control} />}
-        {step === 8 && <ModalSuccess />}
+        {step === 8 && <ModalSuccess handleContinue={handleContinue} />}
         {step === 9 && <CreateProject />}
         {step !== 1 && (
           <div className="btn-footer-create" style={{ display: "flex" }}>
-            {step === 8 && (
-              <Button
-                className="mr-2"
-                onClick={() => setStep((pve) => pve + 1)}
-              >
-                Tạo dự án
+            {step < 8 && (
+              <Button onClick={handleSubmit(onSubmit)} type="primary">
+                {step < 7 ? "Tiếp theo" : "Nộp"}
               </Button>
             )}
-            <Button onClick={handleSubmit(onSubmit)} type="primary">
-              {step === 7 ? "Nộp" : "Tiếp theo"}
-            </Button>
             {step !== 0 && step !== 8 && (
-              <Button className="back" onClick={() => handleContinue()}>
+              <Button className="back" onClick={() => handleBack()}>
                 Quay lại
               </Button>
             )}

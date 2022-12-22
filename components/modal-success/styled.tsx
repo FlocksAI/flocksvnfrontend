@@ -26,6 +26,12 @@ const SModalSuccess = styled.div`
     text-align: center;
     color: rgb(59, 78, 86);
   }
+  .btn-create-project {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
 `;
 
 const SModalSuccessInvestor = styled.div`

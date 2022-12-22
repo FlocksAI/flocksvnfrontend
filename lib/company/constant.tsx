@@ -45,13 +45,13 @@ export const TYPE_PROJECT = [
 ];
 
 export const COMPANY_PROFILE = [
-  "company_name",
+  "companyName",
   "website",
   "email",
   "address",
-  "phone_number",
+  "phoneNumber",
   "github",
-  "tax_receipt",
+  "taxReceipt",
   "entrepreneurName",
   // "intro_video",
   // "registration_docs"

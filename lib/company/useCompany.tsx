@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { useEffect, useState } from "react";
 import CompanyRepositories from "../../repositories/company";
 
@@ -8,10 +9,13 @@ const useCompany = () => {
   }, []);
   const addInfoCompany = async (data: any) => {
     try {
-      const resp = await CompanyRepositories.addInfoCompany(data);
-      console.log(resp);
-    } catch (error) {
+      return await CompanyRepositories.addInfoCompany(data);
+    } catch (error: any) {
       console.log(error);
+      message.error(
+        error?.response?.data?.companyProfile?.companyName[0] ||
+          error?.response?.data?.companyDetails
+      );
     }
   };
   const clone = (obj: any) => Object.assign({}, obj);
@@ -47,8 +51,7 @@ const useCompany = () => {
   };
   const createCompany = async (data: any) => {
     try {
-      const resp = await CompanyRepositories.createProject(data);
-      console.log(resp);
+      await CompanyRepositories.createProject(data);
     } catch (error) {
       console.log(error);
     }
