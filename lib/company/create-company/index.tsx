@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Form } from "antd";
+import { Button, Form, message } from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -23,6 +23,7 @@ const schema = yup
     website: yup.string().required("Trường bắt buộc"),
     email: yup.string().required("Trường bắt buộc"),
     address: yup.string().required("Trường bắt buộc"),
+    entrepreneurName: yup.string().required("Trường bắt buộc"),
     phoneNumber: yup.string().required("Trường bắt buộc"),
   })
   .required();
@@ -35,6 +36,7 @@ const CreateCompanyIndex = () => {
   } = useForm({ resolver: yupResolver(schema) });
   const { addInfoCompany } = useCompany();
   const [step, setStep] = useState(0);
+  const [idCompany, setIdCompany] = useState();
   const [dataStep2, setDataStep2] = useState() as any;
   const [introVideo, setIntroVideo] = useState<string>();
   const [registrationDocs, setRegistrationDocs] = useState<string>();
@@ -75,8 +77,12 @@ const CreateCompanyIndex = () => {
       companyDetails,
     };
     const resp = await addInfoCompany(formatData);
-    if (resp.data) {
+    if (!resp?.data) {
+      message.error("Tạo hồ sơ thất bại thử lại sau");
+    }
+    if (resp?.data) {
       setStep((pve) => pve + 1);
+      setIdCompany(resp.data.companyProfile.id);
     }
   };
   const handleContinue = () => {
@@ -102,7 +108,7 @@ const CreateCompanyIndex = () => {
         )}
         {step === 1 && (
           <CreateCompanyStep2
-            handleContinue={handleContinue}
+            handleContinue={handleBack}
             setData={(data) => setDataStep2(data)}
             setStep={() => setStep(2)}
           />
@@ -114,7 +120,7 @@ const CreateCompanyIndex = () => {
         {step === 6 && <CreateCompanyStep7 control={control} />}
         {step === 7 && <CreateCompanyStep8 control={control} />}
         {step === 8 && <ModalSuccess handleContinue={handleContinue} />}
-        {step === 9 && <CreateProject />}
+        {step === 9 && <CreateProject idCompany={idCompany} />}
         {step !== 1 && (
           <div className="btn-footer-create" style={{ display: "flex" }}>
             {step < 8 && (
@@ -122,7 +128,7 @@ const CreateCompanyIndex = () => {
                 {step < 7 ? "Tiếp theo" : "Nộp"}
               </Button>
             )}
-            {step !== 0 && step !== 8 && (
+            {step !== 0 && step !== 8 && step !== 9 && (
               <Button className="back" onClick={() => handleBack()}>
                 Quay lại
               </Button>

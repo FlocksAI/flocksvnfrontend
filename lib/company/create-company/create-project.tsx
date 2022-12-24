@@ -12,13 +12,14 @@ import {
   Row,
   Select,
   InputNumber,
+  message,
 } from "antd";
 import useCompany from "../useCompany";
 import moment from "moment";
 import UploadIndex from "../../../components/upload";
 import EdittorIndex from "../../../components/edit-tor";
 
-const CreateProject = () => {
+const CreateProject = ({ idCompany }: any) => {
   const {
     control,
     handleSubmit,
@@ -28,6 +29,7 @@ const CreateProject = () => {
   const [logoImage, setLogoImage] = useState<string>();
   const [coverImage, setCoverImage] = useState<string>();
   const [registrationDocs, setRegistrationDocs] = useState<string>();
+  const [idRegistrationDocs, setIdRegistrationDocs] = useState<string>();
   const [detailSections, setDetailSections] = React.useState([
     {
       title: "Overview",
@@ -52,11 +54,27 @@ const CreateProject = () => {
     },
   ]);
   const onSubmit = async (data: any) => {
+    if (!registrationDocs) {
+      message.error("Tài liệu dự án là bắt buộc");
+    }
+    if (
+      detailSections[0].details === "" ||
+      detailSections[1].details === "" ||
+      detailSections[2].details === ""
+    ) {
+      message.error("Vui lòng nhập Overview, Problem, Solution");
+    }
     const formatData = {
       ...data,
+      company: idCompany,
       closingDate: moment(data.closingDate).format("YYYY-MM-DD"),
       founded: moment(data.founded).format("YYYY-MM-DD"),
-      presentDocument: registrationDocs,
+      presentDocument: [
+        {
+          file_name: registrationDocs,
+          file: idRegistrationDocs,
+        },
+      ],
       presentTeamMember: [],
       presentDetails: detailSections,
     };
@@ -261,6 +279,7 @@ const CreateProject = () => {
         <UploadIndex
           setRegistrationDocs={setRegistrationDocs}
           registrationDocs={registrationDocs}
+          setIdRegistrationDocs={setIdRegistrationDocs}
           types="doc"
         />
         {detailSections.map((el, index) => (

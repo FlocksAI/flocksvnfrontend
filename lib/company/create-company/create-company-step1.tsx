@@ -30,6 +30,7 @@ const CreateCompanyStep1: React.FC<CreateCompanyInput> = ({
         name="entrepreneurName"
         label="Tách các tên Chủ doanh nghiệp bằng thẻ tab hoặc enter"
         control={control}
+        error={errors?.entrepreneurName?.message}
         render={({ field }: any) => (
           <Input
             {...field}

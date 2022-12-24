@@ -26,6 +26,7 @@ const UploadIndex = ({
   setRegistrationDocs,
   widthTrue,
   isVideo = false,
+  setIdRegistrationDocs,
   types = "image",
 }: any) => {
   const [loading, setLoading] = useState(false);
@@ -47,8 +48,11 @@ const UploadIndex = ({
         formData,
         config
       );
-      if (resp.data) {
+      if (resp?.data?.url) {
         setRegistrationDocs(`${URL_IMAGE}/${resp.data?.url}`);
+      }
+      if (resp?.data?.id) {
+        setIdRegistrationDocs(resp?.data?.id);
       }
     } catch (error) {
       console.log(error);
