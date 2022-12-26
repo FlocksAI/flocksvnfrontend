@@ -1,5 +1,5 @@
 import { Col, Row } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import CardIndex from "../../components/card";
 import SearchBox from "../../components/search-box";
 import SubHeadIndex from "../../components/sub-header";
@@ -7,9 +7,7 @@ import { SProject } from "./styled";
 import useProject from "../../hook/project/useProject";
 
 const ProjectIndex = () => {
-  const [card] = useState(new Array(8).fill(0));
   const { dataProject } = useProject();
-  console.log(dataProject);
   return (
     <SProject>
       <SubHeadIndex
@@ -31,10 +29,11 @@ const ProjectIndex = () => {
                 <CardIndex
                   id={el.id}
                   abstract={el.abstract}
-                  collectedBudget={el.collectedBudget}
+                  collectedBudget={Number(el.collectedBudget)}
                   companyName={el.companyName}
-                  investmentTarget={el.investmentTarget}
+                  investmentTarget={Number(el.investmentTarget)}
                   numberInvestors={el.numberInvestors}
+                  coverImage={el.coverImage}
                 />
               </Col>
             );

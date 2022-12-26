@@ -8,7 +8,8 @@ export default function useProject() {
   }, []);
   const fetchData = async () => {
     try {
-      const resp = await ProjectRepositorie.getListProject();
+      const params = "expand=cover_image" as any;
+      const resp = await ProjectRepositorie.getListProject(params);
       setDataProject(resp.data.results);
     } catch (error) {
       console.log("Fetch Data Project Error", error);

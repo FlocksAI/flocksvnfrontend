@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_KEY } from "../constant/api-constant";
 import { getAuthToken, removeAuth } from "../utils/helper";
 
 axios.interceptors.request.use(
@@ -8,6 +9,7 @@ axios.interceptors.request.use(
     if (accessToken) {
       const headers = {
         Authorization: `Bearer ${accessToken}`,
+        "api-key": API_KEY,
       };
 
       config.headers = Object.assign(config.headers, headers);

@@ -3,12 +3,23 @@ import { Divider, Progress } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import { MEDIA_PUBLIC } from "../../constant/api-constant";
+import { formatNumber } from "../../helper";
 import { IDataProject } from "./interface";
 import SCard from "./styled";
 
 const CardIndex: React.FC<IDataProject> = (props) => {
   const router = useRouter();
-  const { id, abstract, companyName, numberInvestors } = props;
+  const {
+    id,
+    abstract,
+    companyName,
+    numberInvestors,
+    collectedBudget,
+    investmentTarget,
+    coverImage,
+  } = props;
+  const percent = (collectedBudget * 100) / investmentTarget;
   return (
     <>
       <SCard>
@@ -16,7 +27,9 @@ const CardIndex: React.FC<IDataProject> = (props) => {
           <div className="parent-image">
             <img
               alt="people"
-              src="/image/home/people.png"
+              src={
+                `${MEDIA_PUBLIC}${coverImage.url}` || "/image/home/people.png"
+              }
               className="main-image"
             />
             <Image
@@ -45,8 +58,12 @@ const CardIndex: React.FC<IDataProject> = (props) => {
         <Divider />
         <div className="wrap-price">
           <div className="price">
-            <span className="command-price first-price">$90,000 </span>
-            <span className="command-price second-price">/ $120.000 </span>
+            <span className="command-price first-price">
+              ${collectedBudget}{" "}
+            </span>
+            <span className="command-price second-price">
+              / ${investmentTarget}{" "}
+            </span>
           </div>
           <div className="progress">
             <Progress
@@ -54,12 +71,12 @@ const CardIndex: React.FC<IDataProject> = (props) => {
                 "0%": "#108ee9",
                 "100%": "#87d068",
               }}
-              percent={99.9}
+              percent={Number(formatNumber(percent, 0, 2))}
             />
           </div>
           <div className="item-investor">
             <span>{numberInvestors} Investors</span>
-            <span className="present">60%</span>
+            <span className="present">{formatNumber(percent, 0, 2)}%</span>
           </div>
         </div>
       </SCard>

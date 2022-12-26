@@ -8,7 +8,13 @@ export interface IDataProject {
   id: string;
   companyName: string;
   abstract: string;
-  collectedBudget: string | number;
-  investmentTarget: string | number;
+  collectedBudget: number;
+  investmentTarget: number;
   numberInvestors: string | number;
+  coverImage: TCoverImage;
 }
+
+type TCoverImage = {
+  mediaType: string;
+  url: string;
+};

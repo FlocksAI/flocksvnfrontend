@@ -1,4 +1,4 @@
-import HttpRequest from "../../config/http-request";
+import HttpRequest, { RequestParams } from "../../config/http-request";
 import { API } from "../../constant/api-constant";
 
 class ProjectRepositories extends HttpRequest {
@@ -6,8 +6,8 @@ class ProjectRepositories extends HttpRequest {
     super();
     this.apiUrl = API.autopay.domain;
   }
-  getListProject() {
-    return this.get(`company/company/presentation`);
+  getListProject(params: any) {
+    return this.get(`company/company/presentation?${params}`);
   }
 }
 
