@@ -5,8 +5,12 @@ import React from "react";
 import Slider from "react-slick";
 import { SBannerProject } from "../../lib/peoject-detail/styled";
 import { SETTING } from "./constant";
+import { IProjectDetailBanner } from "./interface";
 
-const BannerProjectDetail = () => {
+const BannerProjectDetail: React.FC<IProjectDetailBanner> = ({
+  collectedBudget,
+  numberInvestors,
+}) => {
   const router = useRouter();
   return (
     <SBannerProject>
@@ -42,7 +46,7 @@ const BannerProjectDetail = () => {
             <div className="wrap-info-day">
               <span className="started-day">Started: 09/Oct/2022</span>
               <Divider />
-              <span className="total-value">4,823,047đ</span>
+              <span className="total-value">{collectedBudget}đ</span>
               <span>Rasied</span>
               <Progress
                 strokeColor={{
@@ -53,7 +57,9 @@ const BannerProjectDetail = () => {
               />
               <div className="timeline">
                 <div className="info-timeline">
-                  <span className="value-investor common-investor">2000</span>
+                  <span className="value-investor common-investor">
+                    {numberInvestors}
+                  </span>
                   <span className="content-value-investor common-investor">
                     Nhà đầu tư
                   </span>

@@ -2,7 +2,7 @@
 import { Divider, Progress } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { MEDIA_PUBLIC } from "../../constant/api-constant";
 import { formatNumber } from "../../helper";
 import { IDataProject } from "./interface";
@@ -20,17 +20,19 @@ const CardIndex: React.FC<IDataProject> = (props) => {
     coverImage,
   } = props;
   const percent = (collectedBudget * 100) / investmentTarget;
+  const [src, setSrc] = useState(`${MEDIA_PUBLIC}${coverImage?.url}`);
   return (
     <>
       <SCard>
         <div className="wrap-head-card">
           <div className="parent-image">
-            <img
+            <Image
+              onError={() => setSrc("/image/home/people.png")}
               alt="people"
-              src={
-                `${MEDIA_PUBLIC}${coverImage.url}` || "/image/home/people.png"
-              }
+              src={`${src}` || "/image/home/people.png"}
               className="main-image"
+              width={480}
+              height={270}
             />
             <Image
               alt="people"

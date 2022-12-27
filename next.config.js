@@ -6,7 +6,7 @@ const nextConfig = {
   pageExtensions: ["tsx", "ts", "jsx", "js"],
   trailingSlash: true,
   images: {
-    domains: ["uploads.flocks.vn"],
+    domains: ["uploads.flocks.vn", "uploads.flocks.vnundefined"],
   },
 };
 

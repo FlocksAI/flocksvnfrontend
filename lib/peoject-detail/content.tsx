@@ -2,9 +2,19 @@ import { Col, Row, Tabs } from "antd";
 import Image from "next/image";
 import React from "react";
 import { CONTENT_PROJECT } from "../../constant/content-project";
+import { IContentProjectDetail } from "./interface";
 import { SContentProject } from "./styled";
 
-const ContentProject = () => {
+const ContentProject: React.FC<IContentProjectDetail> = ({
+  companyName,
+  email,
+  phoneNumber,
+  website,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+}) => {
   return (
     <SContentProject>
       <Row justify="center">
@@ -121,50 +131,76 @@ const ContentProject = () => {
             <div>
               <div className="wrap-about-document wrap-head-document">
                 <span className="title-document about-company">
-                  About Tesla Company
+                  About {companyName} Company
                 </span>
                 <span className="common-title-document">Website</span>
-                <span className="common-content-document mb-2">
-                  www.google.com.vn
-                </span>
+                <span className="common-content-document mb-2">{website}</span>
                 <span className="common-title-document">Mail</span>
-                <span className="common-content-document mb-2">
-                  Google@gmail.com
-                </span>
+                <span className="common-content-document mb-2">{email}</span>
                 <span className="common-title-document">Call</span>
-                <span className="common-content-document">+8412 351 232</span>
+                <span className="common-content-document">{phoneNumber}</span>
                 <span className="common-title-document mb-3">Social</span>
                 <div className="wrap-icon-document">
-                  <Image
-                    alt="footer-icon"
-                    src="/image/home/Facebook-Negative.png"
-                    width={20}
-                    height={20}
-                  />
-                  <Image
-                    alt="footer-icon"
-                    src="/image/home/Twitter-Negative.png"
-                    width={20}
-                    height={20}
-                  />
-                  <Image
-                    alt="footer-icon"
-                    src="/image/home/Instagram-Negative.png"
-                    width={20}
-                    height={20}
-                  />
-                  <Image
-                    alt="footer-icon"
-                    src="/image/home/LinkedIn-Negative.png"
-                    width={20}
-                    height={20}
-                  />
-                  <Image
-                    alt="footer-icon"
-                    src="/image/home/Google-Negative.png"
-                    width={20}
-                    height={20}
-                  />
+                  <a
+                    target="_blank"
+                    href={facebook || "https://facebook.com/"}
+                    rel="noreferrer"
+                  >
+                    <Image
+                      alt="footer-icon"
+                      src="/image/home/Facebook-Negative.png"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={twitter || "https://facebook.com/"}
+                    rel="noreferrer"
+                  >
+                    <Image
+                      alt="footer-icon"
+                      src="/image/home/Twitter-Negative.png"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={instagram || "https://facebook.com/"}
+                    rel="noreferrer"
+                  >
+                    <Image
+                      alt="footer-icon"
+                      src="/image/home/Instagram-Negative.png"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={linkedin || "https://facebook.com/"}
+                    rel="noreferrer"
+                  >
+                    <Image
+                      alt="footer-icon"
+                      src="/image/home/LinkedIn-Negative.png"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={email || "https://facebook.com/"}
+                    rel="noreferrer"
+                  >
+                    <Image
+                      alt="footer-icon"
+                      src="/image/home/Google-Negative.png"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
                 </div>
               </div>
             </div>

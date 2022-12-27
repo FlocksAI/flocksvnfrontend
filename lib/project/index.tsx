@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Col, Pagination, Row } from "antd";
 import React from "react";
 import CardIndex from "../../components/card";
 import SearchBox from "../../components/search-box";
@@ -7,7 +7,7 @@ import { SProject } from "./styled";
 import useProject from "../../hook/project/useProject";
 
 const ProjectIndex = () => {
-  const { dataProject } = useProject();
+  const { dataProject, count, setPage } = useProject();
   return (
     <SProject>
       <SubHeadIndex
@@ -39,6 +39,13 @@ const ProjectIndex = () => {
             );
           })}
         </Row>
+        <div className="card-pagination">
+          <Pagination
+            defaultCurrent={1}
+            total={count}
+            onChange={(e) => setPage(e)}
+          />
+        </div>
       </div>
     </SProject>
   );

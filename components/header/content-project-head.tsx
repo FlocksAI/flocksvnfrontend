@@ -1,8 +1,12 @@
 import Image from "next/image";
 import React from "react";
+import { IContentHead } from "./interface";
 import { SContentProjectHead } from "./styled";
 
-const ContentProjectHead = () => {
+const ContentProjectHead: React.FC<IContentHead> = ({
+  companyName,
+  companySubTitle,
+}) => {
   return (
     <SContentProjectHead>
       <div className="wrap-avatar-head">
@@ -14,10 +18,8 @@ const ContentProjectHead = () => {
           className="logo-image pointed"
         />
         <div className="content-name-project">
-          <span className="name-company">Tesla Company</span>
-          <span className="description">
-            Lorem ipsum dolor sit amet consectetur. Varius quis lobortis nunc.{" "}
-          </span>
+          <span className="name-company">{companyName}</span>
+          <span className="description">{companySubTitle}</span>
         </div>
       </div>
       <div className="wrap-btn-head">

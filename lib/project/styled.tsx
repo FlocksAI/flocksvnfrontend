@@ -12,6 +12,13 @@ const SProject = styled.div`
   .col-card {
     margin-bottom: 36px;
   }
+  .card-pagination {
+    display: flex;
+    justify-content: end;
+    .ant-pagination {
+      padding: 20px 0px;
+    }
+  }
   @media only screen and (max-width: 414px) {
     .list-project {
       padding: unset;
