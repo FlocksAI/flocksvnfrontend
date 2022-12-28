@@ -22,8 +22,14 @@ const SProjectDetail = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
-    text-align: center;
     color: #353535;
+  }
+  .description-team {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #353535;
+    text-align: center;
   }
   .title-team-away {
     display: flex;

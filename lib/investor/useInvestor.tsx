@@ -1,3 +1,4 @@
+import { message } from "antd";
 import InvestorRepositories from "../../repositories/investor";
 
 const useInvestor = () => {
@@ -5,8 +6,11 @@ const useInvestor = () => {
     try {
       const resp = await InvestorRepositories.addInfoInvestor(data);
       console.log(resp);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+      if (error?.response?.data?.detail) {
+        message.error(error.response.data.detail);
+      }
     }
   };
   return { addInfoInvestor };

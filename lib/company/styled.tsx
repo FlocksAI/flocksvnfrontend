@@ -131,6 +131,23 @@ const SCreateProject = styled.div`
     display: flex;
     align-items: center;
   }
+  .group {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .btn-create-user {
+    height: 40px;
+    border-radius: 40px;
+  }
 `;
 
-export { SCompanyIndex, SForm, SCreateProject };
+const STeamMember = styled.div`
+  .custom-input-modal {
+    height: 45px;
+  }
+  .ant-input {
+    border-radius: 10px;
+  }
+`;
+
+export { SCompanyIndex, SForm, SCreateProject, STeamMember };

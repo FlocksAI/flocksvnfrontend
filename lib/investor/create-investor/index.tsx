@@ -16,7 +16,10 @@ import CreateInvestorStep6 from "./create-investor-step6";
 const schema = yup
   .object({
     investorName: yup.string().required("Trường bắt buộc"),
-    investorEmail: yup.string().required("Trường bắt buộc"),
+    investorEmail: yup
+      .string()
+      .email("Định dạng Email không chính xác")
+      .required("Trường bắt buộc"),
     investorPhone: yup.string().required("Trường bắt buộc"),
     investorAddress: yup.string().required("Trường bắt buộc"),
     investorIdNumber: yup.string().required("Trường bắt buộc"),

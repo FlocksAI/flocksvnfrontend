@@ -12,7 +12,12 @@ export default function useProjectDetail() {
   }, [router.query?.id]);
   const fetchData = async () => {
     try {
-      const resp = await ProjectRepositorie.getProjectDetail(router.query?.id);
+      const params =
+        "?expand=logo_image,cover_image,company_category,company_present_team_member,company_present_team_member.image,present_details,present_documents,present_documents.file";
+      const resp = await ProjectRepositorie.getProjectDetail(
+        router.query?.id,
+        params
+      );
       setDataProject(resp.data);
     } catch (error) {
       console.log("Fetch Data Project Error", error);

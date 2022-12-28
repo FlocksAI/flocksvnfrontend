@@ -10,8 +10,8 @@ class ProjectRepositories extends HttpRequest {
     return this.get(`company/company/presentation?${params}`);
   }
 
-  getProjectDetail(id: any) {
-    return this.get(`company/company/presentation/${id}`);
+  getProjectDetail(id: any, params: string) {
+    return this.get(`company/company/presentation/${id}${params}`);
   }
 }
 

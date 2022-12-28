@@ -11,3 +11,9 @@ export interface CreateCompanyInput {
   setRegistrationDocs?: (data: string) => void;
   setTaxReceipt?: (data: string) => void;
 }
+
+export interface IModalCreateTeamMember {
+  isModalOpen: boolean;
+  handleOk: () => void;
+  handleCancel: () => void;
+}

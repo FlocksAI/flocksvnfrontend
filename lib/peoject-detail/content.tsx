@@ -1,7 +1,7 @@
 import { Col, Row, Tabs } from "antd";
 import Image from "next/image";
 import React from "react";
-import { CONTENT_PROJECT } from "../../constant/content-project";
+import { MEDIA_PUBLIC } from "../../constant/api-constant";
 import { IContentProjectDetail } from "./interface";
 import { SContentProject } from "./styled";
 
@@ -14,90 +14,27 @@ const ContentProject: React.FC<IContentProjectDetail> = ({
   instagram,
   linkedin,
   twitter,
+  presentDetails,
+  presentDocuments,
 }) => {
   return (
     <SContentProject>
       <Row justify="center">
         <Col xs={22} xl={8}>
           <Tabs defaultActiveKey="1">
-            <Tabs.TabPane tab="Overview" key="1">
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 1</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 2</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Problems" key="2">
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 2</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 3</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab="Solution" key="3">
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 3</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-              <div className="wrap-tab">
-                <div className="wrap-head">
-                  <span className="title">Title 3</span>
-                  <span className="content">{CONTENT_PROJECT}</span>
-                </div>
-                <Image
-                  alt="avatar-team"
-                  src="/image/project/banner-tab.png"
-                  width={684}
-                  height={360}
-                />
-              </div>
-            </Tabs.TabPane>
+            {presentDetails &&
+              presentDetails.length > 0 &&
+              presentDetails.map((ele, index) => {
+                const key = index + 1;
+                return (
+                  <Tabs.TabPane tab={ele.title} key={`${key}`}>
+                    <div
+                      className="wrap-tab"
+                      dangerouslySetInnerHTML={{ __html: ele.details }}
+                    />
+                  </Tabs.TabPane>
+                );
+              })}
           </Tabs>
         </Col>
         <Col xl={3} />
@@ -108,24 +45,29 @@ const ContentProject: React.FC<IContentProjectDetail> = ({
                 <span>Tài liệu</span>
               </div>
               <div>
-                <div>
-                  <Image
-                    alt="icon-document"
-                    src="/image/project/icon-document.png"
-                    width={44}
-                    height={44}
-                  />
-                  <span>Startup required information</span>
-                </div>
-                <div>
-                  <Image
-                    alt="icon-document"
-                    src="/image/project/icon-document.png"
-                    width={44}
-                    height={44}
-                  />
-                  <span>Startup required information</span>
-                </div>
+                {presentDocuments &&
+                  presentDocuments.length > 0 &&
+                  presentDocuments.map((ele, index) => {
+                    return (
+                      <a
+                        key={index}
+                        download
+                        href={`${MEDIA_PUBLIC}${ele.file.url}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div>
+                          <Image
+                            alt="icon-document"
+                            src="/image/project/icon-document.png"
+                            width={44}
+                            height={44}
+                          />
+                          <span>{ele.fileName}</span>
+                        </div>
+                      </a>
+                    );
+                  })}
               </div>
             </div>
             <div>

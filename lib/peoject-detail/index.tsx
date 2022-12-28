@@ -18,6 +18,8 @@ const ProjectDetailIndex = () => {
           <ContentProjectHead
             companyName={dataProject?.companyName}
             companySubTitle={dataProject?.companySubTitle}
+            logoImage={dataProject?.logoImage}
+            companyCategory={dataProject?.companyCategory}
           />
         </HeaderSub>
         <BannerProjectDetail
@@ -33,8 +35,13 @@ const ProjectDetailIndex = () => {
           facebook={dataProject?.facebook}
           instagram={dataProject?.instagram}
           linkedin={dataProject?.linkedin}
+          presentDetails={dataProject?.presentDetails}
+          presentDocuments={dataProject?.presentDocuments}
         />
-        <TeamProject />
+        <TeamProject
+          companyPresentTeamMember={dataProject?.companyPresentTeamMember}
+          companyName={dataProject?.companyName}
+        />
         <Footer />
       </SProjectDetail>
     </>

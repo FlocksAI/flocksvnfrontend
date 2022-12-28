@@ -18,6 +18,8 @@ import useCompany from "../useCompany";
 import moment from "moment";
 import UploadIndex from "../../../components/upload";
 import EdittorIndex from "../../../components/edit-tor";
+import CreateTeamMember from "./create-team-member";
+import { UserAddOutlined } from "@ant-design/icons";
 
 const CreateProject = ({ idCompany }: any) => {
   const {
@@ -28,6 +30,7 @@ const CreateProject = ({ idCompany }: any) => {
   const { createCompany, category } = useCompany();
   const [logoImage, setLogoImage] = useState<string>();
   const [coverImage, setCoverImage] = useState<string>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [registrationDocs, setRegistrationDocs] = useState<string>();
   const [idRegistrationDocs, setIdRegistrationDocs] = useState<string>();
   const [detailSections, setDetailSections] = React.useState([
@@ -85,6 +88,17 @@ const CreateProject = ({ idCompany }: any) => {
     data[index].details = content;
     data[index].detailsErr = "";
     setDetailSections(data);
+  };
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
   };
   return (
     <>
@@ -291,6 +305,25 @@ const CreateProject = ({ idCompany }: any) => {
             }
           />
         ))}
+        <Divider />
+        {/* <Row>
+          <Col span={24}>
+            <div className="group">Nhóm</div>
+            <Button
+              type="primary"
+              onClick={showModal}
+              className="btn-create-user"
+            >
+              <UserAddOutlined />
+            </Button>
+          </Col>
+        </Row>
+        <CreateTeamMember
+          isModalOpen={isModalOpen}
+          handleCancel={handleCancel}
+          handleOk={handleOk}
+        />
+        <Divider /> */}
         <Button onClick={handleSubmit(onSubmit)} type="primary">
           Nộp
         </Button>
