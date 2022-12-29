@@ -19,7 +19,12 @@ import moment from "moment";
 import UploadIndex from "../../../components/upload";
 import EdittorIndex from "../../../components/edit-tor";
 import CreateTeamMember from "./create-team-member";
-import { UserAddOutlined } from "@ant-design/icons";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  UserAddOutlined,
+} from "@ant-design/icons";
+import CardMember from "../../../components/card/Card-Member";
 
 const CreateProject = ({ idCompany }: any) => {
   const {
@@ -33,6 +38,10 @@ const CreateProject = ({ idCompany }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [registrationDocs, setRegistrationDocs] = useState<string>();
   const [idRegistrationDocs, setIdRegistrationDocs] = useState<string>();
+  const [editingMember, setEditingMember] = React.useState(null);
+  const [createTeamMember, setCreateTeamMember] = useState([]);
+  const [updateTeamMember, setUpdateTeamMember] = useState([]);
+  const [teamMembers, setTeamMembers] = React.useState([]);
   const [detailSections, setDetailSections] = React.useState([
     {
       title: "Overview",
@@ -78,7 +87,7 @@ const CreateProject = ({ idCompany }: any) => {
           file: idRegistrationDocs,
         },
       ],
-      presentTeamMember: [],
+      presentTeamMember: teamMembers.length > 0 ? teamMembers : [],
       presentDetails: detailSections,
     };
     createCompany(formatData);
@@ -93,12 +102,33 @@ const CreateProject = ({ idCompany }: any) => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+  const addTeamMember = (values: any) => {
+    setIsModalOpen(false);
+    const data = [...teamMembers];
+    if (editingMember) {
+      const newData = data.map((item) =>
+        item.id === editingMember.id ? values : item
+      );
+      setTeamMembers(newData);
+      setUpdateTeamMember(newData);
+      setEditingMember(null);
+    } else {
+      setCreateTeamMember((prevState) => [...prevState, values]);
+      data.push(values);
+      setTeamMembers(data);
+    }
+  };
+  const removeTeamMember = (index: any) => {
+    const data = [...teamMembers];
+    data.splice(index, 1);
+    setTeamMembers(data);
+  };
+  const editTeamMember = (record: any) => {
+    setEditingMember(record);
+    setIsModalOpen(true);
   };
   return (
     <>
@@ -306,7 +336,7 @@ const CreateProject = ({ idCompany }: any) => {
           />
         ))}
         <Divider />
-        {/* <Row>
+        <Row>
           <Col span={24}>
             <div className="group">Nhóm</div>
             <Button
@@ -318,12 +348,44 @@ const CreateProject = ({ idCompany }: any) => {
             </Button>
           </Col>
         </Row>
+        <Row>
+          {teamMembers.length > 0 &&
+            teamMembers.map((member, index) => {
+              return (
+                <Col xs={22} xl={12} key={index}>
+                  <CardMember
+                    name={member.name}
+                    imgSrc={`${member?.imageUrl}`}
+                    position={member.position}
+                    linkedIn={member.linkedIn}
+                    facebook={member.facebook}
+                    twitter={member.twitter}
+                  />
+                  <div className="wrap-edit-remove">
+                    <Button
+                      className="btn-icon"
+                      onClick={() => editTeamMember(member)}
+                    >
+                      <EditOutlined />
+                    </Button>
+                    <Button
+                      className="btn-icon"
+                      onClick={() => removeTeamMember(index)}
+                    >
+                      <DeleteOutlined />
+                    </Button>
+                  </div>
+                </Col>
+              );
+            })}
+        </Row>
         <CreateTeamMember
           isModalOpen={isModalOpen}
           handleCancel={handleCancel}
-          handleOk={handleOk}
+          handleOk={addTeamMember}
+          record={editingMember}
         />
-        <Divider /> */}
+        <Divider />
         <Button onClick={handleSubmit(onSubmit)} type="primary">
           Nộp
         </Button>

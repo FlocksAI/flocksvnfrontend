@@ -18,3 +18,12 @@ type TCoverImage = {
   mediaType: string;
   url: string;
 };
+
+export interface ICardMember {
+  name: string;
+  position: string;
+  linkedIn: string;
+  facebook: string;
+  twitter: string;
+  imgSrc: string;
+}

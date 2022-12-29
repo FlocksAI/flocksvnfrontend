@@ -139,11 +139,27 @@ const SCreateProject = styled.div`
     height: 40px;
     border-radius: 40px;
   }
+  .wrap-edit-remove {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 56px;
+    padding: 2px 10px;
+    .btn-icon {
+      border: none;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 const STeamMember = styled.div`
   .custom-input-modal {
-    height: 45px;
+    height: 36px;
   }
   .ant-input {
     border-radius: 10px;

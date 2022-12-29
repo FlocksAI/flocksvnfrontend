@@ -203,5 +203,36 @@ const SCardBlog = styled.div`
   }
 `;
 
-export { SCardField, SCardBlog };
+const SCardMember = styled.div`
+  margin-top: 42px;
+  box-shadow: 0px 0px 16px rgb(0 0 0 / 8%);
+  text-align: center;
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  .name {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    color: #3b4e56;
+    font-weight: 700;
+  }
+  .about-me {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    line-height: 2;
+    color: #3b4e56;
+    font-size: 0.8rem;
+  }
+  .more-info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 12px;
+  }
+`;
+
+export { SCardField, SCardBlog, SCardMember };
 export default SCard;

@@ -1,9 +1,11 @@
 import { message } from "antd";
 import { useEffect, useState } from "react";
 import CompanyRepositories from "../../repositories/company";
+import { useRouter } from "next/router";
 
 const useCompany = () => {
   const [category, setCategory] = useState([]);
+  const router = useRouter();
   useEffect(() => {
     getCategory();
   }, []);
@@ -51,7 +53,11 @@ const useCompany = () => {
   };
   const createCompany = async (data: any) => {
     try {
-      await CompanyRepositories.createProject(data);
+      const res = await CompanyRepositories.createProject(data);
+      if (res.data) {
+        message.success("Tạo dự án thành công");
+        router.push("/");
+      }
     } catch (error) {
       console.log(error);
     }

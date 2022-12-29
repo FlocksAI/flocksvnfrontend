@@ -14,6 +14,7 @@ export interface CreateCompanyInput {
 
 export interface IModalCreateTeamMember {
   isModalOpen: boolean;
-  handleOk: () => void;
+  handleOk: (data: any) => void;
   handleCancel: () => void;
+  record?: any;
 }
