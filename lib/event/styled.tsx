@@ -27,4 +27,25 @@ const SHeadEvent = styled.div`
   }
 `;
 
-export { SHeadEvent };
+const SEventContent = styled.div`
+  margin: 32px 0px;
+  .title-date {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+  }
+  .content {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+  }
+`;
+
+export { SHeadEvent, SEventContent };

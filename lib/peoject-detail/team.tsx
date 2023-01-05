@@ -23,18 +23,17 @@ const TeamProject: React.FC<ITeamProjectDetail> = ({
               </span> */}
             </div>
             <Row>
-              <Col xs={24} xl={6}>
-                {companyPresentTeamMember.map((ele, index) => {
-                  return (
+              {companyPresentTeamMember.map((ele, index) => {
+                return (
+                  <Col xl={6} xs={24} key={index}>
                     <CardImageTeam
-                      key={index}
                       image={ele.image.url}
                       name={ele.name}
                       position={ele.position}
                     />
-                  );
-                })}
-              </Col>
+                  </Col>
+                );
+              })}
             </Row>
           </div>
         </Col>

@@ -24,6 +24,7 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
                 width={121}
                 height={48}
                 className="logo-image pointed"
+                onClick={() => router.push("/")}
               />
             </div>
           </Col>
@@ -40,13 +41,13 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
                 <Col xl={4} className="content pointed">
                   <span>Our Projects</span>
                 </Col>
-                <Col xl={4} className="content">
+                <Col xl={4} className="content pointed">
                   <span>Blogs</span>
                 </Col>
-                <Col xl={4} className="content">
-                  <span>Events</span>
+                <Col xl={4} className="content pointed">
+                  <span onClick={() => router.push("/event")}>Events</span>
                 </Col>
-                <Col xl={4} className="content">
+                <Col xl={4} className="content pointed">
                   <span>FAQs</span>
                 </Col>
                 <Col xl={4} className="btn">

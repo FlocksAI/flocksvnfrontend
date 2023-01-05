@@ -33,7 +33,7 @@ const Header = () => {
               />
               {size.width > 414 && (
                 <div className="wrap-left-head">
-                  <div className="content">
+                  <div className="content pointed">
                     <span>Trang chủ</span>
                   </div>
                   <div
@@ -42,13 +42,13 @@ const Header = () => {
                   >
                     <span>Dự án</span>
                   </div>
-                  <div className="content">
+                  <div className="content pointed">
                     <span onClick={() => router.push("/blog")}>Kiến Thức</span>
                   </div>
-                  <div className="content">
+                  <div className="content pointed">
                     <span>Sự kiện</span>
                   </div>
-                  <div className="content">
+                  <div className="content pointed">
                     <span>Liên Hệ</span>
                   </div>
                 </div>

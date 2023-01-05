@@ -158,6 +158,7 @@ const SCardBlog = styled.div`
       font-size: 24px;
       line-height: 32px;
       letter-spacing: -0.02em;
+      height: 64px;
     }
     .content {
       margin-top: 8px;
@@ -165,10 +166,19 @@ const SCardBlog = styled.div`
       font-size: 16px;
       line-height: 26px;
       color: #7a7a7a;
+      display: -webkit-box;
+      height: 74px;
+      -webkit-line-clamp: 3;
+      visibility: visible;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .wrap-img {
       display: flex;
       align-items: center;
+      img {
+        border-radius: 50%;
+      }
     }
     .wrap-avatar {
       display: flex;

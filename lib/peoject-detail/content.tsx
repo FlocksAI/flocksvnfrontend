@@ -52,7 +52,7 @@ const ContentProject: React.FC<IContentProjectDetail> = ({
                       <a
                         key={index}
                         download
-                        href={`${MEDIA_PUBLIC}${ele.file.url}`}
+                        href={`${MEDIA_PUBLIC}${ele?.file?.url}`}
                         target="_blank"
                         rel="noreferrer"
                       >

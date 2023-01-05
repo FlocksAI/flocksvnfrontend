@@ -25,6 +25,7 @@ const ProjectDetailIndex = () => {
         <BannerProjectDetail
           collectedBudget={dataProject?.collectedBudget}
           numberInvestors={dataProject?.numberInvestors}
+          closingDate={dataProject?.closingDate}
         />
         <ContentProject
           companyName={dataProject?.companyName}

@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Col, Divider, Progress, Row } from "antd";
+import moment from "moment";
 import { useRouter } from "next/router";
 import React from "react";
+import Moment from "react-moment";
 import Slider from "react-slick";
 import { SBannerProject } from "../../lib/peoject-detail/styled";
 import { SETTING } from "./constant";
@@ -10,6 +12,7 @@ import { IProjectDetailBanner } from "./interface";
 const BannerProjectDetail: React.FC<IProjectDetailBanner> = ({
   collectedBudget,
   numberInvestors,
+  closingDate,
 }) => {
   const router = useRouter();
   return (
@@ -65,7 +68,12 @@ const BannerProjectDetail: React.FC<IProjectDetailBanner> = ({
                   </span>
                 </div>
                 <div className="info-timeline">
-                  <span className="value-investor common-investor">345</span>
+                  <Moment
+                    format="DD"
+                    className="value-investor common-investor"
+                  >
+                    {closingDate}
+                  </Moment>
                   <span className="content-value-investor common-investor">
                     Ngày còn lại
                   </span>

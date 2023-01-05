@@ -27,3 +27,17 @@ export interface ICardMember {
   twitter: string;
   imgSrc: string;
 }
+
+export interface ICardBlog {
+  title: string;
+  rawContent: string;
+  date: string;
+  slug?: string;
+  author: TAuthor;
+  headerImage: TCoverImage;
+}
+
+type TAuthor = {
+  fullName: string;
+  avatar: TCoverImage;
+};

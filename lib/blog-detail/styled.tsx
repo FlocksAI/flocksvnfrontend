@@ -6,8 +6,12 @@ const SContentHeadBlog = styled.div`
     object-fit: none;
   }
   .wrap-avatar-name-blog {
+    margin-top: 8px;
     display: flex;
     align-items: center;
+    img {
+      border-radius: 50%;
+    }
   }
   .wrap-btn-head {
     display: flex;
@@ -37,6 +41,7 @@ const SContentHeadBlog = styled.div`
     font-size: 16px;
     line-height: 26px;
     color: #7a7a7a;
+    margin-left: 12px;
   }
   @media only screen and (max-width: 414px) {
     .avatar-blog {

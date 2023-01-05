@@ -1,29 +1,29 @@
 import { Col, Divider, Row } from "antd";
 import Image from "next/image";
 import React, { useState } from "react";
-import { CONTENT_PROJECT } from "../../constant/content-project";
+import { MEDIA_PUBLIC } from "../../constant/api-constant";
+import { IDetailBlogContent } from "./interface";
 import { SDetailProject } from "./styled";
 
-const DetailBlog = () => {
-  const [list] = useState(new Array(2).fill(0));
+const DetailBlog: React.FC<IDetailBlogContent> = ({ content, headerImage }) => {
+  const [src, setSrc] = useState(`${MEDIA_PUBLIC}${headerImage?.url}`);
   return (
     <SDetailProject>
       <Row justify="center">
         <Col xs={22} xl={8}>
-          {list.map((el) => (
-            <div className="wrap-tab" key={el}>
-              <Image
-                alt="avatar-team"
-                src="/image/project/banner-tab.png"
-                width={684}
-                height={360}
-              />
-              <div className="wrap-head">
-                <span className="title">Title 1</span>
-                <span className="content">{CONTENT_PROJECT}</span>
-              </div>
-            </div>
-          ))}
+          <div className="wrap-tab">
+            <Image
+              onError={() => setSrc("/image/project/banner-tab.png")}
+              alt="avatar-team"
+              src={src}
+              width={684}
+              height={360}
+            />
+            <div
+              className="wrap-head"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </div>
         </Col>
         <Col xl={2} />
         <Col xs={22} xl={4}>

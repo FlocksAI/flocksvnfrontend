@@ -1,12 +1,16 @@
-import { Col, Row } from "antd";
-import React, { useState } from "react";
+import { Col, Pagination, Row } from "antd";
+import React, { useEffect } from "react";
 import ButtonWitchBlog from "../../components/button/Button-Witch-Blog";
 import CardBlogIndex from "../../components/card/Card-Blog";
 import SubHeadIndex from "../../components/sub-header";
+import useGetListBlog from "../../hook/blog/useGetListBlog";
 import SBlogIndex from "./styled";
 
 const BlogIndex = () => {
-  const [card] = useState(new Array(8).fill(0));
+  const { dataBlog, count, setPage, getListBlog } = useGetListBlog();
+  useEffect(() => {
+    getListBlog(10);
+  }, []);
   return (
     <>
       <SBlogIndex>
@@ -22,14 +26,28 @@ const BlogIndex = () => {
         </Row>
         <div className="list-project">
           <Row justify="center">
-            {card.map((el) => {
+            {dataBlog.map((el, index) => {
               return (
-                <Col key={el} xs={24} xl={9} className="col-card">
-                  <CardBlogIndex />
+                <Col key={index} xs={24} xl={9} className="col-card">
+                  <CardBlogIndex
+                    date={el?.createdAt}
+                    headerImage={el?.headerImage}
+                    rawContent={el?.rawContent}
+                    title={el?.title}
+                    author={el?.author}
+                    slug={el?.slug}
+                  />
                 </Col>
               );
             })}
           </Row>
+          <div className="card-pagination">
+            <Pagination
+              defaultCurrent={1}
+              total={count}
+              onChange={(e) => setPage(e)}
+            />
+          </div>
         </div>
       </SBlogIndex>
     </>
