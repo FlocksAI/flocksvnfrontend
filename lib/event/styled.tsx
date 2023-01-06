@@ -35,6 +35,9 @@ const SEventContent = styled.div`
     line-height: 40px;
     letter-spacing: -0.02em;
   }
+  .event-img {
+    width: 100%;
+  }
   .title {
     font-weight: 700;
     font-size: 24px;

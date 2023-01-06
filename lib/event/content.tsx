@@ -16,7 +16,7 @@ const ContentEvent: React.FC<IEvent> = ({
   const [src, setSrc] = useState(`${MEDIA_PUBLIC}${headerImage?.url}`);
   return (
     <Row>
-      <Col xl={10}>
+      <Col xs={24} xl={10}>
         <SEventContent>
           <div className="title-date">{getMonthDay(executionDateStart)}</div>
           <div>
@@ -26,6 +26,7 @@ const ContentEvent: React.FC<IEvent> = ({
               height={270}
               alt="event"
               src={src}
+              className="event-img"
             />
           </div>
           <div className="title">

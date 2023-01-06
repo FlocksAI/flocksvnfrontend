@@ -46,7 +46,7 @@ const Header = () => {
                     <span onClick={() => router.push("/blog")}>Kiến Thức</span>
                   </div>
                   <div className="content pointed">
-                    <span>Sự kiện</span>
+                    <span onClick={() => router.push("/event")}>Sự kiện</span>
                   </div>
                   <div className="content pointed">
                     <span>Liên Hệ</span>

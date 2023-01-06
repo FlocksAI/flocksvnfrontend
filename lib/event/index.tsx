@@ -18,7 +18,7 @@ const EventIndex = () => {
         <HeadEventIndex />
       </HeaderSub>
       <Row justify="center">
-        <Col span={18}>
+        <Col xs={22} xl={18}>
           {dataEvent.map((el, index) => {
             return (
               <ContentEvent
