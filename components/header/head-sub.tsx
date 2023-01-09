@@ -45,7 +45,7 @@ const HeaderSub: React.FC<ISubHead> = (props) => {
                 <span onClick={() => router.push("/event")}>Events</span>
               </Col>
               <Col xl={4} className="content pointed">
-                <span>FAQs</span>
+                <span onClick={() => router.push("/faq")}>FAQs</span>
               </Col>
               <Col xl={4} className="btn">
                 <button>Get Started</button>

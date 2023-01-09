@@ -9,7 +9,6 @@ import SHomePage from "./styled";
 import { GetStaticProps } from "next";
 import useWindowResize from "../hook/useResize";
 import { Col, Row } from "antd";
-import NavigationIndex from "../components/navigation";
 
 export default function Home() {
   const size = useWindowResize();

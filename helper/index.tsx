@@ -29,3 +29,14 @@ export const getMonthDay = (date: string) => {
   const fullYear = dateObj.getFullYear();
   return `${monthName} ${fullYear}`;
 };
+
+export const getTime = (date: string) => {
+  const dateObj = new Date(date);
+  const time = dateObj.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+
+  return time;
+};

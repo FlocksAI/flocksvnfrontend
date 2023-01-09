@@ -10,6 +10,10 @@ class EventRepositorie extends HttpRequest {
   getListEvent(param: any) {
     return this.get(`event?${param}`);
   }
+
+  getDetailEvent(param: string) {
+    return this.get(`event/${param}`);
+  }
 }
 
 export default new EventRepositorie();

@@ -8,32 +8,44 @@ export default function useGetListBlog() {
   const [dataDetail, setDataDetail] = useState() as any;
 
   const getListBlog = async (pageSize: number) => {
-    const formatParams = `expand=header_image,author,author.avatar&page=${page}&page_size=${pageSize}`;
-    const resp = await BlogRepositorie.getListBlog(formatParams);
-    if (resp.status === 200) {
-      setCount(resp.data?.count);
-      return setDataBlog(resp.data?.results);
+    try {
+      const formatParams = `expand=header_image,author,author.avatar&page=${page}&page_size=${pageSize}`;
+      const resp = await BlogRepositorie.getListBlog(formatParams);
+      if (resp.status === 200) {
+        setCount(resp.data?.count);
+        return setDataBlog(resp.data?.results);
+      }
+      return;
+    } catch (error) {
+      console.log(error);
     }
-    return;
   };
 
   const getRelatedPosts = async (pageSize: number, slug: any) => {
-    const formatParams = `expand=header_image,author,author.avatar&page_size=${pageSize}`;
-    const resp = await BlogRepositorie.getRelatedBlog(formatParams, slug);
-    if (resp.status === 200) {
-      return setDataBlog(resp.data);
+    try {
+      const formatParams = `expand=header_image,author,author.avatar&page_size=${pageSize}`;
+      const resp = await BlogRepositorie.getRelatedBlog(formatParams, slug);
+      if (resp.status === 200) {
+        return setDataBlog(resp.data);
+      }
+      return;
+    } catch (error) {
+      console.log(error);
     }
-    return;
   };
 
   const getDetailBlog = async (slug: any) => {
-    const formatParams = `expand=header_image,author,author.avatar`;
-    const resp = await BlogRepositorie.getDetailBlog(formatParams, slug);
-    console.log(resp);
-    if (resp.status === 200) {
-      return setDataDetail(resp.data);
+    try {
+      const formatParams = `expand=header_image,author,author.avatar`;
+      const resp = await BlogRepositorie.getDetailBlog(formatParams, slug);
+      console.log(resp);
+      if (resp.status === 200) {
+        return setDataDetail(resp.data);
+      }
+      return;
+    } catch (error) {
+      console.log(error);
     }
-    return;
   };
   return {
     dataBlog,
