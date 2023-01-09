@@ -3,6 +3,7 @@ export interface IEvent {
   content: string;
   headerImage: TCoverImage;
   executionDateStart: string;
+  id: number;
 }
 
 type TCoverImage = {

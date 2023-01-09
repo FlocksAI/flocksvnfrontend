@@ -13,6 +13,7 @@ export const formatNumber = (
 };
 
 export const formatedDate = (date: string) => {
+  if (!date) return "";
   const dateObj = new Date(date);
   const monthIndex = dateObj.getMonth();
   const monthName = MONTHS[monthIndex];
@@ -23,6 +24,7 @@ export const formatedDate = (date: string) => {
 };
 
 export const getMonthDay = (date: string) => {
+  if (!date) return "";
   const dateObj = new Date(date);
   const monthDay = dateObj.getMonth();
   const monthName = MONTHS[monthDay];
@@ -31,6 +33,7 @@ export const getMonthDay = (date: string) => {
 };
 
 export const getTime = (date: string) => {
+  if (!date) return "";
   const dateObj = new Date(date);
   const time = dateObj.toLocaleString("en-US", {
     hour: "numeric",

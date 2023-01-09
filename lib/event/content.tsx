@@ -6,13 +6,17 @@ import { MEDIA_PUBLIC } from "../../constant/api-constant";
 import { getMonthDay } from "../../helper";
 import { IEvent } from "./interface";
 import { SEventContent } from "./styled";
+import { useRouter } from "next/router";
 
 const ContentEvent: React.FC<IEvent> = ({
   content,
   headerImage,
   title,
   executionDateStart,
+  id,
 }) => {
+  console.log(title);
+  const router = useRouter();
   const [src, setSrc] = useState(`${MEDIA_PUBLIC}${headerImage?.url}`);
   return (
     <Row>
@@ -29,8 +33,8 @@ const ContentEvent: React.FC<IEvent> = ({
               className="event-img"
             />
           </div>
-          <div className="title">
-            <span>{title}</span>
+          <div className="title pointed">
+            <span onClick={() => router.push(`/event/${id}`)}>{title}</span>
           </div>
           <div className="content">
             <span>{content}</span>

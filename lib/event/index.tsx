@@ -22,8 +22,9 @@ const EventIndex = () => {
           {dataEvent.map((el, index) => {
             return (
               <ContentEvent
+                id={el.id}
                 key={index}
-                title={el.tile}
+                title={el.title}
                 content={el.content}
                 headerImage={el.headerImage}
                 executionDateStart={el.executionDateStart}
