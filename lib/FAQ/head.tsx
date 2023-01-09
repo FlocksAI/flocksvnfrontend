@@ -11,7 +11,7 @@ const HeadFAQIndex: React.FC<IHeadFAQ> = ({ handSearch }) => {
         <Row>
           <Col xl={8}>
             <div className="title-upcoming-event mb-4">
-              <span>Upcoming Events</span>
+              <span>Frequently Asked Questions</span>
             </div>
             <div className="content-upcoming-event mb-4">
               <span>
