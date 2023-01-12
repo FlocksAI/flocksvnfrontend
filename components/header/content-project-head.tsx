@@ -17,7 +17,7 @@ const ContentProjectHead: React.FC<IContentHead> = ({
         <Image
           onError={() => setSrc("/image/home/avatar-head-detail.png")}
           alt="logo"
-          src={src || "/image/home/avatar-head-detail.png"}
+          src={src}
           width={50}
           height={50}
           className="logo-image pointed"

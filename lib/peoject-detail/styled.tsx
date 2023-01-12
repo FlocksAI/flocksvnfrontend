@@ -50,6 +50,9 @@ const SProjectDetail = styled.div`
     align-items: center;
     margin-top: 40px;
   }
+  .image-team-member-main {
+    border-radius: 50%;
+  }
   .wrap-tab {
     margin-bottom: 32px;
   }
@@ -127,6 +130,18 @@ const SProjectDetail = styled.div`
   .wrap-icon-document {
     display: flex;
     justify-content: space-between;
+  }
+  .about-team-member {
+    line-height: 26px;
+    color: #7a7a7a;
+    display: -webkit-box;
+    height: 74px;
+    -webkit-line-clamp: 3;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
   }
 `;
 

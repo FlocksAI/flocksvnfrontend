@@ -17,10 +17,6 @@ const TeamProject: React.FC<ITeamProjectDetail> = ({
           <div className="wrap-team">
             <div className="title-team">
               <span className="name-team">{companyName} Team</span>
-              {/* <span className="description-team">
-                Lorem ipsum dolor sit amet consectetur. Varius quis lobortis
-                nunc.{" "}
-              </span> */}
             </div>
             <Row>
               {companyPresentTeamMember.map((ele, index) => {
@@ -30,6 +26,8 @@ const TeamProject: React.FC<ITeamProjectDetail> = ({
                       image={ele.image.url}
                       name={ele.name}
                       position={ele.position}
+                      about={ele.about}
+                      linkedin={ele.linkedin}
                     />
                   </Col>
                 );
@@ -42,20 +40,35 @@ const TeamProject: React.FC<ITeamProjectDetail> = ({
   );
 };
 
-const CardImageTeam = ({ image, position, name }: any) => {
-  const [src, setSrc] = useState(`${MEDIA_PUBLIC}${image?.url}`);
+const CardImageTeam = ({ image, position, name, linkedin, about }: any) => {
+  const [src, setSrc] = useState(`${MEDIA_PUBLIC}${image}`);
   return (
     <div className="wrap-avatar-team">
       <Image
-        onError={() => setSrc("/image/project/team1.png")}
+        onError={() => setSrc("/image/home/avatar-head-detail.png")}
         alt="avatar-team"
-        src={src || "/image/project/team1.png"}
+        src={src}
         width={140}
         height={140}
+        className="image-team-member-main"
       />
       <div className="title-team-away">
         <span className="name">{name}</span>
         <span>{position}</span>
+        <span className="about-team-member mb-2">{about}</span>
+        <a
+          target="_blank"
+          href={linkedin || "https://www.linkedin.com/feed/"}
+          rel="noreferrer"
+        >
+          <Image
+            alt="footer-icon"
+            src="/image/home/LinkedIn-Negative.png"
+            width={20}
+            height={20}
+            className="pointed"
+          />
+        </a>
       </div>
     </div>
   );

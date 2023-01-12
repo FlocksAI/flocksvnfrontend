@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SCard = styled.div`
-  width: 506px;
+  width: 100%;
   border: 1px solid #eeeeee;
   border-radius: 32px;
   .wrap-head-card {

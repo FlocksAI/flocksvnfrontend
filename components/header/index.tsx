@@ -7,6 +7,7 @@ import useWindowResize from "../../hook/useResize";
 import useProfile from "./useProfile";
 import { getAuthToken } from "../../utils/helper";
 import { URL_IMAGE } from "../../constant/api-constant";
+import NavigationIndex from "../navigation";
 
 const Header = () => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const Header = () => {
             <div className="head-left">
               <Image
                 alt="logo"
-                src="/image/home/logo-head.png"
+                src="/image/home/logo-new.png"
                 width={121}
                 height={48}
                 className="logo-image pointed"
@@ -34,13 +35,10 @@ const Header = () => {
               {size.width > 414 && (
                 <div className="wrap-left-head">
                   <div className="content pointed">
-                    <span>Trang chủ</span>
+                    <span onClick={() => router.push("/")}>Trang chủ</span>
                   </div>
-                  <div
-                    className="content pointed"
-                    onClick={() => router.push("/project")}
-                  >
-                    <span>Dự án</span>
+                  <div className="content pointed">
+                    <span onClick={() => router.push("/project")}>Dự án</span>
                   </div>
                   <div className="content pointed">
                     <span onClick={() => router.push("/blog")}>Kiến Thức</span>
@@ -99,6 +97,17 @@ const Header = () => {
             </Col>
           )}
         </Row>
+        {size.width <= 414 && (
+          <div style={{ position: "relative", marginTop: "-38px" }}>
+            <NavigationIndex
+              content1="Trang chủ"
+              content2="Dự án"
+              content3="Blog"
+              content4="Sự kiện"
+              content5="FAQ"
+            />
+          </div>
+        )}
       </SHeader>
     </>
   );

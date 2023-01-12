@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { Col, Divider, Progress, Row } from "antd";
 import moment from "moment";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Moment from "react-moment";
 import Slider from "react-slick";
+import { MEDIA_PUBLIC } from "../../constant/api-constant";
 import { SBannerProject } from "../../lib/peoject-detail/styled";
 import { SETTING } from "./constant";
 import { IProjectDetailBanner } from "./interface";
@@ -13,13 +15,23 @@ const BannerProjectDetail: React.FC<IProjectDetailBanner> = ({
   collectedBudget,
   numberInvestors,
   closingDate,
+  logoImage,
+  createdAt,
 }) => {
   const router = useRouter();
+  const [src, setSrc] = useState(`${MEDIA_PUBLIC}${logoImage?.url}`);
   return (
     <SBannerProject>
       <Row justify="center">
         <Col xl={10}>
-          <Slider {...SETTING}>
+          <Image
+            onError={() => setSrc("/image/home/banner-sub-0.png")}
+            alt="logo"
+            src={src}
+            fill
+            className="logo-image pointed"
+          />
+          {/* <Slider {...SETTING}>
             <div>
               <img
                 className="img-slider"
@@ -41,16 +53,18 @@ const BannerProjectDetail: React.FC<IProjectDetailBanner> = ({
                 alt="image-project"
               />
             </div>
-          </Slider>
+          </Slider> */}
         </Col>
         <Col xs={0} xl={1} />
         <Col xs={22} xl={4}>
           <div className="mobile-active">
             <div className="wrap-info-day">
-              <span className="started-day">Started: 09/Oct/2022</span>
+              <span className="started-day">
+                Bắt đầu: {moment(createdAt).format("DD-MM-YYYY")}
+              </span>
               <Divider />
               <span className="total-value">{collectedBudget}đ</span>
-              <span>Rasied</span>
+              <span>Đã đầu tư</span>
               <Progress
                 strokeColor={{
                   "0%": "#108ee9",

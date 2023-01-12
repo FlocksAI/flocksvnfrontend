@@ -20,7 +20,7 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
             <div className="head-left">
               <Image
                 alt="logo"
-                src="/image/home/avatar-sub.png"
+                src="/image/home/logo-new.png"
                 width={121}
                 height={48}
                 className="logo-image pointed"
@@ -28,7 +28,7 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
               />
             </div>
           </Col>
-          {size.width > 414 ? (
+          {size.width > 414 && (
             <Col xs={12} xl={12}>
               <Row className="wrap-left-head">
                 <Col
@@ -36,37 +36,38 @@ const SubHeadIndex: React.FC<ISubHead> = (props) => {
                   className="content pointed"
                   onClick={() => router.push("/")}
                 >
-                  <span>Home</span>
+                  <span onClick={() => router.push("/")}>Trang chủ</span>
                 </Col>
                 <Col xl={4} className="content pointed">
-                  <span>Our Projects</span>
+                  <span onClick={() => router.push("/project")}>Dự án</span>
                 </Col>
                 <Col xl={4} className="content pointed">
-                  <span>Blogs</span>
+                  <span onClick={() => router.push("/blog")}>Blog</span>
                 </Col>
                 <Col xl={4} className="content pointed">
-                  <span onClick={() => router.push("/event")}>Events</span>
+                  <span onClick={() => router.push("/event")}>Sự kiện</span>
                 </Col>
                 <Col xl={4} className="content pointed">
-                  <span onClick={() => router.push("/faq")}>FAQs</span>
+                  <span onClick={() => router.push("/faq")}>FAQ</span>
                 </Col>
                 <Col xl={4} className="btn">
                   <button>Get Started</button>
                 </Col>
               </Row>
             </Col>
-          ) : (
-            <Col xs={12}>
-              <NavigationIndex
-                content1="Home"
-                content2="Our Projects"
-                content3="Blogs"
-                content4="Events"
-                content5="FAQs"
-              />
-            </Col>
           )}
         </Row>
+        {size.width <= 414 && (
+          <div style={{ position: "relative", marginTop: "-38px" }}>
+            <NavigationIndex
+              content1="Trang chủ"
+              content2="Dự án"
+              content3="Blog"
+              content4="Sự kiện"
+              content5="FAQ"
+            />
+          </div>
+        )}
         <Row justify="center">
           <Col xl={12}>
             <div className="banner-wrap">

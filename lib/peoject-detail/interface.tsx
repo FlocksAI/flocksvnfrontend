@@ -33,6 +33,7 @@ export type TFile = {
 export interface ITeamProjectDetail {
   companyPresentTeamMember: Array<TTeam>;
   companyName: string;
+  logoImage: TFile;
 }
 
 export type TTeam = {

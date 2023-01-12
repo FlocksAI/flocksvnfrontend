@@ -63,7 +63,7 @@ const SDetailProjectPage = styled.div`
     padding: 36px 142px;
   }
   .logo-image {
-    object-fit: cover;
+    object-fit: fill;
   }
   .wrap-left-head {
     display: flex;
@@ -88,6 +88,7 @@ const SDetailProjectPage = styled.div`
     padding: 36px 0px 46px 0px;
   }
   @media only screen and (max-width: 414px) {
+    padding: 16px;
     .head-top {
       padding: 24px 16px 0px 16px;
     }

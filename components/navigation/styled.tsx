@@ -85,12 +85,16 @@ const SNavigation = styled.div`
     .nav > .nav-links > span {
       display: block;
       width: 100%;
+      padding: 16px;
+      font-weight: 600;
+      font-size: 16px;
+      color: rgb(30, 30, 30);
     }
     .nav > #nav-check:not(:checked) ~ .nav-links {
       height: 0px;
     }
     .nav > #nav-check:checked ~ .nav-links {
-      height: calc(50vh - 50px);
+      height: calc(40vh - 50px);
       overflow-y: auto;
     }
   }

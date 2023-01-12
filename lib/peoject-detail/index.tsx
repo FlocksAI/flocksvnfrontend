@@ -10,6 +10,7 @@ import TeamProject from "./team";
 
 const ProjectDetailIndex = () => {
   const { dataProject } = useProjectDetail();
+  if (!dataProject) return;
   console.log(dataProject);
   return (
     <>
@@ -26,6 +27,8 @@ const ProjectDetailIndex = () => {
           collectedBudget={dataProject?.collectedBudget}
           numberInvestors={dataProject?.numberInvestors}
           closingDate={dataProject?.closingDate}
+          logoImage={dataProject?.logoImage}
+          createdAt={dataProject?.createdAt}
         />
         <ContentProject
           companyName={dataProject?.companyName}
@@ -42,6 +45,7 @@ const ProjectDetailIndex = () => {
         <TeamProject
           companyPresentTeamMember={dataProject?.companyPresentTeamMember}
           companyName={dataProject?.companyName}
+          logoImage={dataProject?.logoImage}
         />
         <Footer />
       </SProjectDetail>

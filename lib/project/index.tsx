@@ -18,24 +18,27 @@ const ProjectIndex = () => {
       />
       <div className="list-project">
         <Row justify="center">
-          <Col xs={24} xl={18} className="col-mobile-search">
+          <Col xs={24} xl={24} className="col-mobile-search">
             <SearchBox />
           </Col>
         </Row>
         <Row justify="center">
           {dataProject.map((el) => {
             return (
-              <Col key={el} xs={24} xl={9} className="col-card">
-                <CardIndex
-                  id={el.id}
-                  abstract={el.abstract}
-                  collectedBudget={Number(el.collectedBudget)}
-                  companyName={el.companyName}
-                  investmentTarget={Number(el.investmentTarget)}
-                  numberInvestors={el.numberInvestors}
-                  coverImage={el.coverImage}
-                />
-              </Col>
+              <>
+                <Col key={el} xs={24} xl={7} className="col-card">
+                  <CardIndex
+                    id={el.id}
+                    abstract={el.abstract}
+                    collectedBudget={Number(el.collectedBudget)}
+                    companyName={el.companyName}
+                    investmentTarget={Number(el.investmentTarget)}
+                    numberInvestors={el.numberInvestors}
+                    coverImage={el.coverImage}
+                  />
+                </Col>
+                <Col xl={1} />
+              </>
             );
           })}
         </Row>
