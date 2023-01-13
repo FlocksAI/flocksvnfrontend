@@ -8,7 +8,17 @@ import { ISubHead } from "./interface";
 import { SDetailProjectPage } from "./styled";
 
 const HeaderSub: React.FC<ISubHead> = (props) => {
-  const { children, isShowHead = false, routerDetail } = props;
+  const {
+    children,
+    isShowHead = false,
+    routerDetail,
+    contentFive,
+    contentFour,
+    contentOne,
+    contentThree,
+    contentTwo,
+    hrefOne,
+  } = props;
   const size = useWindowResize();
   const router = useRouter();
   return (
@@ -66,20 +76,26 @@ const HeaderSub: React.FC<ISubHead> = (props) => {
         <Row justify="center" className="breadcrumb">
           <Col span={18}>
             <Breadcrumb separator=">">
-              <Breadcrumb.Item href="https://www.flocks.vn/project/">
-                Tất cả Dự án
+              <Breadcrumb.Item
+                href={hrefOne || "https://www.flocks.vn/project/"}
+              >
+                {contentOne || "Tất cả Dự án"}
               </Breadcrumb.Item>
               <Breadcrumb.Item
                 className={routerDetail && "active-detail"}
                 href=""
               >
-                Thông tin Dự án
+                {contentTwo || "Thông tin Dự án"}
               </Breadcrumb.Item>
-              <Breadcrumb.Item href="">Xác minh Danh tính</Breadcrumb.Item>
+              <Breadcrumb.Item href="">
+                {contentThree || "Xác minh Danh tính"}
+              </Breadcrumb.Item>
               <Breadcrumb.Item href="https://www.flocks.vn/project/payment/">
-                Lựa chọn Đầu tư
+                {contentFour || "Lựa chọn Đầu tư"}
               </Breadcrumb.Item>
-              <Breadcrumb.Item>Xác nhận đầu tư</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                {contentFive || "Xác nhận đầu tư"}
+              </Breadcrumb.Item>
             </Breadcrumb>
           </Col>
         </Row>

@@ -4,6 +4,15 @@ export interface ISubHead {
   children: ReactNode;
   isShowHead?: boolean;
   routerDetail?: boolean;
+  contentOne?: string;
+  contentTwo?: string;
+  contentThree?: string;
+  contentFour?: string;
+  contentFive?: string;
+  hrefOne?: string;
+  hrefTwo?: string;
+  hrefThree?: string;
+  hrefFour?: string;
 }
 
 export interface IContentHead {

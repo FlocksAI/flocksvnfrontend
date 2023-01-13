@@ -17,7 +17,12 @@ const BlogDetailIndex = () => {
   }, [router?.query?.id]);
   return (
     <>
-      <HeaderSub>
+      <HeaderSub
+        contentOne="Tất cả Blogs"
+        contentTwo="Thông tin Blogs"
+        routerDetail
+        hrefOne="https://www.flocks.vn/blog/"
+      >
         <ContentHeadBlog
           author={dataDetail?.author}
           modifiedAt={dataDetail?.modifiedAt}

@@ -16,7 +16,12 @@ const EventDetailIndex = () => {
   }, [router?.query?.id]);
   return (
     <>
-      <HeaderSub>
+      <HeaderSub
+        routerDetail
+        contentOne="Tất cả sự kiện"
+        contentTwo="Thông tin sự kiện"
+        hrefOne="https://www.flocks.vn/event/"
+      >
         <ContentHeadEventDetail
           headerImage={dataDetail?.headerImage}
           location={dataDetail?.location}
