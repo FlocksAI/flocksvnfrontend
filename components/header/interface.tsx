@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export interface ISubHead {
   children: ReactNode;
   isShowHead?: boolean;
+  routerDetail?: boolean;
 }
 
 export interface IContentHead {

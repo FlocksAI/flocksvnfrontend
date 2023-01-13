@@ -53,6 +53,12 @@ const SHeader = styled.div`
 `;
 
 const SDetailProjectPage = styled.div`
+  .ant-breadcrumb li:last-child {
+    color: unset;
+  }
+  .active-detail {
+    color: rgba(0, 0, 0, 0.85);
+  }
   background: linear-gradient(
     270deg,
     rgba(199, 248, 51, 0.16) -3.31%,

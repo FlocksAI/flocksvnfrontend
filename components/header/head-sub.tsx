@@ -8,7 +8,7 @@ import { ISubHead } from "./interface";
 import { SDetailProjectPage } from "./styled";
 
 const HeaderSub: React.FC<ISubHead> = (props) => {
-  const { children, isShowHead = false } = props;
+  const { children, isShowHead = false, routerDetail } = props;
   const size = useWindowResize();
   const router = useRouter();
   return (
@@ -65,11 +65,16 @@ const HeaderSub: React.FC<ISubHead> = (props) => {
       {!isShowHead && (
         <Row justify="center" className="breadcrumb">
           <Col span={18}>
-            <Breadcrumb separator=">">
+            <Breadcrumb separator=">" className="nguyenne2">
               <Breadcrumb.Item href="https://www.flocks.vn/project/">
                 Tất cả Dự án
               </Breadcrumb.Item>
-              <Breadcrumb.Item href="">Thông tin Dự án</Breadcrumb.Item>
+              <Breadcrumb.Item
+                className={routerDetail && "active-detail"}
+                href=""
+              >
+                Thông tin Dự án
+              </Breadcrumb.Item>
               <Breadcrumb.Item href="">Xác minh Danh tính</Breadcrumb.Item>
               <Breadcrumb.Item href="https://www.flocks.vn/project/payment/">
                 Lựa chọn Đầu tư

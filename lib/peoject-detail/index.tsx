@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import Footer from "../../components/footer";
 import ContentProjectHead from "../../components/header/content-project-head";
@@ -9,13 +10,14 @@ import { SProjectDetail } from "./styled";
 import TeamProject from "./team";
 
 const ProjectDetailIndex = () => {
+  const router = useRouter();
   const { dataProject } = useProjectDetail();
   if (!dataProject) return;
-  console.log(dataProject);
+  console.log(router);
   return (
     <>
       <SProjectDetail>
-        <HeaderSub>
+        <HeaderSub routerDetail>
           <ContentProjectHead
             companyName={dataProject?.companyName}
             companySubTitle={dataProject?.companySubTitle}
