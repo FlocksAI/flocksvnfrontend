@@ -65,7 +65,7 @@ const HeaderSub: React.FC<ISubHead> = (props) => {
       {!isShowHead && (
         <Row justify="center" className="breadcrumb">
           <Col span={18}>
-            <Breadcrumb separator=">" className="nguyenne2">
+            <Breadcrumb separator=">">
               <Breadcrumb.Item href="https://www.flocks.vn/project/">
                 Tất cả Dự án
               </Breadcrumb.Item>
