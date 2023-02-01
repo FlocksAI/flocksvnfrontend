@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 const SSubHead = styled.div`
   padding: 36px 142px;
+  .head-left {
+    display: flex;
+    align-items: center;
+  }
   .logo-image {
     object-fit: cover;
   }

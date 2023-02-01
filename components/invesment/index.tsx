@@ -4,25 +4,27 @@ import Image from "next/image";
 import React from "react";
 import { SInvesment } from "./style";
 import useWindowResize from "../../hook/useResize";
+import useTranslation from "../../hook/useTranslation";
 
 const Invesment = () => {
+  const { t } = useTranslation();
   const size = useWindowResize();
   return (
     <SInvesment>
       <Row justify="center" className="wrap">
         <Col className="wrap-item" xs={24} xl={16}>
-          <span className="common">Gọi Vốn &</span>
+          <span className="common">{t.funding}</span>
           <br />
-          <span className="common">Đầu Tư</span>
+          <span className="common">{t.investorment}</span>
           <br />
-          <span className="common one-platform">Trên 01 Nền Tảng</span>
+          <span className="common one-platform">{t.same_platform}</span>
           <br />
           <span className="content">
-            Flocks AI là nền tảng dành cho người Việt, hỗ trợ thẩm định doanh
+            {t.content_investor_home_one}
           </span>
           <br />
           <span className="content">
-            nghiệp và kết nối với nguồn vốn cộng đồng Việt Nam.
+            {t.content_investor_home_two}
           </span>
         </Col>
       </Row>

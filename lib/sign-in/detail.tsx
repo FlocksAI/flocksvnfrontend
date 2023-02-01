@@ -8,9 +8,11 @@ import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import { CLIENT_ID } from "../../constant/api-constant";
 import useLogin from "./useLogin";
+import { useRouter } from "next/router";
 
 const SigninDetail: React.FC<SigninInput> = (props) => {
   const { size } = props;
+  const router = useRouter();
   const { control, handleSubmit } = useForm();
   const { loginEmailPassword, loginGoogle } = useLogin();
 
@@ -22,11 +24,9 @@ const SigninDetail: React.FC<SigninInput> = (props) => {
     }
   }, []);
   const onFailLogin = (res: any) => {
-    console.log(res);
     message.warning("login Fail", res);
   };
   const responseGoogle = (response: any) => {
-    console.log(response);
     loginGoogle("google");
   };
   const login = (data: any) => {
@@ -45,7 +45,12 @@ const SigninDetail: React.FC<SigninInput> = (props) => {
               <br />
               <span className="no-account">
                 Chưa có tài khoản?
-                <span className="sign-up-here"> Đăng ký tại đây!</span>
+                <span
+                  className="sign-up-here"
+                  onClick={() => router.push('/sign-up')}
+                >
+                  Đăng ký tại đây!
+                </span>
               </span>
             </div>
             <Row>

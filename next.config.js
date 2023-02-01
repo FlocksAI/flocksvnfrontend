@@ -4,6 +4,10 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["tsx", "ts", "jsx", "js"],
+  i18n: {
+    locales: ['en', 'vi'],
+    defaultLocale: 'vi'
+  },
   trailingSlash: true,
   images: {
     domains: [

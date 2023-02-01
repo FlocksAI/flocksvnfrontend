@@ -26,6 +26,7 @@
     "moment": "^2.29.4",
     "next": "13.0.2",
     "next-transpile-modules": "^10.0.0",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-login": "^5.2.2",

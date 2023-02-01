@@ -28,10 +28,10 @@ const useLogin = () => {
       const resp = await fetch(
         `https://api.flocks.vn/api/v1/auth/social/oauth_uri?provider=${provider}`
       ).then((res) => res.json());
-      console.log(resp);
+      // console.log(resp);
       let url = resp;
       url += `&redirect_uri=${googleRedirectUriVi}`;
-      console.log(url);
+      // console.log(url);
       // window.open(url, "_self");
       // const resp = await LoginRepositories.loginGoogle(provider);
       // console.log(resp);

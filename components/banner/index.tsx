@@ -4,8 +4,10 @@ import React from "react";
 import { SBanner } from "./styled";
 import useWindowResize from "../../hook/useResize";
 import { useRouter } from "next/router";
+import useTranslation from "../../hook/useTranslation";
 
 const Banner = () => {
+  const { t } = useTranslation();
   const size = useWindowResize();
   const router = useRouter();
   return (
@@ -15,8 +17,8 @@ const Banner = () => {
           <Col xs={24} xl={24}>
             <div className="title-banner wrap-banner">
               <div className="title">
-                <span>Nền tảng đầu tư thông minh</span>
-                {size.width <= 414 && <span> Cho</span>}
+                <span>{t.platform_investment}</span>
+                {size.width <= 414 && <span> {t.for}</span>}
               </div>
             </div>
           </Col>
@@ -25,21 +27,21 @@ const Banner = () => {
           <Col xl={10}>
             <div className="wrap-banner">
               <div className="title">
-                {size.width > 414 && <span>Cho</span>}
-                <span className="vietnam"> Người Việt.</span>
+                {size.width > 414 && <span>{t.for}</span>}
+                <span className="vietnam"> {t.people_vietnames}</span>
               </div>
               <div className="content">
-                <span className="choose">Lựa chọn. Đánh giá. Đầu tư.</span>
+                <span className="choose">{t.select_evaluation_investment}</span>
                 <br />
                 <span>
-                  Trở thành một phần của các Dự án tiềm năng được thẩm định
+                  {t.content_banner_home_one}
                 </span>
                 <br />
                 <span>
-                  chuyên nghiệp và khám phá các khoản lợi nhuận khi đầu tư
+                  {t.content_banner_home_two}
                 </span>
                 <br />
-                <span>trên nền tảng Flocks AI.</span>
+                <span>{t.content_banner_home_three}</span>
               </div>
               {size.width > 414 && (
                 <div className="btn">
@@ -47,13 +49,13 @@ const Banner = () => {
                     className="project pointed"
                     onClick={() => router.push("/investor")}
                   >
-                    Khám phá Dự án
+                    {t.projects_banner}
                   </button>
                   <button
                     className="call-investor pointed"
                     onClick={() => router.push("/company")}
                   >
-                    Gọi vốn Đầu tư
+                    {t.investor_banner}
                   </button>
                 </div>
               )}
@@ -69,8 +71,8 @@ const Banner = () => {
           </Col>
           {size.width <= 414 && (
             <div className="btn">
-              <button className="project">Khám phá Dự án</button>
-              <button className="call-investor">Gọi vốn Đầu tư</button>
+              <button className="project">{t.projects_banner}</button>
+              <button className="call-investor">{t.investor_banner}</button>
             </div>
           )}
         </Row>

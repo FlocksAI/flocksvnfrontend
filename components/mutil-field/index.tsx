@@ -3,8 +3,10 @@ import { SMutilField } from "./styled";
 import { Row, Col } from "antd";
 import CardField from "../card/Card-Field";
 import useWindowResize from "../../hook/useResize";
+import useTranslation from "../../hook/useTranslation";
 
 const MutilField = () => {
+  const { t } = useTranslation();
   const size = useWindowResize();
   return (
     <>
@@ -102,15 +104,14 @@ const MutilField = () => {
               <span>01</span>
             </div>
             <div className="content-head">
-              <span>Đăng kí gọi vốn</span>
+              <span>{t.register_for_funding}</span>
             </div>
             <div className="content-sub">
               <span className="first">
-                Doanh nghiệp nộp hồ sơ đăng ký trên trang thông tin của Flock AI
+                {t.business_submits}
               </span>
               <span>
-                Cung cấp các tài liệu (nếu cần) để Flocks AI thẩm định doanh
-                nghiệp.
+                {t.provide_related_documents}
               </span>
             </div>
           </Col>
@@ -119,16 +120,14 @@ const MutilField = () => {
               <span>02</span>
             </div>
             <div className="content-head">
-              <span>Thẩm định hồ sơ</span>
+              <span>{t.flie_appraisal}</span>
             </div>
             <div className="content-sub">
               <span className="first">
-                Đội ngũ chuyên gia của Flock AI sẽ giúp doanh nghiệp thẩm định:
-                pháp lý, định giá,...
+                {t.expert_team}
               </span>
               <span>
-                Đội ngũ Flocks AI sẽ liên hệ doanh nghiệp để xác nhận thông tin,
-                tư vấn pháp lý và chiến lược gọi vốn phù hợp (nếu có)
+                {t.our_team_will_contact}
               </span>
             </div>
           </Col>
@@ -137,17 +136,14 @@ const MutilField = () => {
               <span>03</span>
             </div>
             <div className="content-head">
-              <span>Mở chiến dịch gọi vốn trên Flocks AI</span>
+              <span>{t.open_fundraising_campaign_on_Flock_AI}</span>
             </div>
             <div className="content-sub">
               <span className="first">
-                Khi vượt qua vòng thẩm định, thông tin doanh nghiệp sẽ được công
-                khai trên nền tảng Flocks AI.
+                {t.when_business_passes}
               </span>
               <span>
-                Flocks AI sẽ giúp doanh nghiệp kết nối hiệu quả với các tổ chức,
-                cá nhân có mong muốn đầu tư vào dự án, đảm bảo quá trình giải
-                ngân diễn ra suôn sẻ và thông đúng quy định.
+                {t.Flock_AI_will_help_business}
               </span>
             </div>
           </Col>

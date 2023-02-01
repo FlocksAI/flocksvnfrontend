@@ -3,6 +3,7 @@ import styled from "styled-components";
 const SHeader = styled.div`
   .head-left {
     display: flex;
+    align-items: center;
   }
   .logo-image {
     background: #fff;
@@ -55,6 +56,10 @@ const SHeader = styled.div`
 const SDetailProjectPage = styled.div`
   .ant-breadcrumb li:last-child {
     color: unset;
+  }
+  .head-left {
+    display: flex;
+    align-items: center;
   }
   .active-detail {
     color: rgba(0, 0, 0, 0.85);

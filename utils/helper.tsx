@@ -10,3 +10,9 @@ export const removeAuth = () => {
     // window.location.reload();
   }
 };
+
+export const getLanguage = () => {
+  const splitPathName = typeof window !== "undefined" && window?.location?.pathname?.split("/");
+  const lang = splitPathName[1] == "en" ? "en" : "vi";
+  return lang;
+}

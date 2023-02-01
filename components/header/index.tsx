@@ -8,8 +8,11 @@ import useProfile from "./useProfile";
 import { getAuthToken } from "../../utils/helper";
 import { URL_IMAGE } from "../../constant/api-constant";
 import NavigationIndex from "../navigation";
+import SwitchTranslate from "../translate";
+import useTranslation from "../../hook/useTranslation";
 
 const Header = () => {
+  const { t } = useTranslation()
   const router = useRouter();
   const size = useWindowResize();
   const accessToken = getAuthToken();
@@ -32,22 +35,23 @@ const Header = () => {
                 className="logo-image pointed"
                 onClick={() => router.push("/")}
               />
+              {size.width < 414 && <SwitchTranslate />}
               {size.width > 414 && (
                 <div className="wrap-left-head">
                   <div className="content pointed">
-                    <span onClick={() => router.push("/")}>Trang chủ</span>
+                    <span onClick={() => router.push("/")}>{t.home}</span>
                   </div>
                   <div className="content pointed">
-                    <span onClick={() => router.push("/project")}>Dự án</span>
+                    <span onClick={() => router.push("/project")}>{t.projects}</span>
                   </div>
                   <div className="content pointed">
-                    <span onClick={() => router.push("/blog")}>Kiến Thức</span>
+                    <span onClick={() => router.push("/blog")}>{t.knowledge}</span>
                   </div>
                   <div className="content pointed">
-                    <span onClick={() => router.push("/event")}>Sự kiện</span>
+                    <span onClick={() => router.push("/event")}>{t.events}</span>
                   </div>
                   <div className="content pointed">
-                    <span onClick={() => router.push("/faq")}>FAQ</span>
+                    <span onClick={() => router.push("/faq")}>{t.faq}</span>
                   </div>
                 </div>
               )}
@@ -76,7 +80,7 @@ const Header = () => {
                       />
                     }
                   />
-                  <span className="name-me">Ton Viet Nguyen</span>
+                  <span className="name-me">{dataMe?.firstName} {dataMe?.lastName}</span>
                 </Popover>
               ) : (
                 <div className="wrap-right-head">
@@ -84,29 +88,35 @@ const Header = () => {
                     className="btn btn-sign-up pointed"
                     onClick={() => router.push("/sign-up")}
                   >
-                    Đăng Ký
+                    {t.sign_up}
                   </button>
                   <button
                     className="btn btn-sign-in pointed"
                     onClick={() => router.push("/sign-in")}
                   >
-                    Đăng Nhập
+                    {t.sign_in}
                   </button>
                 </div>
               )}
+              <SwitchTranslate />
             </Col>
           )}
         </Row>
         {size.width <= 414 && (
-          <div style={{ position: "relative", marginTop: "-38px" }}>
-            <NavigationIndex
-              content1="Trang chủ"
-              content2="Dự án"
-              content3="Blog"
-              content4="Sự kiện"
-              content5="FAQ"
-            />
-          </div>
+          <>
+            {/* <div style={{ position: "relative", marginTop: "-38px" }}>
+              <SwitchTranslate />
+            </div> */}
+            <div style={{ position: "relative", marginTop: "-38px" }}>
+              <NavigationIndex
+                content1={t.home}
+                content2={t.projects}
+                content3={t.blog}
+                content4={t.events}
+                content5={t.faq}
+              />
+            </div>
+          </>
         )}
       </SHeader>
     </>

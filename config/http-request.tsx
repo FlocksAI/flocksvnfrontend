@@ -3,12 +3,16 @@ import axios, {
   AxiosStatic,
   CancelTokenStatic,
 } from "axios";
+import { getLanguage } from "../utils/helper";
 import "./interceptor";
+
+const lang = getLanguage();
 
 const DEFAULT_HEADERS = {
   Accept: "application/json",
   "Content-Type": "application/json",
   "X-Requested-With": "application/json",
+  "Accept-Language": lang
 };
 
 const DEFAULT_HEADER = {
