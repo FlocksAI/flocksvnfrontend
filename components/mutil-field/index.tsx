@@ -4,10 +4,12 @@ import { Row, Col } from "antd";
 import CardField from "../card/Card-Field";
 import useWindowResize from "../../hook/useResize";
 import useTranslation from "../../hook/useTranslation";
+import { useRouter } from "next/router";
 
 const MutilField = () => {
   const { t } = useTranslation();
   const size = useWindowResize();
+  const router = useRouter();
   return (
     <>
       <SMutilField>
@@ -17,18 +19,18 @@ const MutilField = () => {
               {size.width > 414 ? (
                 <>
                   <div className="head-title">
-                    <span className="first">Gọi vốn Đa lĩnh vực</span>
+                    <span className="first">{t.many_fields}</span>
                   </div>
                   <div className="head-title second">
-                    <span className="content">Flocks AI </span>
+                    <span className="content">{t.Flocks_AI}</span>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="mobile-head-title">
-                    <span className="first">Gọi vốn Đa lĩnh vực </span>
+                    <span className="first">{t.many_fields} </span>
                     <br />
-                    <span className="second">Flocks AI </span>
+                    <span className="second">{t.Flocks_AI}</span>
                   </div>
                 </>
               )}
@@ -38,17 +40,15 @@ const MutilField = () => {
             <Col xs={24} xl={8}>
               <div className="wrap-field">
                 <span className="head-field">
-                  Flocks AI mang đến cho mọi người quyền tham gia đầu tư vào các
-                  doanh nghiệp ở giai đoạn khởi nghiệp với nhiều hình thức đa
-                  dạng.
+                  {t.Flocks_AI_brings}
                 </span>
                 <div className="type-field">
-                  <span className="br-radius">Công nghệ</span>
-                  <span className="br-radius">Giải Trí</span>
-                  <span className="br-radius">Nhà hàng & khách sạn</span>
-                  <span className="br-radius">Chăm sóc sức khoẻ & sắc đẹp</span>
-                  <span className="br-radius">Thời trang</span>
-                  <span>Bất Động Sản</span>
+                  <span className="br-radius">{t.technology}</span>
+                  <span className="br-radius">{t.entertainment}</span>
+                  <span className="br-radius">{t.restaurant_and_hotel}</span>
+                  <span className="br-radius">{t.health_and_beauty}</span>
+                  <span className="br-radius">{t.fashion}</span>
+                  <span>{t.realty}</span>
                 </div>
               </div>
             </Col>
@@ -57,33 +57,33 @@ const MutilField = () => {
               <Row>
                 <Col xs={24} xl={10}>
                   <CardField
-                    title="Start-up"
-                    content="Hình thành ý tưởng độc đáo"
-                    subContent="Đã hoàn thành sản phẩm"
+                    title={t.start_up}
+                    content={t.creating_unique_ideas}
+                    subContent={t.finished_products}
                   />
                 </Col>
                 <Col span={2} />
                 <Col xs={24} xl={10}>
                   <CardField
-                    title="SME"
-                    content="Sản phẩm đã xuất hiện trên thị trường"
-                    subContent="Có báo cáo doanh thu và lợi nhuận"
+                    title={t.SME}
+                    content={t.the_products_appeared_on_the_market}
+                    subContent={t.has_revenue_and_profit_report}
                   />
                 </Col>
                 <Col span={2} />
                 <Col xs={24} xl={10}>
                   <CardField
-                    title="Web 3"
-                    content="Ý tưởng sản phẩm công "
-                    subContent="nghệ website dựa trên nền tảng blockchain"
+                    title={t.web3}
+                    content={t.website_technology_product_ideas}
+                    subContent={t.based_on_blockchain_platform}
                   />
                 </Col>
                 <Col span={2} />
                 <Col xs={24} xl={10}>
                   <CardField
-                    title="Dự Án - Đặc Biệt"
-                    content="Hình thành ý tưởng độc đáo"
-                    subContent="Đã hoàn thành sản phẩm"
+                    title={t.special_projects}
+                    content={t.creating_unique_ideas}
+                    subContent={t.finished_products}
                   />
                 </Col>
               </Row>
@@ -93,8 +93,18 @@ const MutilField = () => {
         <Row>
           <Col xs={24} xl={24} className="mobile-field">
             <div className="sub-title title">
-              <span className="content">Flocks AI </span>{" "}
-              <span> hoạt động như thế nào?</span>
+              {router.locale === "vi" ? (
+                <>
+                  <span className="content">Flocks AI </span>{" "}
+                  <span> hoạt động như thế nào?</span>
+                </>
+              ) : (
+                <>
+                  <span>How </span> &nbsp;
+                  <span className="content"> Flocks AI </span>{" "}
+                  <span>works</span>
+                </>
+              )}
             </div>
           </Col>
         </Row>
