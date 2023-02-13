@@ -67,7 +67,6 @@ const SBanner = styled.div`
   }
   .slick-dots {
     top: 345px;
-    left: 180px;
     display: block;
     position: absolute;
   }
