@@ -1,9 +1,11 @@
 import { Col, Divider, Row } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import SFooter from "./styled";
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <>
       <SFooter>
@@ -27,29 +29,32 @@ const Footer = () => {
         <Row>
           <Col xs={24} xl={10}>
             <Row className="wrap">
-              <Col xs={12} xl={6} className="footer-wrap">
-                <span className="footer-title">For Investor</span>
-                <span className="footer-content">Why Investss</span>
-                <span className="footer-content">How It Work?</span>
-                <span className="footer-content">Privacy Policy</span>
+              <Col xs={12} xl={6} className="footer-wrap pointed">
+                <span
+                  className="footer-title"
+                  onClick={() => router.push("/investor")}
+                >
+                  For Investor
+                </span>
               </Col>
-              <Col xs={12} xl={6} className="footer-wrap footer-mobile">
-                <span className="footer-title">For Fundraisers</span>
-                <span className="footer-content">Why Raise</span>
-                <span className="footer-content">How It Work?</span>
-                <span className="footer-content">Privacy Policy</span>
+              <Col xs={12} xl={6} className="footer-wrap footer-mobile pointed">
+                <span
+                  className="footer-title"
+                  onClick={() => router.push("/company")}
+                >
+                  For Fundraisers
+                </span>
               </Col>
-              <Col xs={12} xl={6} className="footer-wrap">
-                <span className="footer-title">Useful Links</span>
-                <span className="footer-content">Why Invest</span>
-                <span className="footer-content">How It Work?</span>
-                <span className="footer-content">Privacy Policy</span>
+              <Col xs={12} xl={6} className="footer-wrap pointed">
+                <span
+                  className="footer-title"
+                  onClick={() => router.push("/faq")}
+                >
+                  How It Works
+                </span>
               </Col>
-              <Col xs={12} xl={6} className="footer-wrap footer-mobile">
-                <span className="footer-title">Useful Links</span>
-                <span className="footer-content">Why Invest</span>
-                <span className="footer-content">How It Work?</span>
-                <span className="footer-content">Privacy Policy</span>
+              <Col xs={12} xl={6} className="footer-wrap footer-mobile pointed">
+                <span className="footer-title">Privacy Policy</span>
               </Col>
             </Row>
           </Col>

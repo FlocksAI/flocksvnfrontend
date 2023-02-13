@@ -1,28 +1,12 @@
 import { Col, Collapse, Row } from "antd";
 import Image from "next/image";
 import React from "react";
-import {
-  FAQ_1,
-  FAQ_2_1,
-  FAQ_2_2,
-  FAQ_2_3,
-  FAQ_2_4,
-  FAQ_3_1,
-  FAQ_3_2,
-  FAQ_4,
-  FAQ_5,
-  FAQ_6_1,
-  FAQ_6_2,
-  FAQ_6_3,
-  FAQ_7_1,
-  FAQ_7_2,
-  FAQ_7_3,
-  FAQ_8,
-} from "./constant";
+import useTranslation from "../../hook/useTranslation";
 import { SAnswerQuestion } from "./styled";
 
 const { Panel } = Collapse;
 const AnswerQuestion = () => {
+  const { t } = useTranslation();
   return (
     <>
       <SAnswerQuestion>
@@ -56,46 +40,39 @@ const AnswerQuestion = () => {
                 )
               }
             >
-              <Panel header="1. Flocks AI là gì?" key="1">
-                <div>{FAQ_1}</div>
+              <Panel header={t.what_flocks} key="1">
+                <div>{t.description_what_flocks}</div>
               </Panel>
-              <Panel
-                header="2. Flocks AI đang được bảo chứng bởi những tổ chức nào?"
-                key="2"
-              >
+              <Panel header={t.how_does_flock_ai_secure} key="2">
+                <div>{t.description_how_does_flock_ai_secure}</div>
+              </Panel>
+              <Panel header={t.flock_ai_is_being_guaranteed} key="3">
                 <>
-                  <div>{FAQ_2_1}</div>
+                  <div>{t.description_flock_ai_is_being_guaranteed_by}</div>
                   <div>
                     - <span style={{ fontWeight: "bold" }}>Binance</span> -{" "}
-                    {FAQ_2_2}
+                    {t.description_flock_ai_is_being_guaranteed_by_binance}
                   </div>
                   <div>
                     - <span style={{ fontWeight: "bold" }}>MoMo</span> -{" "}
-                    {FAQ_2_3}
+                    {t.description_flock_ai_is_being_guaranteed_by_momo}
                   </div>
                   <div>
                     -{" "}
                     <span style={{ fontWeight: "bold" }}>
                       Trust Link Law Firm
                     </span>{" "}
-                    - {FAQ_2_4}
+                    - {t.description_flock_ai_is_being_guaranteed_by_law_firm}
                   </div>
                 </>
               </Panel>
-              <Panel
-                header="3. Ai có thể trở thành nhà đầu tư trên Flock AI?"
-                key="3"
-              >
-                <>
-                  <div style={{ marginBottom: 12 }}>{FAQ_3_1}</div>
-                  <div>{FAQ_3_2}</div>
-                </>
-              </Panel>
-              <Panel
-                header="4. Tôi có thể đầu tư bao nhiêu tiền trên Flocks AI?"
-                key="4"
-              >
-                <div>{FAQ_4}</div>
+              <Panel header={t.who_can_become_an_investor_on_Flocks_AI} key="4">
+                <div style={{ marginBottom: 12 }}>
+                  {t.description_who_can_become_an_investor_on_Flocks_AI_1}
+                </div>
+                <div>
+                  {t.description_who_can_become_an_investor_on_Flocks_AI_2}
+                </div>
               </Panel>
             </Collapse>
           </Col>
@@ -122,34 +99,49 @@ const AnswerQuestion = () => {
                 )
               }
             >
-              <Panel header="5. Tôi có thể đầu tư gì trên Flocks AI?" key="1">
-                <div>{FAQ_5}</div>
-              </Panel>
               <Panel
-                header="6. Tại sao tôi phải xác minh danh tính của mình khi đăng kí đầu tư?"
-                key="2"
+                header={t.how_much_money_can_I_invest_on_Flocks_AI}
+                key="1"
               >
+                <div>
+                  {t.description_how_much_money_can_I_invest_on_Flocks_AI}
+                </div>
+              </Panel>
+              <Panel header={t.what_can_I_invest_on_Flocks_AI} key="2">
                 <>
-                  <div style={{ marginBottom: 12 }}>{FAQ_6_1}</div>
-                  <div style={{ marginBottom: 12 }}>{FAQ_6_2}</div>
-                  <div>{FAQ_6_3}</div>
+                  <div style={{ marginBottom: 12 }}>
+                    {t.description_what_can_I_invest_on_Flocks_AI_1}
+                  </div>
+                  <div style={{ marginBottom: 12 }}>
+                    {t.description_what_can_I_invest_on_Flocks_AI_2}
+                  </div>
+                </>
+              </Panel>
+              <Panel header={t.how_can_I_invest_on_Flocks_AI} key="3">
+                <>
+                  <div style={{ marginBottom: 12 }}>
+                    {t.description_how_can_I_invest_on_Flocks_AI_become}
+                  </div>
+                  <div style={{ marginBottom: 12 }}>
+                    {t.description_how_can_I_invest_on_Flocks_AI_1}
+                  </div>
+                  <div style={{ marginBottom: 12 }}>
+                    {t.description_how_can_I_invest_on_Flocks_AI_2}
+                  </div>
+                  <div>{t.description_how_can_I_invest_on_Flocks_AI_3}</div>
                 </>
               </Panel>
               <Panel
-                header="7. Khi nào tôi sẽ nhận được chứng nhận mình đã đầu tư vào một doanh nghiệp và hình thức nhận như thế nào?"
-                key="3"
-              >
-                <>
-                  <div style={{ marginBottom: 12 }}>{FAQ_7_1}</div>
-                  <div style={{ marginBottom: 12 }}>{FAQ_7_2}</div>
-                  <div>{FAQ_7_3}</div>
-                </>
-              </Panel>
-              <Panel
-                header="8. Pháp nhân nào có thể đăng kí gọi vốn trên Flock AI?"
+                header={
+                  t.why_do_I_have_to_verify_my_identity_when_I_register_to_invest
+                }
                 key="4"
               >
-                <div>{FAQ_8}</div>
+                <div>
+                  {
+                    t.description_why_do_I_have_to_verify_my_identity_when_I_register_to_invest
+                  }
+                </div>
               </Panel>
             </Collapse>
           </Col>

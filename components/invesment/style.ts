@@ -24,6 +24,7 @@ const SInvesment = styled.div`
     }
   }
   .image-banner {
+    border-radius: 16px;
     width: 100%;
   }
   .img-consul {

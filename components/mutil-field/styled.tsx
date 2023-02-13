@@ -11,7 +11,8 @@ const SMutilField = styled.div`
   }
   .head-title {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    /* flex-direction: column; */
     span {
       font-weight: 700;
       font-size: 48px;
@@ -20,7 +21,8 @@ const SMutilField = styled.div`
       color: #1e1e1e;
     }
   }
-  .second span {
+  .second .content {
+    padding-left: 8px;
     background: -webkit-linear-gradient(
       270deg,
       #c7f833 -3.31%,
@@ -34,6 +36,8 @@ const SMutilField = styled.div`
     margin-top: 38px;
   }
   .head-field {
+    display: flex;
+    justify-content: center;
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
@@ -44,7 +48,7 @@ const SMutilField = styled.div`
   }
   .type-field {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     margin-top: 40px;
     span {
       font-weight: 700;
@@ -55,8 +59,15 @@ const SMutilField = styled.div`
       padding: 20px 0px;
     }
   }
-  .br-radius {
-    border-bottom: 1px solid #eeeeee;
+  .color-private {
+    background: -webkit-linear-gradient(
+      270deg,
+      #c7f833 -3.31%,
+      #5ddfc0 54.93%,
+      #007ead 129.8%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .sub-title {
     display: flex;

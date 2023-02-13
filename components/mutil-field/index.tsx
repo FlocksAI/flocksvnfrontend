@@ -5,6 +5,7 @@ import CardField from "../card/Card-Field";
 import useWindowResize from "../../hook/useResize";
 import useTranslation from "../../hook/useTranslation";
 import { useRouter } from "next/router";
+import ForInvestor from "../for-investor";
 
 const MutilField = () => {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ const MutilField = () => {
     <>
       <SMutilField>
         <div className="wrap-head">
-          <Row justify="space-evenly">
+          <Row justify="center">
             <Col span={24} className="head-mutil-field">
               {size.width > 414 ? (
                 <>
@@ -22,6 +23,7 @@ const MutilField = () => {
                     <span className="first">{t.many_fields}</span>
                   </div>
                   <div className="head-title second">
+                    <span>{t.on}</span>{" "}
                     <span className="content">{t.Flocks_AI}</span>
                   </div>
                 </>
@@ -30,6 +32,7 @@ const MutilField = () => {
                   <div className="mobile-head-title">
                     <span className="first">{t.many_fields} </span>
                     <br />
+                    <span>{t.on}</span>
                     <span className="second">{t.Flocks_AI}</span>
                   </div>
                 </>
@@ -37,59 +40,24 @@ const MutilField = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={24} xl={8}>
+            <Col xs={24} xl={24}>
               <div className="wrap-field">
-                <span className="head-field">
-                  {t.Flocks_AI_brings}
-                </span>
+                <span className="head-field">{t.Flocks_AI_brings}</span>
                 <div className="type-field">
                   <span className="br-radius">{t.technology}</span>
                   <span className="br-radius">{t.entertainment}</span>
                   <span className="br-radius">{t.restaurant_and_hotel}</span>
                   <span className="br-radius">{t.health_and_beauty}</span>
                   <span className="br-radius">{t.fashion}</span>
-                  <span>{t.realty}</span>
+                  <span className="br-radius color-private">
+                    {t.web3_companies}
+                  </span>
                 </div>
               </div>
             </Col>
-            <Col span={4} />
-            <Col xs={24} xl={12}>
-              <Row>
-                <Col xs={24} xl={10}>
-                  <CardField
-                    title={t.start_up}
-                    content={t.creating_unique_ideas}
-                    subContent={t.finished_products}
-                  />
-                </Col>
-                <Col span={2} />
-                <Col xs={24} xl={10}>
-                  <CardField
-                    title={t.SME}
-                    content={t.the_products_appeared_on_the_market}
-                    subContent={t.has_revenue_and_profit_report}
-                  />
-                </Col>
-                <Col span={2} />
-                <Col xs={24} xl={10}>
-                  <CardField
-                    title={t.web3}
-                    content={t.website_technology_product_ideas}
-                    subContent={t.based_on_blockchain_platform}
-                  />
-                </Col>
-                <Col span={2} />
-                <Col xs={24} xl={10}>
-                  <CardField
-                    title={t.special_projects}
-                    content={t.creating_unique_ideas}
-                    subContent={t.finished_products}
-                  />
-                </Col>
-              </Row>
-            </Col>
           </Row>
         </div>
+        <ForInvestor />
         <Row>
           <Col xs={24} xl={24} className="mobile-field">
             <div className="sub-title title">
@@ -117,12 +85,8 @@ const MutilField = () => {
               <span>{t.register_for_funding}</span>
             </div>
             <div className="content-sub">
-              <span className="first">
-                {t.business_submits}
-              </span>
-              <span>
-                {t.provide_related_documents}
-              </span>
+              <span className="first">{t.business_submits}</span>
+              <span>{t.provide_related_documents}</span>
             </div>
           </Col>
           <Col xs={22} xl={6} className="wrap-sub">
@@ -133,12 +97,8 @@ const MutilField = () => {
               <span>{t.flie_appraisal}</span>
             </div>
             <div className="content-sub">
-              <span className="first">
-                {t.expert_team}
-              </span>
-              <span>
-                {t.our_team_will_contact}
-              </span>
+              <span className="first">{t.expert_team}</span>
+              <span>{t.our_team_will_contact}</span>
             </div>
           </Col>
           <Col xs={22} xl={6} className="wrap-sub">
@@ -149,12 +109,8 @@ const MutilField = () => {
               <span>{t.open_fundraising_campaign_on_Flock_AI}</span>
             </div>
             <div className="content-sub">
-              <span className="first">
-                {t.when_business_passes}
-              </span>
-              <span>
-                {t.Flock_AI_will_help_business}
-              </span>
+              <span className="first">{t.when_business_passes}</span>
+              <span>{t.Flock_AI_will_help_business}</span>
             </div>
           </Col>
         </Row>

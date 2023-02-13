@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const SBanner = styled.div`
+  margin-top: 56px;
   .title-banner {
     margin-top: 108px;
   }
   .wrap-banner {
     .title {
       font-weight: 700;
-      font-size: 72px;
+      font-size: 56px;
       line-height: 86px;
       letter-spacing: -0.03em;
       text-transform: capitalize;
@@ -22,6 +23,27 @@ const SBanner = styled.div`
         font-weight: bold;
       }
     }
+  }
+  .content-quote {
+    display: flex;
+    padding-top: 12px;
+    .head {
+      display: flex;
+      flex-direction: column;
+      flex: none;
+    }
+    .name {
+      font-weight: bold;
+    }
+    .line {
+      margin: 0px 16px;
+      border-right: 0.3px solid;
+      height: 28px;
+      margin-top: 8px;
+    }
+  }
+  .image-slider {
+    width: 100%;
   }
   button {
     padding: 12px 24px;
@@ -38,6 +60,16 @@ const SBanner = styled.div`
   .btn {
     margin-top: 48px;
     display: flex;
+  }
+  .slick-slider .slick-arrow {
+    text-align: center;
+    display: none !important;
+  }
+  .slick-dots {
+    top: 345px;
+    left: 180px;
+    display: block;
+    position: absolute;
   }
   .project {
     background: #1e1e1e;

@@ -1,17 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import { Col, Row } from "antd";
-import Image from "next/image";
 import React from "react";
 import { SInvesment } from "./style";
-import useWindowResize from "../../hook/useResize";
-import useTranslation from "../../hook/useTranslation";
 
 const Invesment = () => {
-  const { t } = useTranslation();
-  const size = useWindowResize();
   return (
     <SInvesment>
-      <Row justify="center" className="wrap">
+      <Row justify="center">
+        <Col span={24}>
+          <img
+            className="image-banner"
+            alt="investor"
+            src="/image/home/banner-investor.png"
+          />
+        </Col>
+      </Row>
+      {/* <Row justify="center" className="wrap">
         <Col className="wrap-item" xs={24} xl={16}>
           <span className="common">{t.funding}</span>
           <br />
@@ -81,7 +85,7 @@ const Invesment = () => {
             </div>
           </div>
         </Col>
-      </Row>
+      </Row> */}
     </SInvesment>
   );
 };
