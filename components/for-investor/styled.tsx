@@ -7,8 +7,16 @@ const SForInvestor = styled.div`
   .wrap-for-investor {
     text-align: center;
     box-shadow: 0px 4px 32px rgb(53 53 53 / 12%);
-    padding: 16px 24px;
     border-radius: 16px;
+  }
+  .p-auto {
+    padding: 16px 24px;
+  }
+  .img-investor-banner {
+    height: 100%;
+    img {
+      height: 500px;
+    }
   }
   .head-for-investor,
   .invest-easily,

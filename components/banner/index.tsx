@@ -48,8 +48,8 @@ const Banner = () => {
               )}
             </div>
           </Col>
-          <Col xl={2} />
-          <Col xl={12} xs={24}>
+          <Col xl={4} />
+          <Col xl={10} xs={24}>
             <Slider {...SETTING}>
               <div>
                 <img

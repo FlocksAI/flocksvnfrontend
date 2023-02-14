@@ -58,7 +58,7 @@ const MutilField = () => {
           </Row>
         </div>
         <ForInvestor />
-        <Row>
+        {/* <Row>
           <Col xs={24} xl={24} className="mobile-field">
             <div className="sub-title title">
               {router.locale === "vi" ? (
@@ -113,7 +113,7 @@ const MutilField = () => {
               <span>{t.Flock_AI_will_help_business}</span>
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </SMutilField>
     </>
   );
